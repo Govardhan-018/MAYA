@@ -1,0 +1,6 @@
+{
+  "action": "get_latest_emails",
+  "parameters": {
+    "limit": 5
+  }
+}

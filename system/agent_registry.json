@@ -1,0 +1,1973 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-06-21T11:03:15.367470+00:00",
+  "agent_count": 10,
+  "agents": [
+    {
+      "name": "browser_agent",
+      "agent_name": "BrowserAgent",
+      "version": "1.0.0",
+      "type": "tool",
+      "description": "DuckDuckGo search and webpage retrieval plugin",
+      "input_format": "json",
+      "output_format": "json",
+      "entrypoint": "execute",
+      "file": "browser_agent.py",
+      "action_count": 12,
+      "actions": [
+        {
+          "name": "check_url",
+          "description": "",
+          "required_params": [
+            "url"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "crawl_website",
+          "description": "",
+          "required_params": [
+            "url"
+          ],
+          "optional_params": [
+            "max_pages"
+          ]
+        },
+        {
+          "name": "extract_images",
+          "description": "",
+          "required_params": [
+            "url"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "extract_links",
+          "description": "",
+          "required_params": [
+            "url"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "extract_text",
+          "description": "",
+          "required_params": [
+            "url"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "fetch_multiple_pages",
+          "description": "",
+          "required_params": [
+            "urls"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "fetch_page",
+          "description": "",
+          "required_params": [
+            "url"
+          ],
+          "optional_params": [],
+          "example_input": {
+            "action": "fetch_page",
+            "parameters": {
+              "url": "https://example.com"
+            }
+          },
+          "example_output_summary": "Page title, extracted text, HTML, links, and images"
+        },
+        {
+          "name": "get_page_metadata",
+          "description": "",
+          "required_params": [
+            "url"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "get_raw_html",
+          "description": "",
+          "required_params": [
+            "url"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "multi_search",
+          "description": "",
+          "required_params": [
+            "queries"
+          ],
+          "optional_params": [
+            "max_results"
+          ]
+        },
+        {
+          "name": "research_bundle",
+          "description": "",
+          "required_params": [
+            "queries"
+          ],
+          "optional_params": [
+            "max_results_per_query",
+            "fetch_top_pages"
+          ]
+        },
+        {
+          "name": "web_search",
+          "description": "",
+          "required_params": [
+            "query"
+          ],
+          "optional_params": [
+            "max_results"
+          ],
+          "example_input": {
+            "action": "web_search",
+            "parameters": {
+              "query": "best Python frameworks 2025"
+            }
+          },
+          "example_output_summary": "List of search results with title, url, and snippet"
+        }
+      ],
+      "keywords": [
+        "search",
+        "web",
+        "browse",
+        "url",
+        "website",
+        "internet",
+        "google",
+        "duckduckgo",
+        "crawl",
+        "scrape",
+        "link"
+      ],
+      "suggested_use_cases": [
+        "Search the web via DuckDuckGo",
+        "Fetch and extract text from a webpage",
+        "Extract links or images from a page",
+        "Crawl a website's pages",
+        "Check if a URL is reachable",
+        "Research a topic across multiple queries"
+      ],
+      "avoid_use_cases": [
+        "Interacting with web apps (login, forms)",
+        "Downloading large files",
+        "Accessing paywalled content",
+        "JavaScript-rendered single-page apps"
+      ]
+    },
+    {
+      "name": "file_agent",
+      "agent_name": "FileAgent",
+      "version": "1.0.0",
+      "type": "tool",
+      "description": "File system and document access plugin",
+      "input_format": "json",
+      "output_format": "json",
+      "entrypoint": "execute",
+      "file": "file_agent.py",
+      "action_count": 16,
+      "actions": [
+        {
+          "name": "directory_exists",
+          "description": "",
+          "required_params": [
+            "path"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "file_exists",
+          "description": "",
+          "required_params": [
+            "path"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "get_file_info",
+          "description": "",
+          "required_params": [
+            "path"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "get_folder_tree",
+          "description": "",
+          "required_params": [
+            "path"
+          ],
+          "optional_params": [
+            "max_depth"
+          ]
+        },
+        {
+          "name": "get_recent_files",
+          "description": "",
+          "required_params": [
+            "path"
+          ],
+          "optional_params": [
+            "limit"
+          ]
+        },
+        {
+          "name": "get_supported_files",
+          "description": "",
+          "required_params": [],
+          "optional_params": []
+        },
+        {
+          "name": "list_directory",
+          "description": "",
+          "required_params": [
+            "path"
+          ],
+          "optional_params": [],
+          "example_input": {
+            "action": "list_directory",
+            "parameters": {
+              "path": "C:/Users/Documents"
+            }
+          },
+          "example_output_summary": "Lists of folders and files with metadata in the directory"
+        },
+        {
+          "name": "list_directory_recursive",
+          "description": "",
+          "required_params": [
+            "path"
+          ],
+          "optional_params": [
+            "max_depth"
+          ]
+        },
+        {
+          "name": "read_excel",
+          "description": "",
+          "required_params": [
+            "path"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "read_folder_contents",
+          "description": "",
+          "required_params": [
+            "path"
+          ],
+          "optional_params": [
+            "limit"
+          ]
+        },
+        {
+          "name": "read_multiple_files",
+          "description": "",
+          "required_params": [
+            "paths"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "read_pdf",
+          "description": "",
+          "required_params": [
+            "path"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "read_powerpoint",
+          "description": "",
+          "required_params": [
+            "path"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "read_text_file",
+          "description": "",
+          "required_params": [
+            "path"
+          ],
+          "optional_params": [],
+          "example_input": {
+            "action": "read_text_file",
+            "parameters": {
+              "path": "README.md"
+            }
+          },
+          "example_output_summary": "The text content of the file"
+        },
+        {
+          "name": "read_word",
+          "description": "",
+          "required_params": [
+            "path"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "search_files",
+          "description": "",
+          "required_params": [
+            "path",
+            "pattern"
+          ],
+          "optional_params": []
+        }
+      ],
+      "keywords": [
+        "file",
+        "folder",
+        "directory",
+        "document",
+        "pdf",
+        "excel",
+        "word",
+        "powerpoint",
+        "read",
+        "list",
+        "search",
+        "disk"
+      ],
+      "suggested_use_cases": [
+        "List files and folders in a directory",
+        "Read text files, PDFs, Excel, Word, or PowerPoint",
+        "Search for files by name pattern",
+        "Get file metadata (size, dates)",
+        "Read multiple files at once"
+      ],
+      "avoid_use_cases": [
+        "Writing, creating, or modifying files",
+        "Deleting files or directories",
+        "Renaming or moving files",
+        "Accessing network drives or cloud storage"
+      ]
+    },
+    {
+      "name": "gmail_agent",
+      "agent_name": "GmailAgent",
+      "version": "1.0.0",
+      "type": "tool",
+      "description": "Gmail retrieval and search plugin",
+      "input_format": "json",
+      "output_format": "json",
+      "entrypoint": "execute",
+      "file": "gmail_agent.py",
+      "action_count": 13,
+      "actions": [
+        {
+          "name": "count_emails",
+          "description": "Return the estimated number of emails matching a Gmail query.",
+          "required_params": [
+            "query"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "get_attachments",
+          "description": "Return emails that have attachments, with attachment metadata.",
+          "required_params": [],
+          "optional_params": [
+            "limit"
+          ]
+        },
+        {
+          "name": "get_drafts",
+          "description": "Return draft emails.",
+          "required_params": [],
+          "optional_params": [
+            "limit"
+          ]
+        },
+        {
+          "name": "get_email_by_id",
+          "description": "Return a single full email (with body and attachments) by message ID.",
+          "required_params": [
+            "message_id"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "get_important_emails",
+          "description": "Return emails marked Important.",
+          "required_params": [],
+          "optional_params": [
+            "limit"
+          ]
+        },
+        {
+          "name": "get_latest_emails",
+          "description": "Return the most recent inbox emails.",
+          "required_params": [],
+          "optional_params": [
+            "limit"
+          ],
+          "example_input": {
+            "action": "get_latest_emails",
+            "parameters": {
+              "limit": 5
+            }
+          },
+          "example_output_summary": "List of 5 most recent inbox emails with id, from, to, subject, date, snippet"
+        },
+        {
+          "name": "get_sent_emails",
+          "description": "Return sent emails.",
+          "required_params": [],
+          "optional_params": [
+            "limit"
+          ]
+        },
+        {
+          "name": "get_starred_emails",
+          "description": "Return starred emails.",
+          "required_params": [],
+          "optional_params": [
+            "limit"
+          ]
+        },
+        {
+          "name": "get_unread_emails",
+          "description": "Return unread emails.",
+          "required_params": [],
+          "optional_params": [
+            "limit"
+          ]
+        },
+        {
+          "name": "search_date_range",
+          "description": "Return emails within an inclusive ``start_date``..``end_date`` range.",
+          "required_params": [
+            "start_date",
+            "end_date"
+          ],
+          "optional_params": [
+            "limit"
+          ]
+        },
+        {
+          "name": "search_gmail_query",
+          "description": "Return emails matching a raw Gmail search query string.",
+          "required_params": [
+            "query"
+          ],
+          "optional_params": [
+            "limit"
+          ]
+        },
+        {
+          "name": "search_sender",
+          "description": "Return emails from a given sender.",
+          "required_params": [
+            "sender"
+          ],
+          "optional_params": [
+            "limit"
+          ],
+          "example_input": {
+            "action": "search_sender",
+            "parameters": {
+              "sender": "boss@company.com",
+              "limit": 10
+            }
+          },
+          "example_output_summary": "List of emails from the specified sender"
+        },
+        {
+          "name": "search_subject",
+          "description": "Return emails whose subject matches the given text.",
+          "required_params": [
+            "subject"
+          ],
+          "optional_params": [
+            "limit"
+          ]
+        }
+      ],
+      "keywords": [
+        "email",
+        "gmail",
+        "inbox",
+        "mail",
+        "unread",
+        "sender",
+        "subject",
+        "attachment",
+        "draft",
+        "starred",
+        "sent"
+      ],
+      "suggested_use_cases": [
+        "Check for unread emails",
+        "Search emails by sender or subject",
+        "Get email count matching a query",
+        "Retrieve email details including body and attachments",
+        "List starred or important emails",
+        "Search emails within a date range"
+      ],
+      "avoid_use_cases": [
+        "Sending or composing emails",
+        "Deleting or modifying emails",
+        "Managing Gmail labels or filters",
+        "Calendar operations"
+      ]
+    },
+    {
+      "name": "memory_agent",
+      "agent_name": "MemoryAgent",
+      "version": "1.0.0",
+      "type": "tool",
+      "description": "Long-term memory management — store, search, and retrieve memories",
+      "input_format": "json",
+      "output_format": "json",
+      "entrypoint": "execute",
+      "file": "memory_agent.py",
+      "action_count": 8,
+      "actions": [
+        {
+          "name": "archive_chat",
+          "description": "",
+          "required_params": [],
+          "optional_params": []
+        },
+        {
+          "name": "create_summary",
+          "description": "",
+          "required_params": [],
+          "optional_params": []
+        },
+        {
+          "name": "delete_memory",
+          "description": "",
+          "required_params": [
+            "memory_id"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "get_status",
+          "description": "",
+          "required_params": [],
+          "optional_params": []
+        },
+        {
+          "name": "retrieve_memory",
+          "description": "",
+          "required_params": [],
+          "optional_params": []
+        },
+        {
+          "name": "search_memory",
+          "description": "",
+          "required_params": [
+            "query"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "store_memory",
+          "description": "",
+          "required_params": [
+            "category",
+            "content"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "update_memory",
+          "description": "",
+          "required_params": [
+            "memory_id"
+          ],
+          "optional_params": []
+        }
+      ],
+      "keywords": [
+        "memory",
+        "remember",
+        "recall",
+        "store",
+        "history",
+        "past",
+        "context",
+        "archive",
+        "summary",
+        "conversation",
+        "forget"
+      ],
+      "suggested_use_cases": [
+        "Store information for long-term recall",
+        "Search past conversations or stored memories",
+        "Retrieve specific memory details",
+        "Update or delete existing memories",
+        "Archive the current chat and start fresh",
+        "Create a summary of the current conversation"
+      ],
+      "avoid_use_cases": [
+        "Storing large files or documents",
+        "Acting as a general-purpose database"
+      ]
+    },
+    {
+      "name": "news_agent",
+      "agent_name": "NewsAgent",
+      "version": "1.0.0",
+      "type": "tool",
+      "description": "News retrieval plugin using NewsAPI",
+      "input_format": "json",
+      "output_format": "json",
+      "entrypoint": "execute",
+      "file": "news_agent.py",
+      "action_count": 10,
+      "actions": [
+        {
+          "name": "get_category_news",
+          "description": "Top headlines for a specific category and country.",
+          "required_params": [
+            "category"
+          ],
+          "optional_params": [
+            "country",
+            "limit"
+          ]
+        },
+        {
+          "name": "get_latest_news",
+          "description": "Latest top headlines for a country (defaults to ``us``).",
+          "required_params": [],
+          "optional_params": [
+            "country",
+            "limit"
+          ]
+        },
+        {
+          "name": "get_source_news",
+          "description": "Top headlines from a specific source (e.g. ``bbc-news``).",
+          "required_params": [
+            "source"
+          ],
+          "optional_params": [
+            "limit"
+          ]
+        },
+        {
+          "name": "get_sources",
+          "description": "List available NewsAPI sources (optionally filtered).",
+          "required_params": [],
+          "optional_params": [
+            "category",
+            "language",
+            "country"
+          ]
+        },
+        {
+          "name": "search_combined",
+          "description": "Aggregate news across topics, categories, and sources in one request.",
+          "required_params": [],
+          "optional_params": [
+            "topics",
+            "categories",
+            "sources",
+            "country",
+            "limit"
+          ]
+        },
+        {
+          "name": "search_date_range",
+          "description": "Search articles for a query within a date range (``YYYY-MM-DD``).",
+          "required_params": [
+            "query"
+          ],
+          "optional_params": [
+            "from_date",
+            "to_date",
+            "sort_by",
+            "language",
+            "limit"
+          ]
+        },
+        {
+          "name": "search_multiple_queries",
+          "description": "Fetch news for several queries, grouped by query.",
+          "required_params": [
+            "queries"
+          ],
+          "optional_params": [
+            "limit"
+          ]
+        },
+        {
+          "name": "search_multiple_topics",
+          "description": "Fetch news for several topics, grouped by topic.",
+          "required_params": [
+            "topics"
+          ],
+          "optional_params": [
+            "limit_per_topic"
+          ]
+        },
+        {
+          "name": "search_news",
+          "description": "Search all articles for a single query.",
+          "required_params": [
+            "query"
+          ],
+          "optional_params": [
+            "sort_by",
+            "language",
+            "limit"
+          ],
+          "example_input": {
+            "action": "search_news",
+            "parameters": {
+              "query": "artificial intelligence",
+              "limit": 5
+            }
+          },
+          "example_output_summary": "List of news articles matching the query"
+        },
+        {
+          "name": "top_headlines",
+          "description": "Top headlines for a country (optionally filtered by category).",
+          "required_params": [],
+          "optional_params": [
+            "country",
+            "category",
+            "limit"
+          ],
+          "example_input": {
+            "action": "top_headlines",
+            "parameters": {
+              "country": "us",
+              "category": "technology"
+            }
+          },
+          "example_output_summary": "List of top technology headlines in the US"
+        }
+      ],
+      "keywords": [
+        "news",
+        "headlines",
+        "article",
+        "journalism",
+        "press",
+        "breaking",
+        "current events",
+        "media",
+        "trending news"
+      ],
+      "suggested_use_cases": [
+        "Get top headlines for a country or category",
+        "Search news articles by keyword",
+        "Compare news across multiple topics",
+        "Find news from a specific source",
+        "Get news within a date range"
+      ],
+      "avoid_use_cases": [
+        "Social media posts or tweets",
+        "Blog or forum content",
+        "Historical news older than 30 days (API limit)",
+        "Real-time stock or financial data"
+      ]
+    },
+    {
+      "name": "notes_generator_agent",
+      "agent_name": "NotesGeneratorAgent",
+      "version": "1.0.0",
+      "type": "content_generator",
+      "description": "",
+      "input_format": "json",
+      "output_format": "json",
+      "entrypoint": "execute",
+      "file": "notes_generator_agent.py",
+      "action_count": 9,
+      "actions": [
+        {
+          "name": "generate_detailed_notes",
+          "description": "",
+          "required_params": [
+            "topic"
+          ],
+          "optional_params": [
+            "pages",
+            "word_count",
+            "difficulty",
+            "audience",
+            "output_format",
+            "model"
+          ]
+        },
+        {
+          "name": "generate_exam_notes",
+          "description": "",
+          "required_params": [
+            "topic"
+          ],
+          "optional_params": [
+            "pages",
+            "word_count",
+            "difficulty",
+            "audience",
+            "output_format",
+            "model"
+          ]
+        },
+        {
+          "name": "generate_from_file",
+          "description": "",
+          "required_params": [],
+          "optional_params": [
+            "source_path",
+            "topic",
+            "pages",
+            "word_count",
+            "difficulty",
+            "audience",
+            "output_format",
+            "model"
+          ]
+        },
+        {
+          "name": "generate_from_prompt",
+          "description": "",
+          "required_params": [
+            "prompt"
+          ],
+          "optional_params": [
+            "topic",
+            "word_count",
+            "output_format",
+            "model"
+          ]
+        },
+        {
+          "name": "generate_from_structure",
+          "description": "",
+          "required_params": [
+            "topic",
+            "structure"
+          ],
+          "optional_params": [
+            "pages",
+            "word_count",
+            "difficulty",
+            "audience",
+            "output_format",
+            "model"
+          ]
+        },
+        {
+          "name": "generate_notes",
+          "description": "",
+          "required_params": [
+            "topic"
+          ],
+          "optional_params": [
+            "pages",
+            "word_count",
+            "difficulty",
+            "audience",
+            "output_format",
+            "structure",
+            "academic_mode",
+            "model"
+          ],
+          "example_input": {
+            "action": "generate_notes",
+            "parameters": {
+              "topic": "Docker Containers",
+              "pages": 10
+            }
+          },
+          "example_output_summary": "Generated notes file path, word count, and page count"
+        },
+        {
+          "name": "generate_presentation",
+          "description": "",
+          "required_params": [
+            "topic"
+          ],
+          "optional_params": [
+            "slides",
+            "difficulty",
+            "audience",
+            "model"
+          ],
+          "example_input": {
+            "action": "generate_presentation",
+            "parameters": {
+              "topic": "Machine Learning Basics",
+              "slides": 15
+            }
+          },
+          "example_output_summary": "Generated PPTX file path with requested number of slides"
+        },
+        {
+          "name": "generate_report",
+          "description": "",
+          "required_params": [
+            "topic"
+          ],
+          "optional_params": [
+            "pages",
+            "word_count",
+            "difficulty",
+            "audience",
+            "output_format",
+            "model"
+          ]
+        },
+        {
+          "name": "generate_short_notes",
+          "description": "",
+          "required_params": [
+            "topic"
+          ],
+          "optional_params": [
+            "pages",
+            "word_count",
+            "difficulty",
+            "audience",
+            "output_format",
+            "model"
+          ]
+        }
+      ],
+      "keywords": [
+        "notes",
+        "generate",
+        "study",
+        "exam",
+        "presentation",
+        "report",
+        "document",
+        "summary",
+        "lecture",
+        "academic"
+      ],
+      "suggested_use_cases": [
+        "Generate comprehensive study notes on any topic",
+        "Create exam preparation materials",
+        "Generate presentations (PPTX)",
+        "Create professional reports",
+        "Generate notes from a source file (PDF, DOCX)"
+      ],
+      "avoid_use_cases": [
+        "Real-time note-taking or transcription",
+        "Collaborative document editing",
+        "Plagiarism-checked academic papers",
+        "Generating code or software"
+      ]
+    },
+    {
+      "name": "project_tracker_agent",
+      "agent_name": "ProjectTrackerAgent",
+      "version": "1.0.0",
+      "type": "tool",
+      "description": "",
+      "input_format": "json",
+      "output_format": "json",
+      "entrypoint": "execute",
+      "file": "project_tracker_agent.py",
+      "action_count": 42,
+      "actions": [
+        {
+          "name": "add_decision",
+          "description": "",
+          "required_params": [
+            "project_id",
+            "title"
+          ],
+          "optional_params": [
+            "project_name",
+            "rationale",
+            "decided_by",
+            "date"
+          ]
+        },
+        {
+          "name": "add_file_reference",
+          "description": "",
+          "required_params": [
+            "project_id",
+            "path"
+          ],
+          "optional_params": [
+            "project_name",
+            "name",
+            "description"
+          ]
+        },
+        {
+          "name": "add_link",
+          "description": "",
+          "required_params": [
+            "project_id",
+            "url"
+          ],
+          "optional_params": [
+            "project_name",
+            "title",
+            "description"
+          ]
+        },
+        {
+          "name": "add_meeting",
+          "description": "",
+          "required_params": [
+            "project_id",
+            "title"
+          ],
+          "optional_params": [
+            "project_name",
+            "date",
+            "attendees",
+            "agenda",
+            "notes",
+            "action_items"
+          ]
+        },
+        {
+          "name": "add_milestone",
+          "description": "",
+          "required_params": [
+            "project_id",
+            "title"
+          ],
+          "optional_params": [
+            "project_name",
+            "description",
+            "due_date"
+          ]
+        },
+        {
+          "name": "add_note",
+          "description": "",
+          "required_params": [
+            "project_id",
+            "title"
+          ],
+          "optional_params": [
+            "project_name",
+            "content"
+          ]
+        },
+        {
+          "name": "add_progress_update",
+          "description": "",
+          "required_params": [
+            "project_id",
+            "content"
+          ],
+          "optional_params": [
+            "project_name",
+            "author"
+          ]
+        },
+        {
+          "name": "add_risk",
+          "description": "",
+          "required_params": [
+            "project_id",
+            "title"
+          ],
+          "optional_params": [
+            "project_name",
+            "description",
+            "severity",
+            "mitigation"
+          ]
+        },
+        {
+          "name": "add_todo",
+          "description": "",
+          "required_params": [
+            "project_id",
+            "title"
+          ],
+          "optional_params": [
+            "project_name",
+            "description",
+            "tags"
+          ]
+        },
+        {
+          "name": "bulk_add_files",
+          "description": "",
+          "required_params": [
+            "project_id",
+            "files"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "bulk_add_notes",
+          "description": "",
+          "required_params": [
+            "project_id",
+            "notes"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "bulk_add_todos",
+          "description": "",
+          "required_params": [
+            "project_id",
+            "todos"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "bulk_complete_todos",
+          "description": "",
+          "required_params": [
+            "project_id",
+            "todo_ids"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "close_risk",
+          "description": "",
+          "required_params": [
+            "project_id",
+            "risk_id"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "complete_milestone",
+          "description": "",
+          "required_params": [
+            "project_id",
+            "milestone_id"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "complete_todo",
+          "description": "",
+          "required_params": [
+            "project_id",
+            "todo_id"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "create_project",
+          "description": "",
+          "required_params": [
+            "project_name"
+          ],
+          "optional_params": [
+            "description",
+            "metadata"
+          ],
+          "example_input": {
+            "action": "create_project",
+            "parameters": {
+              "project_name": "MAYA AI Assistant"
+            }
+          },
+          "example_output_summary": "The newly created project with generated id and empty sub-collections"
+        },
+        {
+          "name": "delete_meeting",
+          "description": "",
+          "required_params": [
+            "project_id",
+            "meeting_id"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "delete_note",
+          "description": "",
+          "required_params": [
+            "project_id",
+            "note_id"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "delete_project",
+          "description": "",
+          "required_params": [
+            "project_id"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "delete_todo",
+          "description": "",
+          "required_params": [
+            "project_id",
+            "todo_id"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "get_project",
+          "description": "",
+          "required_params": [
+            "project_id"
+          ],
+          "optional_params": [
+            "project_name"
+          ]
+        },
+        {
+          "name": "get_project_dashboard",
+          "description": "",
+          "required_params": [
+            "project_id"
+          ],
+          "optional_params": [
+            "project_name"
+          ],
+          "example_input": {
+            "action": "get_project_dashboard",
+            "parameters": {
+              "project_id": "<uuid>"
+            }
+          },
+          "example_output_summary": "Summary counts: todos, milestones, risks, notes, meetings, etc."
+        },
+        {
+          "name": "list_decisions",
+          "description": "",
+          "required_params": [
+            "project_id"
+          ],
+          "optional_params": [
+            "project_name"
+          ]
+        },
+        {
+          "name": "list_files",
+          "description": "",
+          "required_params": [
+            "project_id"
+          ],
+          "optional_params": [
+            "project_name"
+          ]
+        },
+        {
+          "name": "list_links",
+          "description": "",
+          "required_params": [
+            "project_id"
+          ],
+          "optional_params": [
+            "project_name"
+          ]
+        },
+        {
+          "name": "list_meetings",
+          "description": "",
+          "required_params": [
+            "project_id"
+          ],
+          "optional_params": [
+            "project_name"
+          ]
+        },
+        {
+          "name": "list_milestones",
+          "description": "",
+          "required_params": [
+            "project_id"
+          ],
+          "optional_params": [
+            "project_name"
+          ]
+        },
+        {
+          "name": "list_notes",
+          "description": "",
+          "required_params": [
+            "project_id"
+          ],
+          "optional_params": [
+            "project_name"
+          ]
+        },
+        {
+          "name": "list_progress_updates",
+          "description": "",
+          "required_params": [
+            "project_id"
+          ],
+          "optional_params": [
+            "project_name"
+          ]
+        },
+        {
+          "name": "list_projects",
+          "description": "",
+          "required_params": [],
+          "optional_params": []
+        },
+        {
+          "name": "list_risks",
+          "description": "",
+          "required_params": [
+            "project_id"
+          ],
+          "optional_params": [
+            "project_name"
+          ]
+        },
+        {
+          "name": "list_todos",
+          "description": "",
+          "required_params": [
+            "project_id"
+          ],
+          "optional_params": [
+            "project_name"
+          ]
+        },
+        {
+          "name": "remove_file_reference",
+          "description": "",
+          "required_params": [
+            "project_id",
+            "file_id"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "remove_link",
+          "description": "",
+          "required_params": [
+            "project_id",
+            "link_id"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "search_projects",
+          "description": "",
+          "required_params": [
+            "query"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "update_meeting",
+          "description": "",
+          "required_params": [
+            "project_id",
+            "meeting_id"
+          ],
+          "optional_params": [
+            "project_name",
+            "title",
+            "date",
+            "agenda",
+            "notes",
+            "attendees",
+            "action_items"
+          ]
+        },
+        {
+          "name": "update_milestone",
+          "description": "",
+          "required_params": [
+            "project_id",
+            "milestone_id"
+          ],
+          "optional_params": [
+            "project_name",
+            "title",
+            "description",
+            "due_date"
+          ]
+        },
+        {
+          "name": "update_note",
+          "description": "",
+          "required_params": [
+            "project_id",
+            "note_id"
+          ],
+          "optional_params": [
+            "project_name",
+            "title",
+            "content"
+          ]
+        },
+        {
+          "name": "update_project",
+          "description": "",
+          "required_params": [
+            "project_id"
+          ],
+          "optional_params": [
+            "project_name",
+            "description",
+            "status",
+            "metadata"
+          ]
+        },
+        {
+          "name": "update_risk",
+          "description": "",
+          "required_params": [
+            "project_id",
+            "risk_id"
+          ],
+          "optional_params": [
+            "project_name",
+            "title",
+            "description",
+            "severity",
+            "mitigation"
+          ]
+        },
+        {
+          "name": "update_todo",
+          "description": "",
+          "required_params": [
+            "project_id",
+            "todo_id"
+          ],
+          "optional_params": [
+            "project_name",
+            "title",
+            "description",
+            "tags"
+          ]
+        }
+      ],
+      "keywords": [
+        "project",
+        "milestone",
+        "meeting",
+        "decision",
+        "risk",
+        "progress",
+        "tracker",
+        "note",
+        "knowledge base"
+      ],
+      "suggested_use_cases": [
+        "Create and manage projects with notes, todos, milestones",
+        "Record meetings, decisions, and risks",
+        "Track project progress with updates",
+        "Search across all projects",
+        "Get a project dashboard summary"
+      ],
+      "avoid_use_cases": [
+        "Gantt charts or timeline visualisation",
+        "Resource allocation or budgeting",
+        "Integration with Jira, Linear, or GitHub Issues",
+        "Real-time collaboration"
+      ]
+    },
+    {
+      "name": "todo_agent",
+      "agent_name": "TodoAgent",
+      "version": "1.0.0",
+      "type": "tool",
+      "description": "Persistent todo management plugin",
+      "input_format": "json",
+      "output_format": "json",
+      "entrypoint": "execute",
+      "file": "todo_agent.py",
+      "action_count": 16,
+      "actions": [
+        {
+          "name": "add_todo",
+          "description": "",
+          "required_params": [
+            "title"
+          ],
+          "optional_params": [
+            "description",
+            "tags",
+            "metadata"
+          ],
+          "example_input": {
+            "action": "add_todo",
+            "parameters": {
+              "title": "Buy groceries",
+              "tags": [
+                "shopping"
+              ]
+            }
+          },
+          "example_output_summary": "The newly created todo with generated id and timestamps"
+        },
+        {
+          "name": "bulk_add",
+          "description": "",
+          "required_params": [
+            "todos"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "bulk_complete",
+          "description": "",
+          "required_params": [
+            "ids"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "bulk_delete",
+          "description": "",
+          "required_params": [
+            "ids"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "clear_completed",
+          "description": "",
+          "required_params": [],
+          "optional_params": []
+        },
+        {
+          "name": "complete_todo",
+          "description": "",
+          "required_params": [
+            "id"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "delete_todo",
+          "description": "",
+          "required_params": [
+            "id"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "filter_by_tag",
+          "description": "",
+          "required_params": [
+            "tag"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "get_stats",
+          "description": "",
+          "required_params": [],
+          "optional_params": []
+        },
+        {
+          "name": "get_todo",
+          "description": "",
+          "required_params": [
+            "id"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "list_all_todos",
+          "description": "",
+          "required_params": [],
+          "optional_params": []
+        },
+        {
+          "name": "list_completed_todos",
+          "description": "",
+          "required_params": [],
+          "optional_params": []
+        },
+        {
+          "name": "list_pending_todos",
+          "description": "",
+          "required_params": [],
+          "optional_params": [],
+          "example_input": {
+            "action": "list_pending_todos",
+            "parameters": {}
+          },
+          "example_output_summary": "List of all todos with status 'pending'"
+        },
+        {
+          "name": "reopen_todo",
+          "description": "",
+          "required_params": [
+            "id"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "search_todos",
+          "description": "",
+          "required_params": [
+            "query"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "update_todo",
+          "description": "",
+          "required_params": [
+            "id"
+          ],
+          "optional_params": [
+            "title",
+            "description",
+            "tags",
+            "metadata"
+          ]
+        }
+      ],
+      "keywords": [
+        "todo",
+        "task",
+        "checklist",
+        "reminder",
+        "pending",
+        "completed",
+        "to-do",
+        "task list",
+        "action item"
+      ],
+      "suggested_use_cases": [
+        "Add, update, complete, or delete todos",
+        "List all, pending, or completed todos",
+        "Search todos by keyword or tag",
+        "Bulk add or complete multiple todos",
+        "Get todo statistics"
+      ],
+      "avoid_use_cases": [
+        "Calendar scheduling or recurring events",
+        "Project management with dependencies",
+        "Time tracking or pomodoro",
+        "Team task assignment"
+      ]
+    },
+    {
+      "name": "weather_agent",
+      "agent_name": "WeatherAgent",
+      "version": "1.0.0",
+      "type": "tool",
+      "description": "Weather retrieval plugin using Open-Meteo",
+      "input_format": "json",
+      "output_format": "json",
+      "entrypoint": "execute",
+      "file": "weather_agent.py",
+      "action_count": 11,
+      "actions": [
+        {
+          "name": "compare_locations",
+          "description": "Current weather for multiple locations side by side (no ranking).",
+          "required_params": [
+            "locations"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "current_weather",
+          "description": "Current weather for a single location.",
+          "required_params": [
+            "location"
+          ],
+          "optional_params": [],
+          "example_input": {
+            "action": "current_weather",
+            "parameters": {
+              "location": "Bangalore"
+            }
+          },
+          "example_output_summary": "Current temperature, humidity, wind, weather description for Bangalore"
+        },
+        {
+          "name": "daily_forecast",
+          "description": "Daily forecast for the next ``days`` days.",
+          "required_params": [
+            "location"
+          ],
+          "optional_params": [
+            "days"
+          ],
+          "example_input": {
+            "action": "daily_forecast",
+            "parameters": {
+              "location": "London",
+              "days": 7
+            }
+          },
+          "example_output_summary": "7-day forecast with daily high/low temperatures and conditions"
+        },
+        {
+          "name": "hourly_forecast",
+          "description": "Hourly forecast for the next ``hours`` hours.",
+          "required_params": [
+            "location"
+          ],
+          "optional_params": [
+            "hours"
+          ]
+        },
+        {
+          "name": "search_location",
+          "description": "Geocode a location name to coordinates and metadata.",
+          "required_params": [
+            "location"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "weather_bulk_request",
+          "description": "Run several weather sub-requests in a single call.",
+          "required_params": [
+            "requests"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "weather_by_coordinates",
+          "description": "Current weather for explicit latitude/longitude coordinates.",
+          "required_params": [
+            "latitude",
+            "longitude"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "weather_multiple_locations",
+          "description": "Current weather for multiple locations, grouped by location.",
+          "required_params": [
+            "locations"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "weather_next_days",
+          "description": "The next ``days`` days (starting tomorrow).",
+          "required_params": [
+            "location"
+          ],
+          "optional_params": [
+            "days"
+          ]
+        },
+        {
+          "name": "weather_today",
+          "description": "Current conditions plus today's daily forecast.",
+          "required_params": [
+            "location"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "weather_tomorrow",
+          "description": "Tomorrow's daily forecast.",
+          "required_params": [
+            "location"
+          ],
+          "optional_params": []
+        }
+      ],
+      "keywords": [
+        "weather",
+        "temperature",
+        "forecast",
+        "rain",
+        "humidity",
+        "wind",
+        "climate",
+        "sunny",
+        "cloudy",
+        "storm"
+      ],
+      "suggested_use_cases": [
+        "Get current weather for a location",
+        "Get hourly or daily forecast",
+        "Compare weather across multiple cities",
+        "Look up weather by coordinates",
+        "Check tomorrow's weather"
+      ],
+      "avoid_use_cases": [
+        "Historical weather data (beyond 16-day window)",
+        "Air quality or pollution data",
+        "Climate change analysis",
+        "Weather alerts or warnings"
+      ]
+    },
+    {
+      "name": "youtube_agent",
+      "agent_name": "YouTubeAgent",
+      "version": "1.0.0",
+      "type": "tool",
+      "description": "YouTube search and playback plugin",
+      "input_format": "json",
+      "output_format": "json",
+      "entrypoint": "execute",
+      "file": "youtube_agent.py",
+      "action_count": 12,
+      "actions": [
+        {
+          "name": "get_channel_videos",
+          "description": "",
+          "required_params": [
+            "channel_url"
+          ],
+          "optional_params": [
+            "limit"
+          ]
+        },
+        {
+          "name": "get_playlist_videos",
+          "description": "",
+          "required_params": [
+            "playlist_url"
+          ],
+          "optional_params": [
+            "limit"
+          ]
+        },
+        {
+          "name": "get_trending",
+          "description": "",
+          "required_params": [],
+          "optional_params": [
+            "country",
+            "limit"
+          ]
+        },
+        {
+          "name": "get_video_details",
+          "description": "",
+          "required_params": [],
+          "optional_params": [
+            "video_url",
+            "video_id"
+          ]
+        },
+        {
+          "name": "open_channel",
+          "description": "",
+          "required_params": [
+            "channel_url"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "open_playlist",
+          "description": "",
+          "required_params": [
+            "playlist_url"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "open_url",
+          "description": "",
+          "required_params": [
+            "url"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "play_video",
+          "description": "",
+          "required_params": [],
+          "optional_params": [
+            "video_url",
+            "video_id"
+          ],
+          "example_input": {
+            "action": "play_video",
+            "parameters": {
+              "video_id": "dQw4w9WgXcQ"
+            }
+          },
+          "example_output_summary": "Opens the video in the default browser and returns video metadata"
+        },
+        {
+          "name": "search_and_play",
+          "description": "",
+          "required_params": [
+            "query"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "search_bundle",
+          "description": "",
+          "required_params": [
+            "queries"
+          ],
+          "optional_params": [
+            "limit"
+          ]
+        },
+        {
+          "name": "search_multiple",
+          "description": "",
+          "required_params": [
+            "queries"
+          ],
+          "optional_params": [
+            "limit"
+          ]
+        },
+        {
+          "name": "search_videos",
+          "description": "",
+          "required_params": [
+            "query"
+          ],
+          "optional_params": [
+            "limit"
+          ],
+          "example_input": {
+            "action": "search_videos",
+            "parameters": {
+              "query": "Python tutorial",
+              "limit": 5
+            }
+          },
+          "example_output_summary": "List of videos with title, channel, duration, view_count, url, thumbnail"
+        }
+      ],
+      "keywords": [
+        "youtube",
+        "video",
+        "channel",
+        "playlist",
+        "watch",
+        "stream",
+        "tutorial",
+        "trending",
+        "play"
+      ],
+      "suggested_use_cases": [
+        "Search YouTube for videos",
+        "Get video details (title, duration, views)",
+        "Open a video in the browser",
+        "List videos from a channel or playlist",
+        "Get trending videos by country"
+      ],
+      "avoid_use_cases": [
+        "Downloading video files",
+        "Uploading or publishing videos",
+        "Managing YouTube accounts",
+        "Accessing private or age-restricted videos"
+      ]
+    }
+  ]
+}

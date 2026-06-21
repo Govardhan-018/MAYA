@@ -1,0 +1,1745 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-06-21T11:03:15.367535+00:00",
+  "total_actions": 149,
+  "actions": [
+    {
+      "action": "check_url",
+      "agent": "browser_agent",
+      "agent_class": "BrowserAgent",
+      "description": "",
+      "required_params": [
+        "url"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "crawl_website",
+      "agent": "browser_agent",
+      "agent_class": "BrowserAgent",
+      "description": "",
+      "required_params": [
+        "url"
+      ],
+      "optional_params": [
+        "max_pages"
+      ]
+    },
+    {
+      "action": "extract_images",
+      "agent": "browser_agent",
+      "agent_class": "BrowserAgent",
+      "description": "",
+      "required_params": [
+        "url"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "extract_links",
+      "agent": "browser_agent",
+      "agent_class": "BrowserAgent",
+      "description": "",
+      "required_params": [
+        "url"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "extract_text",
+      "agent": "browser_agent",
+      "agent_class": "BrowserAgent",
+      "description": "",
+      "required_params": [
+        "url"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "fetch_multiple_pages",
+      "agent": "browser_agent",
+      "agent_class": "BrowserAgent",
+      "description": "",
+      "required_params": [
+        "urls"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "fetch_page",
+      "agent": "browser_agent",
+      "agent_class": "BrowserAgent",
+      "description": "",
+      "required_params": [
+        "url"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "get_page_metadata",
+      "agent": "browser_agent",
+      "agent_class": "BrowserAgent",
+      "description": "",
+      "required_params": [
+        "url"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "get_raw_html",
+      "agent": "browser_agent",
+      "agent_class": "BrowserAgent",
+      "description": "",
+      "required_params": [
+        "url"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "multi_search",
+      "agent": "browser_agent",
+      "agent_class": "BrowserAgent",
+      "description": "",
+      "required_params": [
+        "queries"
+      ],
+      "optional_params": [
+        "max_results"
+      ]
+    },
+    {
+      "action": "research_bundle",
+      "agent": "browser_agent",
+      "agent_class": "BrowserAgent",
+      "description": "",
+      "required_params": [
+        "queries"
+      ],
+      "optional_params": [
+        "max_results_per_query",
+        "fetch_top_pages"
+      ]
+    },
+    {
+      "action": "web_search",
+      "agent": "browser_agent",
+      "agent_class": "BrowserAgent",
+      "description": "",
+      "required_params": [
+        "query"
+      ],
+      "optional_params": [
+        "max_results"
+      ]
+    },
+    {
+      "action": "directory_exists",
+      "agent": "file_agent",
+      "agent_class": "FileAgent",
+      "description": "",
+      "required_params": [
+        "path"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "file_exists",
+      "agent": "file_agent",
+      "agent_class": "FileAgent",
+      "description": "",
+      "required_params": [
+        "path"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "get_file_info",
+      "agent": "file_agent",
+      "agent_class": "FileAgent",
+      "description": "",
+      "required_params": [
+        "path"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "get_folder_tree",
+      "agent": "file_agent",
+      "agent_class": "FileAgent",
+      "description": "",
+      "required_params": [
+        "path"
+      ],
+      "optional_params": [
+        "max_depth"
+      ]
+    },
+    {
+      "action": "get_recent_files",
+      "agent": "file_agent",
+      "agent_class": "FileAgent",
+      "description": "",
+      "required_params": [
+        "path"
+      ],
+      "optional_params": [
+        "limit"
+      ]
+    },
+    {
+      "action": "get_supported_files",
+      "agent": "file_agent",
+      "agent_class": "FileAgent",
+      "description": "",
+      "required_params": [],
+      "optional_params": []
+    },
+    {
+      "action": "list_directory",
+      "agent": "file_agent",
+      "agent_class": "FileAgent",
+      "description": "",
+      "required_params": [
+        "path"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "list_directory_recursive",
+      "agent": "file_agent",
+      "agent_class": "FileAgent",
+      "description": "",
+      "required_params": [
+        "path"
+      ],
+      "optional_params": [
+        "max_depth"
+      ]
+    },
+    {
+      "action": "read_excel",
+      "agent": "file_agent",
+      "agent_class": "FileAgent",
+      "description": "",
+      "required_params": [
+        "path"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "read_folder_contents",
+      "agent": "file_agent",
+      "agent_class": "FileAgent",
+      "description": "",
+      "required_params": [
+        "path"
+      ],
+      "optional_params": [
+        "limit"
+      ]
+    },
+    {
+      "action": "read_multiple_files",
+      "agent": "file_agent",
+      "agent_class": "FileAgent",
+      "description": "",
+      "required_params": [
+        "paths"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "read_pdf",
+      "agent": "file_agent",
+      "agent_class": "FileAgent",
+      "description": "",
+      "required_params": [
+        "path"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "read_powerpoint",
+      "agent": "file_agent",
+      "agent_class": "FileAgent",
+      "description": "",
+      "required_params": [
+        "path"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "read_text_file",
+      "agent": "file_agent",
+      "agent_class": "FileAgent",
+      "description": "",
+      "required_params": [
+        "path"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "read_word",
+      "agent": "file_agent",
+      "agent_class": "FileAgent",
+      "description": "",
+      "required_params": [
+        "path"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "search_files",
+      "agent": "file_agent",
+      "agent_class": "FileAgent",
+      "description": "",
+      "required_params": [
+        "path",
+        "pattern"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "count_emails",
+      "agent": "gmail_agent",
+      "agent_class": "GmailAgent",
+      "description": "Return the estimated number of emails matching a Gmail query.",
+      "required_params": [
+        "query"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "get_attachments",
+      "agent": "gmail_agent",
+      "agent_class": "GmailAgent",
+      "description": "Return emails that have attachments, with attachment metadata.",
+      "required_params": [],
+      "optional_params": [
+        "limit"
+      ]
+    },
+    {
+      "action": "get_drafts",
+      "agent": "gmail_agent",
+      "agent_class": "GmailAgent",
+      "description": "Return draft emails.",
+      "required_params": [],
+      "optional_params": [
+        "limit"
+      ]
+    },
+    {
+      "action": "get_email_by_id",
+      "agent": "gmail_agent",
+      "agent_class": "GmailAgent",
+      "description": "Return a single full email (with body and attachments) by message ID.",
+      "required_params": [
+        "message_id"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "get_important_emails",
+      "agent": "gmail_agent",
+      "agent_class": "GmailAgent",
+      "description": "Return emails marked Important.",
+      "required_params": [],
+      "optional_params": [
+        "limit"
+      ]
+    },
+    {
+      "action": "get_latest_emails",
+      "agent": "gmail_agent",
+      "agent_class": "GmailAgent",
+      "description": "Return the most recent inbox emails.",
+      "required_params": [],
+      "optional_params": [
+        "limit"
+      ]
+    },
+    {
+      "action": "get_sent_emails",
+      "agent": "gmail_agent",
+      "agent_class": "GmailAgent",
+      "description": "Return sent emails.",
+      "required_params": [],
+      "optional_params": [
+        "limit"
+      ]
+    },
+    {
+      "action": "get_starred_emails",
+      "agent": "gmail_agent",
+      "agent_class": "GmailAgent",
+      "description": "Return starred emails.",
+      "required_params": [],
+      "optional_params": [
+        "limit"
+      ]
+    },
+    {
+      "action": "get_unread_emails",
+      "agent": "gmail_agent",
+      "agent_class": "GmailAgent",
+      "description": "Return unread emails.",
+      "required_params": [],
+      "optional_params": [
+        "limit"
+      ]
+    },
+    {
+      "action": "search_date_range",
+      "agent": "gmail_agent",
+      "agent_class": "GmailAgent",
+      "description": "Return emails within an inclusive ``start_date``..``end_date`` range.",
+      "required_params": [
+        "start_date",
+        "end_date"
+      ],
+      "optional_params": [
+        "limit"
+      ]
+    },
+    {
+      "action": "search_gmail_query",
+      "agent": "gmail_agent",
+      "agent_class": "GmailAgent",
+      "description": "Return emails matching a raw Gmail search query string.",
+      "required_params": [
+        "query"
+      ],
+      "optional_params": [
+        "limit"
+      ]
+    },
+    {
+      "action": "search_sender",
+      "agent": "gmail_agent",
+      "agent_class": "GmailAgent",
+      "description": "Return emails from a given sender.",
+      "required_params": [
+        "sender"
+      ],
+      "optional_params": [
+        "limit"
+      ]
+    },
+    {
+      "action": "search_subject",
+      "agent": "gmail_agent",
+      "agent_class": "GmailAgent",
+      "description": "Return emails whose subject matches the given text.",
+      "required_params": [
+        "subject"
+      ],
+      "optional_params": [
+        "limit"
+      ]
+    },
+    {
+      "action": "archive_chat",
+      "agent": "memory_agent",
+      "agent_class": "MemoryAgent",
+      "description": "",
+      "required_params": [],
+      "optional_params": []
+    },
+    {
+      "action": "create_summary",
+      "agent": "memory_agent",
+      "agent_class": "MemoryAgent",
+      "description": "",
+      "required_params": [],
+      "optional_params": []
+    },
+    {
+      "action": "delete_memory",
+      "agent": "memory_agent",
+      "agent_class": "MemoryAgent",
+      "description": "",
+      "required_params": [
+        "memory_id"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "get_status",
+      "agent": "memory_agent",
+      "agent_class": "MemoryAgent",
+      "description": "",
+      "required_params": [],
+      "optional_params": []
+    },
+    {
+      "action": "retrieve_memory",
+      "agent": "memory_agent",
+      "agent_class": "MemoryAgent",
+      "description": "",
+      "required_params": [],
+      "optional_params": []
+    },
+    {
+      "action": "search_memory",
+      "agent": "memory_agent",
+      "agent_class": "MemoryAgent",
+      "description": "",
+      "required_params": [
+        "query"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "store_memory",
+      "agent": "memory_agent",
+      "agent_class": "MemoryAgent",
+      "description": "",
+      "required_params": [
+        "category",
+        "content"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "update_memory",
+      "agent": "memory_agent",
+      "agent_class": "MemoryAgent",
+      "description": "",
+      "required_params": [
+        "memory_id"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "get_category_news",
+      "agent": "news_agent",
+      "agent_class": "NewsAgent",
+      "description": "Top headlines for a specific category and country.",
+      "required_params": [
+        "category"
+      ],
+      "optional_params": [
+        "country",
+        "limit"
+      ]
+    },
+    {
+      "action": "get_latest_news",
+      "agent": "news_agent",
+      "agent_class": "NewsAgent",
+      "description": "Latest top headlines for a country (defaults to ``us``).",
+      "required_params": [],
+      "optional_params": [
+        "country",
+        "limit"
+      ]
+    },
+    {
+      "action": "get_source_news",
+      "agent": "news_agent",
+      "agent_class": "NewsAgent",
+      "description": "Top headlines from a specific source (e.g. ``bbc-news``).",
+      "required_params": [
+        "source"
+      ],
+      "optional_params": [
+        "limit"
+      ]
+    },
+    {
+      "action": "get_sources",
+      "agent": "news_agent",
+      "agent_class": "NewsAgent",
+      "description": "List available NewsAPI sources (optionally filtered).",
+      "required_params": [],
+      "optional_params": [
+        "category",
+        "language",
+        "country"
+      ]
+    },
+    {
+      "action": "search_combined",
+      "agent": "news_agent",
+      "agent_class": "NewsAgent",
+      "description": "Aggregate news across topics, categories, and sources in one request.",
+      "required_params": [],
+      "optional_params": [
+        "topics",
+        "categories",
+        "sources",
+        "country",
+        "limit"
+      ]
+    },
+    {
+      "action": "search_date_range",
+      "agent": "news_agent",
+      "agent_class": "NewsAgent",
+      "description": "Search articles for a query within a date range (``YYYY-MM-DD``).",
+      "required_params": [
+        "query"
+      ],
+      "optional_params": [
+        "from_date",
+        "to_date",
+        "sort_by",
+        "language",
+        "limit"
+      ]
+    },
+    {
+      "action": "search_multiple_queries",
+      "agent": "news_agent",
+      "agent_class": "NewsAgent",
+      "description": "Fetch news for several queries, grouped by query.",
+      "required_params": [
+        "queries"
+      ],
+      "optional_params": [
+        "limit"
+      ]
+    },
+    {
+      "action": "search_multiple_topics",
+      "agent": "news_agent",
+      "agent_class": "NewsAgent",
+      "description": "Fetch news for several topics, grouped by topic.",
+      "required_params": [
+        "topics"
+      ],
+      "optional_params": [
+        "limit_per_topic"
+      ]
+    },
+    {
+      "action": "search_news",
+      "agent": "news_agent",
+      "agent_class": "NewsAgent",
+      "description": "Search all articles for a single query.",
+      "required_params": [
+        "query"
+      ],
+      "optional_params": [
+        "sort_by",
+        "language",
+        "limit"
+      ]
+    },
+    {
+      "action": "top_headlines",
+      "agent": "news_agent",
+      "agent_class": "NewsAgent",
+      "description": "Top headlines for a country (optionally filtered by category).",
+      "required_params": [],
+      "optional_params": [
+        "country",
+        "category",
+        "limit"
+      ]
+    },
+    {
+      "action": "generate_detailed_notes",
+      "agent": "notes_generator_agent",
+      "agent_class": "NotesGeneratorAgent",
+      "description": "",
+      "required_params": [
+        "topic"
+      ],
+      "optional_params": [
+        "pages",
+        "word_count",
+        "difficulty",
+        "audience",
+        "output_format",
+        "model"
+      ]
+    },
+    {
+      "action": "generate_exam_notes",
+      "agent": "notes_generator_agent",
+      "agent_class": "NotesGeneratorAgent",
+      "description": "",
+      "required_params": [
+        "topic"
+      ],
+      "optional_params": [
+        "pages",
+        "word_count",
+        "difficulty",
+        "audience",
+        "output_format",
+        "model"
+      ]
+    },
+    {
+      "action": "generate_from_file",
+      "agent": "notes_generator_agent",
+      "agent_class": "NotesGeneratorAgent",
+      "description": "",
+      "required_params": [],
+      "optional_params": [
+        "source_path",
+        "topic",
+        "pages",
+        "word_count",
+        "difficulty",
+        "audience",
+        "output_format",
+        "model"
+      ]
+    },
+    {
+      "action": "generate_from_prompt",
+      "agent": "notes_generator_agent",
+      "agent_class": "NotesGeneratorAgent",
+      "description": "",
+      "required_params": [
+        "prompt"
+      ],
+      "optional_params": [
+        "topic",
+        "word_count",
+        "output_format",
+        "model"
+      ]
+    },
+    {
+      "action": "generate_from_structure",
+      "agent": "notes_generator_agent",
+      "agent_class": "NotesGeneratorAgent",
+      "description": "",
+      "required_params": [
+        "topic",
+        "structure"
+      ],
+      "optional_params": [
+        "pages",
+        "word_count",
+        "difficulty",
+        "audience",
+        "output_format",
+        "model"
+      ]
+    },
+    {
+      "action": "generate_notes",
+      "agent": "notes_generator_agent",
+      "agent_class": "NotesGeneratorAgent",
+      "description": "",
+      "required_params": [
+        "topic"
+      ],
+      "optional_params": [
+        "pages",
+        "word_count",
+        "difficulty",
+        "audience",
+        "output_format",
+        "structure",
+        "academic_mode",
+        "model"
+      ]
+    },
+    {
+      "action": "generate_presentation",
+      "agent": "notes_generator_agent",
+      "agent_class": "NotesGeneratorAgent",
+      "description": "",
+      "required_params": [
+        "topic"
+      ],
+      "optional_params": [
+        "slides",
+        "difficulty",
+        "audience",
+        "model"
+      ]
+    },
+    {
+      "action": "generate_report",
+      "agent": "notes_generator_agent",
+      "agent_class": "NotesGeneratorAgent",
+      "description": "",
+      "required_params": [
+        "topic"
+      ],
+      "optional_params": [
+        "pages",
+        "word_count",
+        "difficulty",
+        "audience",
+        "output_format",
+        "model"
+      ]
+    },
+    {
+      "action": "generate_short_notes",
+      "agent": "notes_generator_agent",
+      "agent_class": "NotesGeneratorAgent",
+      "description": "",
+      "required_params": [
+        "topic"
+      ],
+      "optional_params": [
+        "pages",
+        "word_count",
+        "difficulty",
+        "audience",
+        "output_format",
+        "model"
+      ]
+    },
+    {
+      "action": "add_decision",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id",
+        "title"
+      ],
+      "optional_params": [
+        "project_name",
+        "rationale",
+        "decided_by",
+        "date"
+      ]
+    },
+    {
+      "action": "add_file_reference",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id",
+        "path"
+      ],
+      "optional_params": [
+        "project_name",
+        "name",
+        "description"
+      ]
+    },
+    {
+      "action": "add_link",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id",
+        "url"
+      ],
+      "optional_params": [
+        "project_name",
+        "title",
+        "description"
+      ]
+    },
+    {
+      "action": "add_meeting",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id",
+        "title"
+      ],
+      "optional_params": [
+        "project_name",
+        "date",
+        "attendees",
+        "agenda",
+        "notes",
+        "action_items"
+      ]
+    },
+    {
+      "action": "add_milestone",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id",
+        "title"
+      ],
+      "optional_params": [
+        "project_name",
+        "description",
+        "due_date"
+      ]
+    },
+    {
+      "action": "add_note",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id",
+        "title"
+      ],
+      "optional_params": [
+        "project_name",
+        "content"
+      ]
+    },
+    {
+      "action": "add_progress_update",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id",
+        "content"
+      ],
+      "optional_params": [
+        "project_name",
+        "author"
+      ]
+    },
+    {
+      "action": "add_risk",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id",
+        "title"
+      ],
+      "optional_params": [
+        "project_name",
+        "description",
+        "severity",
+        "mitigation"
+      ]
+    },
+    {
+      "action": "add_todo",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id",
+        "title"
+      ],
+      "optional_params": [
+        "project_name",
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "action": "bulk_add_files",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id",
+        "files"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "bulk_add_notes",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id",
+        "notes"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "bulk_add_todos",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id",
+        "todos"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "bulk_complete_todos",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id",
+        "todo_ids"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "close_risk",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id",
+        "risk_id"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "complete_milestone",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id",
+        "milestone_id"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "complete_todo",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id",
+        "todo_id"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "create_project",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_name"
+      ],
+      "optional_params": [
+        "description",
+        "metadata"
+      ]
+    },
+    {
+      "action": "delete_meeting",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id",
+        "meeting_id"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "delete_note",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id",
+        "note_id"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "delete_project",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "delete_todo",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id",
+        "todo_id"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "get_project",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id"
+      ],
+      "optional_params": [
+        "project_name"
+      ]
+    },
+    {
+      "action": "get_project_dashboard",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id"
+      ],
+      "optional_params": [
+        "project_name"
+      ]
+    },
+    {
+      "action": "list_decisions",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id"
+      ],
+      "optional_params": [
+        "project_name"
+      ]
+    },
+    {
+      "action": "list_files",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id"
+      ],
+      "optional_params": [
+        "project_name"
+      ]
+    },
+    {
+      "action": "list_links",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id"
+      ],
+      "optional_params": [
+        "project_name"
+      ]
+    },
+    {
+      "action": "list_meetings",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id"
+      ],
+      "optional_params": [
+        "project_name"
+      ]
+    },
+    {
+      "action": "list_milestones",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id"
+      ],
+      "optional_params": [
+        "project_name"
+      ]
+    },
+    {
+      "action": "list_notes",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id"
+      ],
+      "optional_params": [
+        "project_name"
+      ]
+    },
+    {
+      "action": "list_progress_updates",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id"
+      ],
+      "optional_params": [
+        "project_name"
+      ]
+    },
+    {
+      "action": "list_projects",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [],
+      "optional_params": []
+    },
+    {
+      "action": "list_risks",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id"
+      ],
+      "optional_params": [
+        "project_name"
+      ]
+    },
+    {
+      "action": "list_todos",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id"
+      ],
+      "optional_params": [
+        "project_name"
+      ]
+    },
+    {
+      "action": "remove_file_reference",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id",
+        "file_id"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "remove_link",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id",
+        "link_id"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "search_projects",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "query"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "update_meeting",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id",
+        "meeting_id"
+      ],
+      "optional_params": [
+        "project_name",
+        "title",
+        "date",
+        "agenda",
+        "notes",
+        "attendees",
+        "action_items"
+      ]
+    },
+    {
+      "action": "update_milestone",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id",
+        "milestone_id"
+      ],
+      "optional_params": [
+        "project_name",
+        "title",
+        "description",
+        "due_date"
+      ]
+    },
+    {
+      "action": "update_note",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id",
+        "note_id"
+      ],
+      "optional_params": [
+        "project_name",
+        "title",
+        "content"
+      ]
+    },
+    {
+      "action": "update_project",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id"
+      ],
+      "optional_params": [
+        "project_name",
+        "description",
+        "status",
+        "metadata"
+      ]
+    },
+    {
+      "action": "update_risk",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id",
+        "risk_id"
+      ],
+      "optional_params": [
+        "project_name",
+        "title",
+        "description",
+        "severity",
+        "mitigation"
+      ]
+    },
+    {
+      "action": "update_todo",
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "description": "",
+      "required_params": [
+        "project_id",
+        "todo_id"
+      ],
+      "optional_params": [
+        "project_name",
+        "title",
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "action": "add_todo",
+      "agent": "todo_agent",
+      "agent_class": "TodoAgent",
+      "description": "",
+      "required_params": [
+        "title"
+      ],
+      "optional_params": [
+        "description",
+        "tags",
+        "metadata"
+      ]
+    },
+    {
+      "action": "bulk_add",
+      "agent": "todo_agent",
+      "agent_class": "TodoAgent",
+      "description": "",
+      "required_params": [
+        "todos"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "bulk_complete",
+      "agent": "todo_agent",
+      "agent_class": "TodoAgent",
+      "description": "",
+      "required_params": [
+        "ids"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "bulk_delete",
+      "agent": "todo_agent",
+      "agent_class": "TodoAgent",
+      "description": "",
+      "required_params": [
+        "ids"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "clear_completed",
+      "agent": "todo_agent",
+      "agent_class": "TodoAgent",
+      "description": "",
+      "required_params": [],
+      "optional_params": []
+    },
+    {
+      "action": "complete_todo",
+      "agent": "todo_agent",
+      "agent_class": "TodoAgent",
+      "description": "",
+      "required_params": [
+        "id"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "delete_todo",
+      "agent": "todo_agent",
+      "agent_class": "TodoAgent",
+      "description": "",
+      "required_params": [
+        "id"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "filter_by_tag",
+      "agent": "todo_agent",
+      "agent_class": "TodoAgent",
+      "description": "",
+      "required_params": [
+        "tag"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "get_stats",
+      "agent": "todo_agent",
+      "agent_class": "TodoAgent",
+      "description": "",
+      "required_params": [],
+      "optional_params": []
+    },
+    {
+      "action": "get_todo",
+      "agent": "todo_agent",
+      "agent_class": "TodoAgent",
+      "description": "",
+      "required_params": [
+        "id"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "list_all_todos",
+      "agent": "todo_agent",
+      "agent_class": "TodoAgent",
+      "description": "",
+      "required_params": [],
+      "optional_params": []
+    },
+    {
+      "action": "list_completed_todos",
+      "agent": "todo_agent",
+      "agent_class": "TodoAgent",
+      "description": "",
+      "required_params": [],
+      "optional_params": []
+    },
+    {
+      "action": "list_pending_todos",
+      "agent": "todo_agent",
+      "agent_class": "TodoAgent",
+      "description": "",
+      "required_params": [],
+      "optional_params": []
+    },
+    {
+      "action": "reopen_todo",
+      "agent": "todo_agent",
+      "agent_class": "TodoAgent",
+      "description": "",
+      "required_params": [
+        "id"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "search_todos",
+      "agent": "todo_agent",
+      "agent_class": "TodoAgent",
+      "description": "",
+      "required_params": [
+        "query"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "update_todo",
+      "agent": "todo_agent",
+      "agent_class": "TodoAgent",
+      "description": "",
+      "required_params": [
+        "id"
+      ],
+      "optional_params": [
+        "title",
+        "description",
+        "tags",
+        "metadata"
+      ]
+    },
+    {
+      "action": "compare_locations",
+      "agent": "weather_agent",
+      "agent_class": "WeatherAgent",
+      "description": "Current weather for multiple locations side by side (no ranking).",
+      "required_params": [
+        "locations"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "current_weather",
+      "agent": "weather_agent",
+      "agent_class": "WeatherAgent",
+      "description": "Current weather for a single location.",
+      "required_params": [
+        "location"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "daily_forecast",
+      "agent": "weather_agent",
+      "agent_class": "WeatherAgent",
+      "description": "Daily forecast for the next ``days`` days.",
+      "required_params": [
+        "location"
+      ],
+      "optional_params": [
+        "days"
+      ]
+    },
+    {
+      "action": "hourly_forecast",
+      "agent": "weather_agent",
+      "agent_class": "WeatherAgent",
+      "description": "Hourly forecast for the next ``hours`` hours.",
+      "required_params": [
+        "location"
+      ],
+      "optional_params": [
+        "hours"
+      ]
+    },
+    {
+      "action": "search_location",
+      "agent": "weather_agent",
+      "agent_class": "WeatherAgent",
+      "description": "Geocode a location name to coordinates and metadata.",
+      "required_params": [
+        "location"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "weather_bulk_request",
+      "agent": "weather_agent",
+      "agent_class": "WeatherAgent",
+      "description": "Run several weather sub-requests in a single call.",
+      "required_params": [
+        "requests"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "weather_by_coordinates",
+      "agent": "weather_agent",
+      "agent_class": "WeatherAgent",
+      "description": "Current weather for explicit latitude/longitude coordinates.",
+      "required_params": [
+        "latitude",
+        "longitude"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "weather_multiple_locations",
+      "agent": "weather_agent",
+      "agent_class": "WeatherAgent",
+      "description": "Current weather for multiple locations, grouped by location.",
+      "required_params": [
+        "locations"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "weather_next_days",
+      "agent": "weather_agent",
+      "agent_class": "WeatherAgent",
+      "description": "The next ``days`` days (starting tomorrow).",
+      "required_params": [
+        "location"
+      ],
+      "optional_params": [
+        "days"
+      ]
+    },
+    {
+      "action": "weather_today",
+      "agent": "weather_agent",
+      "agent_class": "WeatherAgent",
+      "description": "Current conditions plus today's daily forecast.",
+      "required_params": [
+        "location"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "weather_tomorrow",
+      "agent": "weather_agent",
+      "agent_class": "WeatherAgent",
+      "description": "Tomorrow's daily forecast.",
+      "required_params": [
+        "location"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "get_channel_videos",
+      "agent": "youtube_agent",
+      "agent_class": "YouTubeAgent",
+      "description": "",
+      "required_params": [
+        "channel_url"
+      ],
+      "optional_params": [
+        "limit"
+      ]
+    },
+    {
+      "action": "get_playlist_videos",
+      "agent": "youtube_agent",
+      "agent_class": "YouTubeAgent",
+      "description": "",
+      "required_params": [
+        "playlist_url"
+      ],
+      "optional_params": [
+        "limit"
+      ]
+    },
+    {
+      "action": "get_trending",
+      "agent": "youtube_agent",
+      "agent_class": "YouTubeAgent",
+      "description": "",
+      "required_params": [],
+      "optional_params": [
+        "country",
+        "limit"
+      ]
+    },
+    {
+      "action": "get_video_details",
+      "agent": "youtube_agent",
+      "agent_class": "YouTubeAgent",
+      "description": "",
+      "required_params": [],
+      "optional_params": [
+        "video_url",
+        "video_id"
+      ]
+    },
+    {
+      "action": "open_channel",
+      "agent": "youtube_agent",
+      "agent_class": "YouTubeAgent",
+      "description": "",
+      "required_params": [
+        "channel_url"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "open_playlist",
+      "agent": "youtube_agent",
+      "agent_class": "YouTubeAgent",
+      "description": "",
+      "required_params": [
+        "playlist_url"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "open_url",
+      "agent": "youtube_agent",
+      "agent_class": "YouTubeAgent",
+      "description": "",
+      "required_params": [
+        "url"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "play_video",
+      "agent": "youtube_agent",
+      "agent_class": "YouTubeAgent",
+      "description": "",
+      "required_params": [],
+      "optional_params": [
+        "video_url",
+        "video_id"
+      ]
+    },
+    {
+      "action": "search_and_play",
+      "agent": "youtube_agent",
+      "agent_class": "YouTubeAgent",
+      "description": "",
+      "required_params": [
+        "query"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "search_bundle",
+      "agent": "youtube_agent",
+      "agent_class": "YouTubeAgent",
+      "description": "",
+      "required_params": [
+        "queries"
+      ],
+      "optional_params": [
+        "limit"
+      ]
+    },
+    {
+      "action": "search_multiple",
+      "agent": "youtube_agent",
+      "agent_class": "YouTubeAgent",
+      "description": "",
+      "required_params": [
+        "queries"
+      ],
+      "optional_params": [
+        "limit"
+      ]
+    },
+    {
+      "action": "search_videos",
+      "agent": "youtube_agent",
+      "agent_class": "YouTubeAgent",
+      "description": "",
+      "required_params": [
+        "query"
+      ],
+      "optional_params": [
+        "limit"
+      ]
+    }
+  ]
+}

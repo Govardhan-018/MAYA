@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --color-maya-bg: #0a0e17;
+  --color-maya-bg-secondary: #111827;
+  --color-maya-bg-tertiary: #1a2332;
+  --color-maya-surface: rgba(17, 24, 39, 0.7);
+  --color-maya-surface-hover: rgba(30, 41, 59, 0.7);
+  --color-maya-border: rgba(56, 189, 248, 0.15);
+  --color-maya-border-active: rgba(56, 189, 248, 0.4);
+  --color-maya-cyan: #22d3ee;
+  --color-maya-blue: #3b82f6;
+  --color-maya-electric: #38bdf8;
+  --color-maya-green: #10b981;
+  --color-maya-orange: #f59e0b;
+  --color-maya-purple: #a855f7;
+  --color-maya-red: #ef4444;
+  --color-maya-text: #e2e8f0;
+  --color-maya-text-secondary: #94a3b8;
+  --color-maya-text-muted: #64748b;
+  --color-maya-glass: rgba(15, 23, 42, 0.6);
+  --color-maya-glass-border: rgba(56, 189, 248, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: var(--color-maya-bg);
+  color: var(--color-maya-text);
+  font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.4);
+}

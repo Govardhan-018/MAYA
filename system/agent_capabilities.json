@@ -1,0 +1,488 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-06-21T11:03:15.367546+00:00",
+  "agent_count": 10,
+  "capabilities": [
+    {
+      "agent": "browser_agent",
+      "agent_class": "BrowserAgent",
+      "type": "tool",
+      "action_count": 12,
+      "actions": [
+        "check_url",
+        "crawl_website",
+        "extract_images",
+        "extract_links",
+        "extract_text",
+        "fetch_multiple_pages",
+        "fetch_page",
+        "get_page_metadata",
+        "get_raw_html",
+        "multi_search",
+        "research_bundle",
+        "web_search"
+      ],
+      "keywords": [
+        "search",
+        "web",
+        "browse",
+        "url",
+        "website",
+        "internet",
+        "google",
+        "duckduckgo",
+        "crawl",
+        "scrape",
+        "link"
+      ],
+      "suggested_use_cases": [
+        "Search the web via DuckDuckGo",
+        "Fetch and extract text from a webpage",
+        "Extract links or images from a page",
+        "Crawl a website's pages",
+        "Check if a URL is reachable",
+        "Research a topic across multiple queries"
+      ],
+      "avoid_use_cases": [
+        "Interacting with web apps (login, forms)",
+        "Downloading large files",
+        "Accessing paywalled content",
+        "JavaScript-rendered single-page apps"
+      ]
+    },
+    {
+      "agent": "file_agent",
+      "agent_class": "FileAgent",
+      "type": "tool",
+      "action_count": 16,
+      "actions": [
+        "directory_exists",
+        "file_exists",
+        "get_file_info",
+        "get_folder_tree",
+        "get_recent_files",
+        "get_supported_files",
+        "list_directory",
+        "list_directory_recursive",
+        "read_excel",
+        "read_folder_contents",
+        "read_multiple_files",
+        "read_pdf",
+        "read_powerpoint",
+        "read_text_file",
+        "read_word",
+        "search_files"
+      ],
+      "keywords": [
+        "file",
+        "folder",
+        "directory",
+        "document",
+        "pdf",
+        "excel",
+        "word",
+        "powerpoint",
+        "read",
+        "list",
+        "search",
+        "disk"
+      ],
+      "suggested_use_cases": [
+        "List files and folders in a directory",
+        "Read text files, PDFs, Excel, Word, or PowerPoint",
+        "Search for files by name pattern",
+        "Get file metadata (size, dates)",
+        "Read multiple files at once"
+      ],
+      "avoid_use_cases": [
+        "Writing, creating, or modifying files",
+        "Deleting files or directories",
+        "Renaming or moving files",
+        "Accessing network drives or cloud storage"
+      ]
+    },
+    {
+      "agent": "gmail_agent",
+      "agent_class": "GmailAgent",
+      "type": "tool",
+      "action_count": 13,
+      "actions": [
+        "count_emails",
+        "get_attachments",
+        "get_drafts",
+        "get_email_by_id",
+        "get_important_emails",
+        "get_latest_emails",
+        "get_sent_emails",
+        "get_starred_emails",
+        "get_unread_emails",
+        "search_date_range",
+        "search_gmail_query",
+        "search_sender",
+        "search_subject"
+      ],
+      "keywords": [
+        "email",
+        "gmail",
+        "inbox",
+        "mail",
+        "unread",
+        "sender",
+        "subject",
+        "attachment",
+        "draft",
+        "starred",
+        "sent"
+      ],
+      "suggested_use_cases": [
+        "Check for unread emails",
+        "Search emails by sender or subject",
+        "Get email count matching a query",
+        "Retrieve email details including body and attachments",
+        "List starred or important emails",
+        "Search emails within a date range"
+      ],
+      "avoid_use_cases": [
+        "Sending or composing emails",
+        "Deleting or modifying emails",
+        "Managing Gmail labels or filters",
+        "Calendar operations"
+      ]
+    },
+    {
+      "agent": "memory_agent",
+      "agent_class": "MemoryAgent",
+      "type": "tool",
+      "action_count": 8,
+      "actions": [
+        "archive_chat",
+        "create_summary",
+        "delete_memory",
+        "get_status",
+        "retrieve_memory",
+        "search_memory",
+        "store_memory",
+        "update_memory"
+      ],
+      "keywords": [
+        "memory",
+        "remember",
+        "recall",
+        "store",
+        "history",
+        "past",
+        "context",
+        "archive",
+        "summary",
+        "conversation",
+        "forget"
+      ],
+      "suggested_use_cases": [
+        "Store information for long-term recall",
+        "Search past conversations or stored memories",
+        "Retrieve specific memory details",
+        "Update or delete existing memories",
+        "Archive the current chat and start fresh",
+        "Create a summary of the current conversation"
+      ],
+      "avoid_use_cases": [
+        "Storing large files or documents",
+        "Acting as a general-purpose database"
+      ]
+    },
+    {
+      "agent": "news_agent",
+      "agent_class": "NewsAgent",
+      "type": "tool",
+      "action_count": 10,
+      "actions": [
+        "get_category_news",
+        "get_latest_news",
+        "get_source_news",
+        "get_sources",
+        "search_combined",
+        "search_date_range",
+        "search_multiple_queries",
+        "search_multiple_topics",
+        "search_news",
+        "top_headlines"
+      ],
+      "keywords": [
+        "news",
+        "headlines",
+        "article",
+        "journalism",
+        "press",
+        "breaking",
+        "current events",
+        "media",
+        "trending news"
+      ],
+      "suggested_use_cases": [
+        "Get top headlines for a country or category",
+        "Search news articles by keyword",
+        "Compare news across multiple topics",
+        "Find news from a specific source",
+        "Get news within a date range"
+      ],
+      "avoid_use_cases": [
+        "Social media posts or tweets",
+        "Blog or forum content",
+        "Historical news older than 30 days (API limit)",
+        "Real-time stock or financial data"
+      ]
+    },
+    {
+      "agent": "notes_generator_agent",
+      "agent_class": "NotesGeneratorAgent",
+      "type": "content_generator",
+      "action_count": 9,
+      "actions": [
+        "generate_detailed_notes",
+        "generate_exam_notes",
+        "generate_from_file",
+        "generate_from_prompt",
+        "generate_from_structure",
+        "generate_notes",
+        "generate_presentation",
+        "generate_report",
+        "generate_short_notes"
+      ],
+      "keywords": [
+        "notes",
+        "generate",
+        "study",
+        "exam",
+        "presentation",
+        "report",
+        "document",
+        "summary",
+        "lecture",
+        "academic"
+      ],
+      "suggested_use_cases": [
+        "Generate comprehensive study notes on any topic",
+        "Create exam preparation materials",
+        "Generate presentations (PPTX)",
+        "Create professional reports",
+        "Generate notes from a source file (PDF, DOCX)"
+      ],
+      "avoid_use_cases": [
+        "Real-time note-taking or transcription",
+        "Collaborative document editing",
+        "Plagiarism-checked academic papers",
+        "Generating code or software"
+      ]
+    },
+    {
+      "agent": "project_tracker_agent",
+      "agent_class": "ProjectTrackerAgent",
+      "type": "tool",
+      "action_count": 42,
+      "actions": [
+        "add_decision",
+        "add_file_reference",
+        "add_link",
+        "add_meeting",
+        "add_milestone",
+        "add_note",
+        "add_progress_update",
+        "add_risk",
+        "add_todo",
+        "bulk_add_files",
+        "bulk_add_notes",
+        "bulk_add_todos",
+        "bulk_complete_todos",
+        "close_risk",
+        "complete_milestone",
+        "complete_todo",
+        "create_project",
+        "delete_meeting",
+        "delete_note",
+        "delete_project",
+        "delete_todo",
+        "get_project",
+        "get_project_dashboard",
+        "list_decisions",
+        "list_files",
+        "list_links",
+        "list_meetings",
+        "list_milestones",
+        "list_notes",
+        "list_progress_updates",
+        "list_projects",
+        "list_risks",
+        "list_todos",
+        "remove_file_reference",
+        "remove_link",
+        "search_projects",
+        "update_meeting",
+        "update_milestone",
+        "update_note",
+        "update_project",
+        "update_risk",
+        "update_todo"
+      ],
+      "keywords": [
+        "project",
+        "milestone",
+        "meeting",
+        "decision",
+        "risk",
+        "progress",
+        "tracker",
+        "note",
+        "knowledge base"
+      ],
+      "suggested_use_cases": [
+        "Create and manage projects with notes, todos, milestones",
+        "Record meetings, decisions, and risks",
+        "Track project progress with updates",
+        "Search across all projects",
+        "Get a project dashboard summary"
+      ],
+      "avoid_use_cases": [
+        "Gantt charts or timeline visualisation",
+        "Resource allocation or budgeting",
+        "Integration with Jira, Linear, or GitHub Issues",
+        "Real-time collaboration"
+      ]
+    },
+    {
+      "agent": "todo_agent",
+      "agent_class": "TodoAgent",
+      "type": "tool",
+      "action_count": 16,
+      "actions": [
+        "add_todo",
+        "bulk_add",
+        "bulk_complete",
+        "bulk_delete",
+        "clear_completed",
+        "complete_todo",
+        "delete_todo",
+        "filter_by_tag",
+        "get_stats",
+        "get_todo",
+        "list_all_todos",
+        "list_completed_todos",
+        "list_pending_todos",
+        "reopen_todo",
+        "search_todos",
+        "update_todo"
+      ],
+      "keywords": [
+        "todo",
+        "task",
+        "checklist",
+        "reminder",
+        "pending",
+        "completed",
+        "to-do",
+        "task list",
+        "action item"
+      ],
+      "suggested_use_cases": [
+        "Add, update, complete, or delete todos",
+        "List all, pending, or completed todos",
+        "Search todos by keyword or tag",
+        "Bulk add or complete multiple todos",
+        "Get todo statistics"
+      ],
+      "avoid_use_cases": [
+        "Calendar scheduling or recurring events",
+        "Project management with dependencies",
+        "Time tracking or pomodoro",
+        "Team task assignment"
+      ]
+    },
+    {
+      "agent": "weather_agent",
+      "agent_class": "WeatherAgent",
+      "type": "tool",
+      "action_count": 11,
+      "actions": [
+        "compare_locations",
+        "current_weather",
+        "daily_forecast",
+        "hourly_forecast",
+        "search_location",
+        "weather_bulk_request",
+        "weather_by_coordinates",
+        "weather_multiple_locations",
+        "weather_next_days",
+        "weather_today",
+        "weather_tomorrow"
+      ],
+      "keywords": [
+        "weather",
+        "temperature",
+        "forecast",
+        "rain",
+        "humidity",
+        "wind",
+        "climate",
+        "sunny",
+        "cloudy",
+        "storm"
+      ],
+      "suggested_use_cases": [
+        "Get current weather for a location",
+        "Get hourly or daily forecast",
+        "Compare weather across multiple cities",
+        "Look up weather by coordinates",
+        "Check tomorrow's weather"
+      ],
+      "avoid_use_cases": [
+        "Historical weather data (beyond 16-day window)",
+        "Air quality or pollution data",
+        "Climate change analysis",
+        "Weather alerts or warnings"
+      ]
+    },
+    {
+      "agent": "youtube_agent",
+      "agent_class": "YouTubeAgent",
+      "type": "tool",
+      "action_count": 12,
+      "actions": [
+        "get_channel_videos",
+        "get_playlist_videos",
+        "get_trending",
+        "get_video_details",
+        "open_channel",
+        "open_playlist",
+        "open_url",
+        "play_video",
+        "search_and_play",
+        "search_bundle",
+        "search_multiple",
+        "search_videos"
+      ],
+      "keywords": [
+        "youtube",
+        "video",
+        "channel",
+        "playlist",
+        "watch",
+        "stream",
+        "tutorial",
+        "trending",
+        "play"
+      ],
+      "suggested_use_cases": [
+        "Search YouTube for videos",
+        "Get video details (title, duration, views)",
+        "Open a video in the browser",
+        "List videos from a channel or playlist",
+        "Get trending videos by country"
+      ],
+      "avoid_use_cases": [
+        "Downloading video files",
+        "Uploading or publishing videos",
+        "Managing YouTube accounts",
+        "Accessing private or age-restricted videos"
+      ]
+    }
+  ]
+}

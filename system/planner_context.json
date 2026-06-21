@@ -1,0 +1,1452 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-06-21T11:03:15.367581+00:00",
+  "instruction": "Use this context to decide which agent and action to invoke. Match user intent against keywords, then select the action whose required_params you can fill from the user's request. For project_tracker_agent: you can pass 'project_name' instead of 'project_id' — the agent will resolve the name to an ID automatically.",
+  "agents": [
+    {
+      "agent": "browser_agent",
+      "purpose": "DuckDuckGo search and webpage retrieval plugin",
+      "type": "tool",
+      "keywords": [
+        "search",
+        "web",
+        "browse",
+        "url",
+        "website",
+        "internet",
+        "google",
+        "duckduckgo",
+        "crawl",
+        "scrape",
+        "link"
+      ],
+      "actions": [
+        {
+          "name": "check_url",
+          "required_params": [
+            "url"
+          ]
+        },
+        {
+          "name": "crawl_website",
+          "required_params": [
+            "url"
+          ],
+          "optional_params": [
+            "max_pages"
+          ]
+        },
+        {
+          "name": "extract_images",
+          "required_params": [
+            "url"
+          ]
+        },
+        {
+          "name": "extract_links",
+          "required_params": [
+            "url"
+          ]
+        },
+        {
+          "name": "extract_text",
+          "required_params": [
+            "url"
+          ]
+        },
+        {
+          "name": "fetch_multiple_pages",
+          "required_params": [
+            "urls"
+          ]
+        },
+        {
+          "name": "fetch_page",
+          "required_params": [
+            "url"
+          ]
+        },
+        {
+          "name": "get_page_metadata",
+          "required_params": [
+            "url"
+          ]
+        },
+        {
+          "name": "get_raw_html",
+          "required_params": [
+            "url"
+          ]
+        },
+        {
+          "name": "multi_search",
+          "required_params": [
+            "queries"
+          ],
+          "optional_params": [
+            "max_results"
+          ]
+        },
+        {
+          "name": "research_bundle",
+          "required_params": [
+            "queries"
+          ],
+          "optional_params": [
+            "max_results_per_query",
+            "fetch_top_pages"
+          ]
+        },
+        {
+          "name": "web_search",
+          "required_params": [
+            "query"
+          ],
+          "optional_params": [
+            "max_results"
+          ]
+        }
+      ]
+    },
+    {
+      "agent": "file_agent",
+      "purpose": "File system and document access plugin",
+      "type": "tool",
+      "keywords": [
+        "file",
+        "folder",
+        "directory",
+        "document",
+        "pdf",
+        "excel",
+        "word",
+        "powerpoint",
+        "read",
+        "list",
+        "search",
+        "disk"
+      ],
+      "actions": [
+        {
+          "name": "directory_exists",
+          "required_params": [
+            "path"
+          ]
+        },
+        {
+          "name": "file_exists",
+          "required_params": [
+            "path"
+          ]
+        },
+        {
+          "name": "get_file_info",
+          "required_params": [
+            "path"
+          ]
+        },
+        {
+          "name": "get_folder_tree",
+          "required_params": [
+            "path"
+          ],
+          "optional_params": [
+            "max_depth"
+          ]
+        },
+        {
+          "name": "get_recent_files",
+          "required_params": [
+            "path"
+          ],
+          "optional_params": [
+            "limit"
+          ]
+        },
+        {
+          "name": "get_supported_files",
+          "required_params": []
+        },
+        {
+          "name": "list_directory",
+          "required_params": [
+            "path"
+          ]
+        },
+        {
+          "name": "list_directory_recursive",
+          "required_params": [
+            "path"
+          ],
+          "optional_params": [
+            "max_depth"
+          ]
+        },
+        {
+          "name": "read_excel",
+          "required_params": [
+            "path"
+          ]
+        },
+        {
+          "name": "read_folder_contents",
+          "required_params": [
+            "path"
+          ],
+          "optional_params": [
+            "limit"
+          ]
+        },
+        {
+          "name": "read_multiple_files",
+          "required_params": [
+            "paths"
+          ]
+        },
+        {
+          "name": "read_pdf",
+          "required_params": [
+            "path"
+          ]
+        },
+        {
+          "name": "read_powerpoint",
+          "required_params": [
+            "path"
+          ]
+        },
+        {
+          "name": "read_text_file",
+          "required_params": [
+            "path"
+          ]
+        },
+        {
+          "name": "read_word",
+          "required_params": [
+            "path"
+          ]
+        },
+        {
+          "name": "search_files",
+          "required_params": [
+            "path",
+            "pattern"
+          ]
+        }
+      ]
+    },
+    {
+      "agent": "gmail_agent",
+      "purpose": "Gmail retrieval and search plugin",
+      "type": "tool",
+      "keywords": [
+        "email",
+        "gmail",
+        "inbox",
+        "mail",
+        "unread",
+        "sender",
+        "subject",
+        "attachment",
+        "draft",
+        "starred",
+        "sent"
+      ],
+      "actions": [
+        {
+          "name": "count_emails",
+          "required_params": [
+            "query"
+          ],
+          "description": "Return the estimated number of emails matching a Gmail query."
+        },
+        {
+          "name": "get_attachments",
+          "required_params": [],
+          "optional_params": [
+            "limit"
+          ],
+          "description": "Return emails that have attachments, with attachment metadata."
+        },
+        {
+          "name": "get_drafts",
+          "required_params": [],
+          "optional_params": [
+            "limit"
+          ],
+          "description": "Return draft emails."
+        },
+        {
+          "name": "get_email_by_id",
+          "required_params": [
+            "message_id"
+          ],
+          "description": "Return a single full email (with body and attachments) by message ID."
+        },
+        {
+          "name": "get_important_emails",
+          "required_params": [],
+          "optional_params": [
+            "limit"
+          ],
+          "description": "Return emails marked Important."
+        },
+        {
+          "name": "get_latest_emails",
+          "required_params": [],
+          "optional_params": [
+            "limit"
+          ],
+          "description": "Return the most recent inbox emails."
+        },
+        {
+          "name": "get_sent_emails",
+          "required_params": [],
+          "optional_params": [
+            "limit"
+          ],
+          "description": "Return sent emails."
+        },
+        {
+          "name": "get_starred_emails",
+          "required_params": [],
+          "optional_params": [
+            "limit"
+          ],
+          "description": "Return starred emails."
+        },
+        {
+          "name": "get_unread_emails",
+          "required_params": [],
+          "optional_params": [
+            "limit"
+          ],
+          "description": "Return unread emails."
+        },
+        {
+          "name": "search_date_range",
+          "required_params": [
+            "start_date",
+            "end_date"
+          ],
+          "optional_params": [
+            "limit"
+          ],
+          "description": "Return emails within an inclusive ``start_date``..``end_date`` range."
+        },
+        {
+          "name": "search_gmail_query",
+          "required_params": [
+            "query"
+          ],
+          "optional_params": [
+            "limit"
+          ],
+          "description": "Return emails matching a raw Gmail search query string."
+        },
+        {
+          "name": "search_sender",
+          "required_params": [
+            "sender"
+          ],
+          "optional_params": [
+            "limit"
+          ],
+          "description": "Return emails from a given sender."
+        },
+        {
+          "name": "search_subject",
+          "required_params": [
+            "subject"
+          ],
+          "optional_params": [
+            "limit"
+          ],
+          "description": "Return emails whose subject matches the given text."
+        }
+      ]
+    },
+    {
+      "agent": "memory_agent",
+      "purpose": "Long-term memory management — store, search, and retrieve memories",
+      "type": "tool",
+      "keywords": [
+        "memory",
+        "remember",
+        "recall",
+        "store",
+        "history",
+        "past",
+        "context",
+        "archive",
+        "summary",
+        "conversation",
+        "forget"
+      ],
+      "actions": [
+        {
+          "name": "archive_chat",
+          "required_params": []
+        },
+        {
+          "name": "create_summary",
+          "required_params": []
+        },
+        {
+          "name": "delete_memory",
+          "required_params": [
+            "memory_id"
+          ]
+        },
+        {
+          "name": "get_status",
+          "required_params": []
+        },
+        {
+          "name": "retrieve_memory",
+          "required_params": []
+        },
+        {
+          "name": "search_memory",
+          "required_params": [
+            "query"
+          ]
+        },
+        {
+          "name": "store_memory",
+          "required_params": [
+            "category",
+            "content"
+          ]
+        },
+        {
+          "name": "update_memory",
+          "required_params": [
+            "memory_id"
+          ]
+        }
+      ]
+    },
+    {
+      "agent": "news_agent",
+      "purpose": "News retrieval plugin using NewsAPI",
+      "type": "tool",
+      "keywords": [
+        "news",
+        "headlines",
+        "article",
+        "journalism",
+        "press",
+        "breaking",
+        "current events",
+        "media",
+        "trending news"
+      ],
+      "actions": [
+        {
+          "name": "get_category_news",
+          "required_params": [
+            "category"
+          ],
+          "optional_params": [
+            "country",
+            "limit"
+          ],
+          "description": "Top headlines for a specific category and country."
+        },
+        {
+          "name": "get_latest_news",
+          "required_params": [],
+          "optional_params": [
+            "country",
+            "limit"
+          ],
+          "description": "Latest top headlines for a country (defaults to ``us``)."
+        },
+        {
+          "name": "get_source_news",
+          "required_params": [
+            "source"
+          ],
+          "optional_params": [
+            "limit"
+          ],
+          "description": "Top headlines from a specific source (e.g. ``bbc-news``)."
+        },
+        {
+          "name": "get_sources",
+          "required_params": [],
+          "optional_params": [
+            "category",
+            "language",
+            "country"
+          ],
+          "description": "List available NewsAPI sources (optionally filtered)."
+        },
+        {
+          "name": "search_combined",
+          "required_params": [],
+          "optional_params": [
+            "topics",
+            "categories",
+            "sources",
+            "country",
+            "limit"
+          ],
+          "description": "Aggregate news across topics, categories, and sources in one request."
+        },
+        {
+          "name": "search_date_range",
+          "required_params": [
+            "query"
+          ],
+          "optional_params": [
+            "from_date",
+            "to_date",
+            "sort_by",
+            "language",
+            "limit"
+          ],
+          "description": "Search articles for a query within a date range (``YYYY-MM-DD``)."
+        },
+        {
+          "name": "search_multiple_queries",
+          "required_params": [
+            "queries"
+          ],
+          "optional_params": [
+            "limit"
+          ],
+          "description": "Fetch news for several queries, grouped by query."
+        },
+        {
+          "name": "search_multiple_topics",
+          "required_params": [
+            "topics"
+          ],
+          "optional_params": [
+            "limit_per_topic"
+          ],
+          "description": "Fetch news for several topics, grouped by topic."
+        },
+        {
+          "name": "search_news",
+          "required_params": [
+            "query"
+          ],
+          "optional_params": [
+            "sort_by",
+            "language",
+            "limit"
+          ],
+          "description": "Search all articles for a single query."
+        },
+        {
+          "name": "top_headlines",
+          "required_params": [],
+          "optional_params": [
+            "country",
+            "category",
+            "limit"
+          ],
+          "description": "Top headlines for a country (optionally filtered by category)."
+        }
+      ]
+    },
+    {
+      "agent": "notes_generator_agent",
+      "purpose": "",
+      "type": "content_generator",
+      "keywords": [
+        "notes",
+        "generate",
+        "study",
+        "exam",
+        "presentation",
+        "report",
+        "document",
+        "summary",
+        "lecture",
+        "academic"
+      ],
+      "actions": [
+        {
+          "name": "generate_detailed_notes",
+          "required_params": [
+            "topic"
+          ],
+          "optional_params": [
+            "pages",
+            "word_count",
+            "difficulty",
+            "audience",
+            "output_format",
+            "model"
+          ]
+        },
+        {
+          "name": "generate_exam_notes",
+          "required_params": [
+            "topic"
+          ],
+          "optional_params": [
+            "pages",
+            "word_count",
+            "difficulty",
+            "audience",
+            "output_format",
+            "model"
+          ]
+        },
+        {
+          "name": "generate_from_file",
+          "required_params": [],
+          "optional_params": [
+            "source_path",
+            "topic",
+            "pages",
+            "word_count",
+            "difficulty",
+            "audience",
+            "output_format",
+            "model"
+          ]
+        },
+        {
+          "name": "generate_from_prompt",
+          "required_params": [
+            "prompt"
+          ],
+          "optional_params": [
+            "topic",
+            "word_count",
+            "output_format",
+            "model"
+          ]
+        },
+        {
+          "name": "generate_from_structure",
+          "required_params": [
+            "topic",
+            "structure"
+          ],
+          "optional_params": [
+            "pages",
+            "word_count",
+            "difficulty",
+            "audience",
+            "output_format",
+            "model"
+          ]
+        },
+        {
+          "name": "generate_notes",
+          "required_params": [
+            "topic"
+          ],
+          "optional_params": [
+            "pages",
+            "word_count",
+            "difficulty",
+            "audience",
+            "output_format",
+            "structure",
+            "academic_mode",
+            "model"
+          ]
+        },
+        {
+          "name": "generate_presentation",
+          "required_params": [
+            "topic"
+          ],
+          "optional_params": [
+            "slides",
+            "difficulty",
+            "audience",
+            "model"
+          ]
+        },
+        {
+          "name": "generate_report",
+          "required_params": [
+            "topic"
+          ],
+          "optional_params": [
+            "pages",
+            "word_count",
+            "difficulty",
+            "audience",
+            "output_format",
+            "model"
+          ]
+        },
+        {
+          "name": "generate_short_notes",
+          "required_params": [
+            "topic"
+          ],
+          "optional_params": [
+            "pages",
+            "word_count",
+            "difficulty",
+            "audience",
+            "output_format",
+            "model"
+          ]
+        }
+      ]
+    },
+    {
+      "agent": "project_tracker_agent",
+      "purpose": "",
+      "type": "tool",
+      "keywords": [
+        "project",
+        "milestone",
+        "meeting",
+        "decision",
+        "risk",
+        "progress",
+        "tracker",
+        "note",
+        "knowledge base"
+      ],
+      "actions": [
+        {
+          "name": "add_decision",
+          "required_params": [
+            "project_id",
+            "title"
+          ],
+          "optional_params": [
+            "project_name",
+            "rationale",
+            "decided_by",
+            "date"
+          ]
+        },
+        {
+          "name": "add_file_reference",
+          "required_params": [
+            "project_id",
+            "path"
+          ],
+          "optional_params": [
+            "project_name",
+            "name",
+            "description"
+          ]
+        },
+        {
+          "name": "add_link",
+          "required_params": [
+            "project_id",
+            "url"
+          ],
+          "optional_params": [
+            "project_name",
+            "title",
+            "description"
+          ]
+        },
+        {
+          "name": "add_meeting",
+          "required_params": [
+            "project_id",
+            "title"
+          ],
+          "optional_params": [
+            "project_name",
+            "date",
+            "attendees",
+            "agenda",
+            "notes",
+            "action_items"
+          ]
+        },
+        {
+          "name": "add_milestone",
+          "required_params": [
+            "project_id",
+            "title"
+          ],
+          "optional_params": [
+            "project_name",
+            "description",
+            "due_date"
+          ]
+        },
+        {
+          "name": "add_note",
+          "required_params": [
+            "project_id",
+            "title"
+          ],
+          "optional_params": [
+            "project_name",
+            "content"
+          ]
+        },
+        {
+          "name": "add_progress_update",
+          "required_params": [
+            "project_id",
+            "content"
+          ],
+          "optional_params": [
+            "project_name",
+            "author"
+          ]
+        },
+        {
+          "name": "add_risk",
+          "required_params": [
+            "project_id",
+            "title"
+          ],
+          "optional_params": [
+            "project_name",
+            "description",
+            "severity",
+            "mitigation"
+          ]
+        },
+        {
+          "name": "add_todo",
+          "required_params": [
+            "project_id",
+            "title"
+          ],
+          "optional_params": [
+            "project_name",
+            "description",
+            "tags"
+          ]
+        },
+        {
+          "name": "bulk_add_files",
+          "required_params": [
+            "project_id",
+            "files"
+          ]
+        },
+        {
+          "name": "bulk_add_notes",
+          "required_params": [
+            "project_id",
+            "notes"
+          ]
+        },
+        {
+          "name": "bulk_add_todos",
+          "required_params": [
+            "project_id",
+            "todos"
+          ]
+        },
+        {
+          "name": "bulk_complete_todos",
+          "required_params": [
+            "project_id",
+            "todo_ids"
+          ]
+        },
+        {
+          "name": "close_risk",
+          "required_params": [
+            "project_id",
+            "risk_id"
+          ]
+        },
+        {
+          "name": "complete_milestone",
+          "required_params": [
+            "project_id",
+            "milestone_id"
+          ]
+        },
+        {
+          "name": "complete_todo",
+          "required_params": [
+            "project_id",
+            "todo_id"
+          ]
+        },
+        {
+          "name": "create_project",
+          "required_params": [
+            "project_name"
+          ],
+          "optional_params": [
+            "description",
+            "metadata"
+          ]
+        },
+        {
+          "name": "delete_meeting",
+          "required_params": [
+            "project_id",
+            "meeting_id"
+          ]
+        },
+        {
+          "name": "delete_note",
+          "required_params": [
+            "project_id",
+            "note_id"
+          ]
+        },
+        {
+          "name": "delete_project",
+          "required_params": [
+            "project_id"
+          ]
+        },
+        {
+          "name": "delete_todo",
+          "required_params": [
+            "project_id",
+            "todo_id"
+          ]
+        },
+        {
+          "name": "get_project",
+          "required_params": [
+            "project_id"
+          ],
+          "optional_params": [
+            "project_name"
+          ]
+        },
+        {
+          "name": "get_project_dashboard",
+          "required_params": [
+            "project_id"
+          ],
+          "optional_params": [
+            "project_name"
+          ]
+        },
+        {
+          "name": "list_decisions",
+          "required_params": [
+            "project_id"
+          ],
+          "optional_params": [
+            "project_name"
+          ]
+        },
+        {
+          "name": "list_files",
+          "required_params": [
+            "project_id"
+          ],
+          "optional_params": [
+            "project_name"
+          ]
+        },
+        {
+          "name": "list_links",
+          "required_params": [
+            "project_id"
+          ],
+          "optional_params": [
+            "project_name"
+          ]
+        },
+        {
+          "name": "list_meetings",
+          "required_params": [
+            "project_id"
+          ],
+          "optional_params": [
+            "project_name"
+          ]
+        },
+        {
+          "name": "list_milestones",
+          "required_params": [
+            "project_id"
+          ],
+          "optional_params": [
+            "project_name"
+          ]
+        },
+        {
+          "name": "list_notes",
+          "required_params": [
+            "project_id"
+          ],
+          "optional_params": [
+            "project_name"
+          ]
+        },
+        {
+          "name": "list_progress_updates",
+          "required_params": [
+            "project_id"
+          ],
+          "optional_params": [
+            "project_name"
+          ]
+        },
+        {
+          "name": "list_projects",
+          "required_params": []
+        },
+        {
+          "name": "list_risks",
+          "required_params": [
+            "project_id"
+          ],
+          "optional_params": [
+            "project_name"
+          ]
+        },
+        {
+          "name": "list_todos",
+          "required_params": [
+            "project_id"
+          ],
+          "optional_params": [
+            "project_name"
+          ]
+        },
+        {
+          "name": "remove_file_reference",
+          "required_params": [
+            "project_id",
+            "file_id"
+          ]
+        },
+        {
+          "name": "remove_link",
+          "required_params": [
+            "project_id",
+            "link_id"
+          ]
+        },
+        {
+          "name": "search_projects",
+          "required_params": [
+            "query"
+          ]
+        },
+        {
+          "name": "update_meeting",
+          "required_params": [
+            "project_id",
+            "meeting_id"
+          ],
+          "optional_params": [
+            "project_name",
+            "title",
+            "date",
+            "agenda",
+            "notes",
+            "attendees",
+            "action_items"
+          ]
+        },
+        {
+          "name": "update_milestone",
+          "required_params": [
+            "project_id",
+            "milestone_id"
+          ],
+          "optional_params": [
+            "project_name",
+            "title",
+            "description",
+            "due_date"
+          ]
+        },
+        {
+          "name": "update_note",
+          "required_params": [
+            "project_id",
+            "note_id"
+          ],
+          "optional_params": [
+            "project_name",
+            "title",
+            "content"
+          ]
+        },
+        {
+          "name": "update_project",
+          "required_params": [
+            "project_id"
+          ],
+          "optional_params": [
+            "project_name",
+            "description",
+            "status",
+            "metadata"
+          ]
+        },
+        {
+          "name": "update_risk",
+          "required_params": [
+            "project_id",
+            "risk_id"
+          ],
+          "optional_params": [
+            "project_name",
+            "title",
+            "description",
+            "severity",
+            "mitigation"
+          ]
+        },
+        {
+          "name": "update_todo",
+          "required_params": [
+            "project_id",
+            "todo_id"
+          ],
+          "optional_params": [
+            "project_name",
+            "title",
+            "description",
+            "tags"
+          ]
+        }
+      ]
+    },
+    {
+      "agent": "todo_agent",
+      "purpose": "Persistent todo management plugin",
+      "type": "tool",
+      "keywords": [
+        "todo",
+        "task",
+        "checklist",
+        "reminder",
+        "pending",
+        "completed",
+        "to-do",
+        "task list",
+        "action item"
+      ],
+      "actions": [
+        {
+          "name": "add_todo",
+          "required_params": [
+            "title"
+          ],
+          "optional_params": [
+            "description",
+            "tags",
+            "metadata"
+          ]
+        },
+        {
+          "name": "bulk_add",
+          "required_params": [
+            "todos"
+          ]
+        },
+        {
+          "name": "bulk_complete",
+          "required_params": [
+            "ids"
+          ]
+        },
+        {
+          "name": "bulk_delete",
+          "required_params": [
+            "ids"
+          ]
+        },
+        {
+          "name": "clear_completed",
+          "required_params": []
+        },
+        {
+          "name": "complete_todo",
+          "required_params": [
+            "id"
+          ]
+        },
+        {
+          "name": "delete_todo",
+          "required_params": [
+            "id"
+          ]
+        },
+        {
+          "name": "filter_by_tag",
+          "required_params": [
+            "tag"
+          ]
+        },
+        {
+          "name": "get_stats",
+          "required_params": []
+        },
+        {
+          "name": "get_todo",
+          "required_params": [
+            "id"
+          ]
+        },
+        {
+          "name": "list_all_todos",
+          "required_params": []
+        },
+        {
+          "name": "list_completed_todos",
+          "required_params": []
+        },
+        {
+          "name": "list_pending_todos",
+          "required_params": []
+        },
+        {
+          "name": "reopen_todo",
+          "required_params": [
+            "id"
+          ]
+        },
+        {
+          "name": "search_todos",
+          "required_params": [
+            "query"
+          ]
+        },
+        {
+          "name": "update_todo",
+          "required_params": [
+            "id"
+          ],
+          "optional_params": [
+            "title",
+            "description",
+            "tags",
+            "metadata"
+          ]
+        }
+      ]
+    },
+    {
+      "agent": "weather_agent",
+      "purpose": "Weather retrieval plugin using Open-Meteo",
+      "type": "tool",
+      "keywords": [
+        "weather",
+        "temperature",
+        "forecast",
+        "rain",
+        "humidity",
+        "wind",
+        "climate",
+        "sunny",
+        "cloudy",
+        "storm"
+      ],
+      "actions": [
+        {
+          "name": "compare_locations",
+          "required_params": [
+            "locations"
+          ],
+          "description": "Current weather for multiple locations side by side (no ranking)."
+        },
+        {
+          "name": "current_weather",
+          "required_params": [
+            "location"
+          ],
+          "description": "Current weather for a single location."
+        },
+        {
+          "name": "daily_forecast",
+          "required_params": [
+            "location"
+          ],
+          "optional_params": [
+            "days"
+          ],
+          "description": "Daily forecast for the next ``days`` days."
+        },
+        {
+          "name": "hourly_forecast",
+          "required_params": [
+            "location"
+          ],
+          "optional_params": [
+            "hours"
+          ],
+          "description": "Hourly forecast for the next ``hours`` hours."
+        },
+        {
+          "name": "search_location",
+          "required_params": [
+            "location"
+          ],
+          "description": "Geocode a location name to coordinates and metadata."
+        },
+        {
+          "name": "weather_bulk_request",
+          "required_params": [
+            "requests"
+          ],
+          "description": "Run several weather sub-requests in a single call."
+        },
+        {
+          "name": "weather_by_coordinates",
+          "required_params": [
+            "latitude",
+            "longitude"
+          ],
+          "description": "Current weather for explicit latitude/longitude coordinates."
+        },
+        {
+          "name": "weather_multiple_locations",
+          "required_params": [
+            "locations"
+          ],
+          "description": "Current weather for multiple locations, grouped by location."
+        },
+        {
+          "name": "weather_next_days",
+          "required_params": [
+            "location"
+          ],
+          "optional_params": [
+            "days"
+          ],
+          "description": "The next ``days`` days (starting tomorrow)."
+        },
+        {
+          "name": "weather_today",
+          "required_params": [
+            "location"
+          ],
+          "description": "Current conditions plus today's daily forecast."
+        },
+        {
+          "name": "weather_tomorrow",
+          "required_params": [
+            "location"
+          ],
+          "description": "Tomorrow's daily forecast."
+        }
+      ]
+    },
+    {
+      "agent": "youtube_agent",
+      "purpose": "YouTube search and playback plugin",
+      "type": "tool",
+      "keywords": [
+        "youtube",
+        "video",
+        "channel",
+        "playlist",
+        "watch",
+        "stream",
+        "tutorial",
+        "trending",
+        "play"
+      ],
+      "actions": [
+        {
+          "name": "get_channel_videos",
+          "required_params": [
+            "channel_url"
+          ],
+          "optional_params": [
+            "limit"
+          ]
+        },
+        {
+          "name": "get_playlist_videos",
+          "required_params": [
+            "playlist_url"
+          ],
+          "optional_params": [
+            "limit"
+          ]
+        },
+        {
+          "name": "get_trending",
+          "required_params": [],
+          "optional_params": [
+            "country",
+            "limit"
+          ]
+        },
+        {
+          "name": "get_video_details",
+          "required_params": [],
+          "optional_params": [
+            "video_url",
+            "video_id"
+          ]
+        },
+        {
+          "name": "open_channel",
+          "required_params": [
+            "channel_url"
+          ]
+        },
+        {
+          "name": "open_playlist",
+          "required_params": [
+            "playlist_url"
+          ]
+        },
+        {
+          "name": "open_url",
+          "required_params": [
+            "url"
+          ]
+        },
+        {
+          "name": "play_video",
+          "required_params": [],
+          "optional_params": [
+            "video_url",
+            "video_id"
+          ]
+        },
+        {
+          "name": "search_and_play",
+          "required_params": [
+            "query"
+          ]
+        },
+        {
+          "name": "search_bundle",
+          "required_params": [
+            "queries"
+          ],
+          "optional_params": [
+            "limit"
+          ]
+        },
+        {
+          "name": "search_multiple",
+          "required_params": [
+            "queries"
+          ],
+          "optional_params": [
+            "limit"
+          ]
+        },
+        {
+          "name": "search_videos",
+          "required_params": [
+            "query"
+          ],
+          "optional_params": [
+            "limit"
+          ]
+        }
+      ]
+    }
+  ]
+}
