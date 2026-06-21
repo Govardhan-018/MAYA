@@ -1,0 +1,191 @@
+/* ═══════════════════════════════════════════════════════════
+   animations.css — Bold Keyframes & Motion Effects
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── Pulse Glow — brighter, more dramatic ─── */
+@keyframes pulse-glow-cyan {
+  0%, 100% { box-shadow: 0 0 20px rgba(56, 189, 248, 0.5), 0 0 40px rgba(56, 189, 248, 0.15), 0 0 80px rgba(56, 189, 248, 0.06); }
+  50%      { box-shadow: 0 0 30px rgba(56, 189, 248, 0.8), 0 0 60px rgba(56, 189, 248, 0.35), 0 0 100px rgba(56, 189, 248, 0.12); }
+}
+
+@keyframes pulse-glow-orange {
+  0%, 100% { box-shadow: 0 0 20px rgba(251, 146, 60, 0.5), 0 0 40px rgba(251, 146, 60, 0.15), 0 0 80px rgba(251, 146, 60, 0.06); }
+  50%      { box-shadow: 0 0 35px rgba(251, 146, 60, 0.8), 0 0 70px rgba(251, 146, 60, 0.35), 0 0 110px rgba(251, 146, 60, 0.12); }
+}
+
+@keyframes pulse-glow-green {
+  0%, 100% { box-shadow: 0 0 20px rgba(52, 211, 153, 0.5), 0 0 40px rgba(52, 211, 153, 0.15), 0 0 80px rgba(52, 211, 153, 0.06); }
+  50%      { box-shadow: 0 0 30px rgba(52, 211, 153, 0.7), 0 0 60px rgba(52, 211, 153, 0.3), 0 0 100px rgba(52, 211, 153, 0.1); }
+}
+
+@keyframes pulse-glow-red {
+  0%, 100% { box-shadow: 0 0 20px rgba(248, 113, 113, 0.5), 0 0 40px rgba(248, 113, 113, 0.15); }
+  50%      { box-shadow: 0 0 28px rgba(248, 113, 113, 0.65), 0 0 55px rgba(248, 113, 113, 0.25); }
+}
+
+/* ─── Orb Ring Rotations ─── */
+@keyframes rotate-cw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes rotate-ccw {
+  from { transform: rotate(360deg); }
+  to   { transform: rotate(0deg); }
+}
+
+/* ─── Status Dot Pulse ─── */
+@keyframes dot-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.5; transform: scale(0.8); }
+}
+
+/* ─── Agent Dot Pulse ─── */
+@keyframes agent-active-pulse {
+  0%, 100% { box-shadow: 0 0 5px rgba(52, 211, 153, 0.9); opacity: 1; }
+  50%      { box-shadow: 0 0 15px rgba(52, 211, 153, 1), 0 0 30px rgba(52, 211, 153, 0.4); opacity: 0.7; }
+}
+
+/* ─── Titlebar Scan Sweep ─── */
+@keyframes scan-sweep {
+  0%   { left: -20%; opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { left: 120%; opacity: 0; }
+}
+
+/* ─── Hex Grid Cell Pulse — more vivid ─── */
+@keyframes hex-pulse-cyan {
+  0%   { background: rgba(56, 189, 248, 0.05); box-shadow: none; }
+  20%  { background: rgba(56, 189, 248, 0.5); box-shadow: 0 0 14px rgba(56, 189, 248, 0.6), inset 0 0 8px rgba(56, 189, 248, 0.25); border-color: rgba(56, 189, 248, 0.4); }
+  100% { background: rgba(56, 189, 248, 0.05); box-shadow: none; }
+}
+
+@keyframes hex-pulse-orange {
+  0%   { background: rgba(251, 146, 60, 0.05); box-shadow: none; }
+  20%  { background: rgba(251, 146, 60, 0.55); box-shadow: 0 0 14px rgba(251, 146, 60, 0.7), inset 0 0 8px rgba(251, 146, 60, 0.25); border-color: rgba(251, 146, 60, 0.4); }
+  100% { background: rgba(251, 146, 60, 0.05); box-shadow: none; }
+}
+
+/* ─── Blink Cursor ─── */
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+
+/* ─── Fade In — more travel ─── */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Slide In Right ─── */
+@keyframes slide-in-right {
+  from { transform: translateX(100%) scale(0.98); opacity: 0; }
+  to   { transform: translateX(0) scale(1); opacity: 1; }
+}
+
+@keyframes slide-out-right {
+  from { transform: translateX(0); opacity: 1; }
+  to   { transform: translateX(100%); opacity: 0; }
+}
+
+/* ─── Settings Overlay Fade ─── */
+@keyframes overlay-fade-in {
+  from { opacity: 0; backdrop-filter: blur(0); }
+  to   { opacity: 1; backdrop-filter: blur(10px); }
+}
+
+/* ─── Orb Core Breathing ─── */
+@keyframes orb-breathe {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.08); }
+}
+
+/* ─── Mic Recording Pulse ─── */
+@keyframes mic-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(248, 113, 113, 0.5); }
+  50%      { box-shadow: 0 0 0 12px rgba(248, 113, 113, 0); }
+}
+
+/* ─── Typing Cursor ─── */
+@keyframes typing-cursor {
+  0%, 100% { border-right-color: var(--accent-cyan); }
+  50%      { border-right-color: transparent; }
+}
+
+/* ─── Grid Drift ─── */
+@keyframes grid-drift {
+  0%   { background-position: 0 0, 0 0; }
+  100% { background-position: 50px 50px, 50px 50px; }
+}
+
+/* ─── Panel Entrance — more dramatic ─── */
+@keyframes panel-slide-left {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes panel-slide-right {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes panel-slide-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Meter Shimmer ─── */
+@keyframes meter-shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(250%); }
+}
+
+/* ─── Data Flow ─── */
+@keyframes data-flow {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* ─── Glow Breathe — brighter ─── */
+@keyframes glow-breathe {
+  0%, 100% { opacity: 0.6; text-shadow: 0 0 15px rgba(56, 189, 248, 0.4); }
+  50%      { opacity: 1; text-shadow: 0 0 25px rgba(56, 189, 248, 0.7), 0 0 50px rgba(56, 189, 248, 0.3); }
+}
+
+/* ─── Border Trace ─── */
+@keyframes border-trace {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+
+/* ─── Float ─── */
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
+}
+
+/* ─── Input Focus Glow ─── */
+@keyframes input-glow {
+  0%, 100% { box-shadow: 0 0 6px rgba(56, 189, 248, 0.15); }
+  50%      { box-shadow: 0 0 20px rgba(56, 189, 248, 0.35); }
+}
+
+/* ─── Logo Shimmer (new) ─── */
+@keyframes logo-shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ─── Scale In (new) ─── */
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ─── Border Glow Pulse (new) ─── */
+@keyframes border-glow-pulse {
+  0%, 100% { border-color: rgba(56, 189, 248, 0.15); }
+  50%      { border-color: rgba(56, 189, 248, 0.4); }
+}

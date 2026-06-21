@@ -1,0 +1,197 @@
+/* ═══════════════════════════════════════════════════════════
+   telemetry.css — Arc Meters, Bar Meters, Hex Grid, Agents
+   Bold & Vibrant — Brighter indicators, stronger contrasts
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── Arc Meter ─── */
+.arc-meter-container {
+  position: relative;
+  width: 100%;
+  max-width: 150px;
+  margin: 4px auto;
+}
+
+.arc-meter {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.2));
+}
+
+.arc-bg {
+  opacity: 1;
+}
+
+.arc-value {
+  transition: stroke-dasharray 0.8s var(--ease);
+  filter: drop-shadow(0 0 6px rgba(56, 205, 255, 0.5));
+}
+
+.arc-value-text {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent-cyan-bright);
+  text-shadow: 0 0 18px rgba(56, 189, 248, 0.6), 0 0 40px rgba(56, 189, 248, 0.2);
+  letter-spacing: 2px;
+}
+
+/* ─── Agents List ─── */
+.agents-block {
+  flex: 1;
+  min-height: 0;
+}
+
+.agents-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  max-height: 200px;
+}
+
+.agents-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-dim);
+  letter-spacing: 1.6px;
+  transition: all 0.4s var(--ease);
+  border-radius: var(--radius-sm);
+  cursor: default;
+}
+
+.agents-list li:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  transform: translateX(2px);
+}
+
+.agents-list li.active {
+  color: var(--text-bright);
+  background: rgba(52, 211, 153, 0.06);
+  padding-left: 14px;
+  border-left: 2px solid rgba(52, 211, 153, 0.4);
+}
+
+.agent-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(56, 189, 248, 0.2);
+  flex-shrink: 0;
+  transition: all 0.5s var(--ease);
+}
+
+.agents-list li.active .agent-dot {
+  background: var(--accent-green);
+  box-shadow: 0 0 10px rgba(52, 211, 153, 0.85), 0 0 25px rgba(52, 211, 153, 0.35);
+  animation: agent-active-pulse 1.5s ease-in-out infinite;
+  transform: scale(1.3);
+}
+
+/* ─── Hex Grid (Vector Activity) — larger, brighter ─── */
+.hex-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 5px;
+  width: 100%;
+  aspect-ratio: 1;
+  max-width: 150px;
+  margin: 10px auto;
+}
+
+.hex-cell {
+  background: rgba(56, 189, 248, 0.04);
+  border: 1px solid rgba(56, 189, 248, 0.08);
+  border-radius: 5px;
+  transition: all 0.6s var(--ease);
+}
+
+.hex-cell:hover {
+  background: rgba(56, 189, 248, 0.1);
+  border-color: rgba(56, 189, 248, 0.2);
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.12);
+}
+
+.hex-cell.active {
+  animation: hex-pulse-cyan 1.2s ease-in-out;
+}
+
+.hex-cell.hot {
+  animation: hex-pulse-orange 1.2s ease-in-out;
+}
+
+/* ─── Hotkeys Reference ─── */
+.hotkeys-block {
+  padding-bottom: 10px;
+}
+
+.hotkey-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.8px;
+  transition: opacity 0.3s var(--ease);
+  opacity: 0.7;
+}
+
+.hotkey-row:hover {
+  opacity: 1;
+}
+
+.hotkey-key {
+  color: var(--accent-cyan);
+  background: rgba(56, 189, 248, 0.08);
+  padding: 4px 9px;
+  border-radius: 5px;
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  transition: all 0.3s var(--ease);
+  text-shadow: 0 0 6px rgba(56, 189, 248, 0.15);
+}
+
+.hotkey-row:hover .hotkey-key {
+  background: rgba(56, 189, 248, 0.12);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.2);
+  border-color: rgba(56, 189, 248, 0.3);
+  transform: scale(1.04);
+}
+
+.hotkey-action {
+  color: var(--text-dim);
+  font-weight: 500;
+}
+
+/* ─── Sparkline ─── */
+.sparkline-container {
+  width: 100%;
+  padding: 8px 0;
+}
+
+.sparkline {
+  width: 100%;
+  height: 45px;
+  filter: drop-shadow(0 0 4px rgba(56, 189, 248, 0.25));
+}
+
+/* ─── STM Buffer ─── */
+#stm-info {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+}

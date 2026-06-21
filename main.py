@@ -657,6 +657,10 @@ def main() -> None:
         run_tests()
     elif cmd == "setup":
         setup()
+    elif cmd == "api":
+        import uvicorn
+        _header("Starting MAYA API Server")
+        uvicorn.run("api:app", host="0.0.0.0", port=8000, reload=False)
     elif cmd in ("help", "--help", "-h"):
         print(__doc__)
     else:

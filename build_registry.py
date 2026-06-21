@@ -465,9 +465,28 @@ def _discover_agents() -> list[dict[str, Any]]:
         required_params = getattr(module, "_REQUIRED_PARAMS", {})
         agent_name = plugin_info.get("name", py_file.stem)
 
-        optional_params = _OPTIONAL_PARAMS.get(agent_name, {})
-        extra_meta = _AGENT_META.get(agent_name, {})
-        examples = _EXAMPLES.get(agent_name, {})
+        # Prefer metadata from agent's PLUGIN_INFO, fall back to hardcoded dicts
+        extra_meta = {
+            "keywords": plugin_info.get("keywords", []),
+            "suggested_use_cases": plugin_info.get("suggested_use_cases", []),
+            "avoid_use_cases": plugin_info.get("avoid_use_cases", []),
+        }
+        # Merge with hardcoded fallback (PLUGIN_INFO takes priority)
+        fallback_meta = _AGENT_META.get(agent_name, {})
+        for key in ("keywords", "suggested_use_cases", "avoid_use_cases"):
+            if not extra_meta.get(key):
+                extra_meta[key] = fallback_meta.get(key, [])
+
+        # Optional params: prefer from PLUGIN_INFO, fallback to hardcoded
+        plugin_optional = plugin_info.get("optional_params", {})
+        if plugin_optional:
+            optional_params = plugin_optional
+        else:
+            optional_params = _OPTIONAL_PARAMS.get(agent_name, {})
+
+        # Examples: prefer from PLUGIN_INFO, fallback to hardcoded
+        plugin_examples = plugin_info.get("examples", {})
+        examples = plugin_examples if plugin_examples else _EXAMPLES.get(agent_name, {})
 
         action_list: list[dict[str, Any]] = []
         for action_name in sorted(actions_dict.keys()):

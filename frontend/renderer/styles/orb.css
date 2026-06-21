@@ -1,0 +1,269 @@
+/* ═══════════════════════════════════════════════════════════
+   orb.css — Animated Orb + Rings
+   Bold & Vibrant — Brilliant glows, layered halos
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── Orb Section Container ─── */
+.orb-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 170px;
+  min-height: 170px;
+  position: relative;
+  background: linear-gradient(180deg, rgba(10, 16, 32, 0.6) 0%, rgba(10, 14, 26, 0.2) 100%);
+  border-bottom: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+/* Primary ambient glow */
+.orb-section::before {
+  content: '';
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(56, 189, 248, 0.12) 0%,
+    rgba(56, 189, 248, 0.04) 35%,
+    transparent 65%
+  );
+  pointer-events: none;
+  animation: orb-breathe 4s ease-in-out infinite;
+}
+
+/* Secondary purple halo */
+.orb-section::after {
+  content: '';
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(168, 85, 247, 0.06) 0%,
+    rgba(129, 140, 248, 0.03) 30%,
+    transparent 55%
+  );
+  pointer-events: none;
+  animation: orb-breathe 6s ease-in-out infinite reverse;
+}
+
+/* ─── Orb Info Panels ─── */
+.orb-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 100px;
+}
+
+.orb-info-left {
+  text-align: right;
+  padding-right: 24px;
+}
+
+.orb-info-right {
+  text-align: left;
+  padding-left: 24px;
+}
+
+.orb-info-label {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 600;
+  color: var(--text-label);
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.orb-info-value {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-bright);
+  letter-spacing: 1.5px;
+  transition: color 0.6s var(--ease), text-shadow 0.6s;
+}
+
+.orb-info-value.status-idle {
+  color: var(--accent-green);
+  text-shadow: 0 0 12px rgba(52, 211, 153, 0.4);
+}
+.orb-info-value.status-thinking {
+  color: var(--accent-orange);
+  text-shadow: 0 0 12px rgba(251, 146, 60, 0.4);
+}
+.orb-info-value.status-speaking {
+  color: var(--accent-green-bright);
+  text-shadow: 0 0 12px rgba(110, 231, 183, 0.4);
+}
+.orb-info-value.status-error {
+  color: var(--accent-red);
+  text-shadow: 0 0 12px rgba(248, 113, 113, 0.4);
+}
+
+/* ─── Orb Container ─── */
+.orb-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Orb Rings — brighter, thicker ─── */
+.orb-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid transparent;
+  transition: border-color 1s var(--ease);
+}
+
+.orb-ring-outer {
+  width: 120px;
+  height: 120px;
+  border-color: rgba(56, 189, 248, 0.12);
+  border-top-color: rgba(56, 189, 248, 0.65);
+  border-right-color: rgba(129, 140, 248, 0.35);
+  animation: rotate-cw 8s linear infinite;
+  filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.25));
+}
+
+.orb-ring-mid {
+  width: 96px;
+  height: 96px;
+  border-color: rgba(56, 189, 248, 0.08);
+  border-bottom-color: rgba(129, 140, 248, 0.55);
+  border-left-color: rgba(168, 85, 247, 0.25);
+  animation: rotate-ccw 6s linear infinite;
+  filter: drop-shadow(0 0 5px rgba(129, 140, 248, 0.2));
+}
+
+.orb-ring-inner {
+  width: 72px;
+  height: 72px;
+  border-color: rgba(56, 189, 248, 0.05);
+  border-top-color: rgba(168, 85, 247, 0.5);
+  border-left-color: rgba(56, 189, 248, 0.2);
+  animation: rotate-cw 4s linear infinite;
+  filter: drop-shadow(0 0 4px rgba(168, 85, 247, 0.15));
+}
+
+/* ─── Orb Core — larger, more luminous ─── */
+.orb-core {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+  animation: orb-breathe 3s ease-in-out infinite;
+  transition: background 1s var(--ease), box-shadow 1s;
+}
+
+/* ─── Orb States — much brighter ─── */
+.orb-idle {
+  background: radial-gradient(circle at 35% 35%,
+    #7dd3fc 0%, #38bdf8 20%, #0284c7 40%, #075985 60%, #0c4a6e 80%, #082f49 100%
+  );
+  box-shadow:
+    0 0 25px rgba(56, 189, 248, 0.7),
+    0 0 50px rgba(56, 189, 248, 0.3),
+    0 0 80px rgba(56, 189, 248, 0.12),
+    0 0 120px rgba(56, 189, 248, 0.06),
+    inset 0 0 18px rgba(125, 211, 252, 0.3);
+  animation: orb-breathe 3s ease-in-out infinite, pulse-glow-cyan 3s ease-in-out infinite;
+}
+
+.orb-thinking {
+  background: radial-gradient(circle at 35% 35%,
+    #fde68a 0%, #fb923c 20%, #ea580c 40%, #9a3412 60%, #7c2d12 80%, #431407 100%
+  );
+  box-shadow:
+    0 0 25px rgba(251, 146, 60, 0.7),
+    0 0 50px rgba(251, 146, 60, 0.3),
+    0 0 80px rgba(251, 146, 60, 0.12),
+    0 0 120px rgba(251, 146, 60, 0.06),
+    inset 0 0 18px rgba(253, 230, 138, 0.3);
+  animation: orb-breathe 1.5s ease-in-out infinite, pulse-glow-orange 1.5s ease-in-out infinite;
+}
+
+.orb-speaking {
+  background: radial-gradient(circle at 35% 35%,
+    #a7f3d0 0%, #34d399 20%, #059669 40%, #065f46 60%, #064e3b 80%, #022c22 100%
+  );
+  box-shadow:
+    0 0 25px rgba(52, 211, 153, 0.7),
+    0 0 50px rgba(52, 211, 153, 0.3),
+    0 0 80px rgba(52, 211, 153, 0.12),
+    0 0 120px rgba(52, 211, 153, 0.06),
+    inset 0 0 18px rgba(167, 243, 208, 0.3);
+  animation: orb-breathe 2s ease-in-out infinite, pulse-glow-green 2s ease-in-out infinite;
+}
+
+.orb-error {
+  background: radial-gradient(circle at 35% 35%,
+    #fecaca 0%, #f87171 20%, #dc2626 40%, #991b1b 60%, #7f1d1d 80%, #450a0a 100%
+  );
+  box-shadow:
+    0 0 25px rgba(248, 113, 113, 0.7),
+    0 0 50px rgba(248, 113, 113, 0.3),
+    0 0 80px rgba(248, 113, 113, 0.12),
+    0 0 120px rgba(248, 113, 113, 0.06),
+    inset 0 0 18px rgba(254, 202, 202, 0.3);
+  animation: orb-breathe 4s ease-in-out infinite, pulse-glow-red 4s ease-in-out infinite;
+}
+
+/* ─── Ring Speed Overrides ─── */
+.orb-thinking ~ .orb-ring-outer,
+.orb-container:has(.orb-thinking) .orb-ring-outer {
+  animation-duration: 4s;
+}
+.orb-container:has(.orb-thinking) .orb-ring-mid {
+  animation-duration: 3s;
+}
+.orb-container:has(.orb-thinking) .orb-ring-inner {
+  animation-duration: 2s;
+}
+
+.orb-container:has(.orb-speaking) .orb-ring-outer {
+  animation-duration: 5.3s;
+}
+.orb-container:has(.orb-speaking) .orb-ring-mid {
+  animation-duration: 4s;
+}
+.orb-container:has(.orb-speaking) .orb-ring-inner {
+  animation-duration: 2.7s;
+}
+
+.orb-container:has(.orb-error) .orb-ring-outer {
+  animation-duration: 12s;
+}
+.orb-container:has(.orb-error) .orb-ring-mid {
+  animation-duration: 10s;
+}
+.orb-container:has(.orb-error) .orb-ring-inner {
+  animation-duration: 8s;
+}
+
+/* Ring color overrides — vivid */
+.orb-container:has(.orb-thinking) .orb-ring {
+  border-top-color: rgba(251, 146, 60, 0.65);
+  border-right-color: rgba(251, 146, 60, 0.3);
+  border-bottom-color: rgba(253, 186, 116, 0.45);
+  filter: drop-shadow(0 0 6px rgba(251, 146, 60, 0.3));
+}
+
+.orb-container:has(.orb-speaking) .orb-ring {
+  border-top-color: rgba(52, 211, 153, 0.65);
+  border-right-color: rgba(52, 211, 153, 0.3);
+  border-bottom-color: rgba(110, 231, 183, 0.45);
+  filter: drop-shadow(0 0 6px rgba(52, 211, 153, 0.3));
+}
+
+.orb-container:has(.orb-error) .orb-ring {
+  border-top-color: rgba(248, 113, 113, 0.55);
+  border-right-color: rgba(248, 113, 113, 0.2);
+  border-bottom-color: rgba(254, 202, 202, 0.35);
+  filter: drop-shadow(0 0 6px rgba(248, 113, 113, 0.3));
+}

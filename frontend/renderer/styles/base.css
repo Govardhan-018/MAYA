@@ -1,0 +1,341 @@
+/* ═══════════════════════════════════════════════════════════
+   base.css — MAYA Premium Dark Theme — Bold & Vibrant
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── CSS Variables ─── */
+:root {
+  --bg-primary:     #0a0e1a;
+  --bg-secondary:   #0f1528;
+  --bg-panel:       rgba(12, 18, 40, 0.88);
+  --bg-block:       rgba(15, 25, 55, 0.6);
+  --bg-hover:       rgba(56, 189, 248, 0.08);
+
+  --accent-cyan:    #38bdf8;
+  --accent-cyan-bright: #7dd3fc;
+  --accent-green:   #34d399;
+  --accent-green-bright: #6ee7b7;
+  --accent-orange:  #fb923c;
+  --accent-orange-bright: #fdba74;
+  --accent-red:     #f87171;
+  --accent-purple:  #a78bfa;
+  --accent-indigo:  #818cf8;
+  --accent-pink:    #f472b6;
+
+  --text-primary:   #e2e8f0;
+  --text-bright:    #f1f5f9;
+  --text-dim:       rgba(226, 232, 240, 0.55);
+  --text-label:     rgba(56, 189, 248, 0.75);
+
+  --border-subtle:  rgba(56, 189, 248, 0.12);
+  --border-normal:  rgba(56, 189, 248, 0.22);
+  --border-active:  rgba(56, 189, 248, 0.6);
+  --border-glow:    rgba(56, 189, 248, 0.35);
+
+  --font-mono:   'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  --font-ui:     'Inter', -apple-system, 'Segoe UI', sans-serif;
+
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  16px;
+
+  --glow-cyan:  0 0 15px rgba(56, 189, 248, 0.6), 0 0 45px rgba(56, 189, 248, 0.2);
+  --glow-green: 0 0 15px rgba(52, 211, 153, 0.6), 0 0 45px rgba(52, 211, 153, 0.2);
+  --glow-orange: 0 0 15px rgba(251, 146, 60, 0.6), 0 0 45px rgba(251, 146, 60, 0.2);
+  --glow-red:   0 0 15px rgba(248, 113, 113, 0.6), 0 0 45px rgba(248, 113, 113, 0.2);
+
+  --glass-bg: rgba(10, 18, 40, 0.6);
+  --glass-border: rgba(56, 189, 248, 0.15);
+  --glass-blur: 20px;
+
+  --shadow-panel: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-elevated: 0 12px 48px rgba(0, 0, 0, 0.6);
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* ─── Reset ─── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+  text-rendering: optimizeLegibility;
+}
+
+/* ─── Scanline Overlay — very subtle ─── */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 4px,
+    rgba(56, 189, 248, 0.008) 4px,
+    rgba(56, 189, 248, 0.008) 8px
+  );
+  mix-blend-mode: overlay;
+}
+
+/* ─── Ambient radial glow — center stage ─── */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 50% 40% at 50% 30%, rgba(56, 189, 248, 0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 30% at 20% 80%, rgba(168, 85, 247, 0.04) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 30% at 80% 80%, rgba(52, 211, 153, 0.03) 0%, transparent 70%),
+    radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+/* ─── Grid Background ─── */
+.bg-grid {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: grid-drift 50s linear infinite;
+  mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, black 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, black 20%, transparent 75%);
+}
+
+/* ─── Corner Brackets — brighter ─── */
+.corner {
+  position: fixed;
+  width: 28px;
+  height: 28px;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0.8;
+  transition: opacity 0.5s var(--ease);
+}
+
+.corner-tl {
+  top: 4px; left: 4px;
+  border-top: 2px solid var(--accent-cyan);
+  border-left: 2px solid var(--accent-cyan);
+  box-shadow: -3px -3px 15px rgba(56, 189, 248, 0.2);
+}
+
+.corner-tr {
+  top: 4px; right: 4px;
+  border-top: 2px solid var(--accent-cyan);
+  border-right: 2px solid var(--accent-cyan);
+  box-shadow: 3px -3px 15px rgba(56, 189, 248, 0.2);
+}
+
+.corner-bl {
+  bottom: 4px; left: 4px;
+  border-bottom: 2px solid var(--accent-cyan);
+  border-left: 2px solid var(--accent-cyan);
+  box-shadow: -3px 3px 15px rgba(56, 189, 248, 0.2);
+}
+
+.corner-br {
+  bottom: 4px; right: 4px;
+  border-bottom: 2px solid var(--accent-cyan);
+  border-right: 2px solid var(--accent-cyan);
+  box-shadow: 3px 3px 15px rgba(56, 189, 248, 0.2);
+}
+
+/* ─── Scrollbar — glowing ─── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 21, 40, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.25);
+  border-radius: 5px;
+  box-shadow: 0 0 6px rgba(56, 189, 248, 0.15);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+}
+
+/* ─── Selection ─── */
+::selection {
+  background: rgba(56, 189, 248, 0.35);
+  color: #ffffff;
+}
+
+/* ─── Common Utilities ─── */
+.hidden {
+  display: none !important;
+}
+
+.panel-header {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 14px 16px 10px;
+  border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+  background: linear-gradient(180deg, rgba(56, 189, 248, 0.06) 0%, transparent 100%);
+  text-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+}
+
+.panel-header::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 5%, rgba(56, 189, 248, 0.3) 30%, rgba(56, 189, 248, 0.5) 50%, rgba(56, 189, 248, 0.3) 70%, transparent 95%);
+}
+
+.block-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--text-label);
+  letter-spacing: 2.5px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  text-shadow: 0 0 12px rgba(56, 189, 248, 0.15);
+}
+
+.meter-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-bright);
+  margin-bottom: 8px;
+}
+
+.meter-detail {
+  font-size: 9px;
+  font-weight: 400;
+  color: var(--text-dim);
+  letter-spacing: 0.8px;
+}
+
+/* ─── Bar Meter — brighter, thicker ─── */
+.bar-meter {
+  width: 100%;
+  height: 6px;
+  background: rgba(56, 189, 248, 0.08);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(56, 189, 248, 0.06);
+}
+
+.bar-meter::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.08) 50%, transparent 100%);
+  animation: meter-shimmer 2.5s ease-in-out infinite;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.8s var(--ease);
+  position: relative;
+}
+
+.bar-fill-cyan {
+  background: linear-gradient(90deg, #0369a1, #38bdf8, #7dd3fc);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.5), 0 0 3px rgba(56, 189, 248, 0.8);
+}
+
+.bar-fill-green {
+  background: linear-gradient(90deg, #065f46, #34d399, #6ee7b7);
+  box-shadow: 0 0 12px rgba(52, 211, 153, 0.5), 0 0 3px rgba(52, 211, 153, 0.8);
+}
+
+.bar-fill-orange {
+  background: linear-gradient(90deg, #9a3412, #fb923c, #fdba74);
+  box-shadow: 0 0 12px rgba(251, 146, 60, 0.5), 0 0 3px rgba(251, 146, 60, 0.8);
+}
+
+/* ─── Toggle Switch — vibrant ─── */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+}
+
+.toggle-input {
+  opacity: 0;
+  width: 0; height: 0;
+  position: absolute;
+}
+
+.toggle-track {
+  display: inline-block;
+  width: 44px;
+  height: 22px;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid var(--border-normal);
+  border-radius: 11px;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.4s var(--ease), border-color 0.4s, box-shadow 0.4s;
+}
+
+.toggle-track::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: var(--text-dim);
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.35s var(--ease-bounce), background 0.3s, box-shadow 0.3s;
+}
+
+.toggle-input:checked + .toggle-track {
+  background: rgba(52, 211, 153, 0.15);
+  border-color: rgba(52, 211, 153, 0.6);
+  box-shadow: 0 0 20px rgba(52, 211, 153, 0.2), inset 0 0 8px rgba(52, 211, 153, 0.08);
+}
+
+.toggle-input:checked + .toggle-track::after {
+  transform: translateX(22px);
+  background: var(--accent-green);
+  box-shadow: var(--glow-green);
+}

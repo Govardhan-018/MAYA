@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' http://localhost:* ws://localhost:*; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; media-src 'self'; img-src 'self' data:;">
+  <title>MAYA AI Assistant</title>
+  <meta name="description" content="MAYA — Local Multi-Agent AI Assistant HUD">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/animations.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/orb.css">
+  <link rel="stylesheet" href="styles/chat.css">
+  <link rel="stylesheet" href="styles/telemetry.css">
+</head>
+<body>
+  <!-- Scanline overlay -->
+  <!-- Background grid -->
+  <div class="bg-grid"></div>
+
+  <!-- Corner brackets -->
+  <div class="corner corner-tl"></div>
+  <div class="corner corner-tr"></div>
+  <div class="corner corner-bl"></div>
+  <div class="corner corner-br"></div>
+
+  <!-- ═══════════════ MAIN HUD GRID ═══════════════ -->
+  <div id="hud" class="hud-grid">
+
+    <!-- ─── TITLEBAR ─── -->
+    <header id="titlebar" class="titlebar">
+      <div class="titlebar-left">
+        <span class="logo">M·A·Y·A OS</span>
+        <span class="subtitle">COGNITIVE ENGINE ONLINE · BUILD 1.0.0</span>
+      </div>
+      <div class="titlebar-center">
+        <span id="status-dot" class="status-dot idle"></span>
+      </div>
+      <div class="titlebar-right">
+        <button id="btn-minimize" class="window-btn minimize" aria-label="Minimize window">
+          <span></span>
+        </button>
+        <button id="btn-maximize" class="window-btn maximize" aria-label="Maximize window">
+          <span></span>
+        </button>
+        <button id="btn-close" class="window-btn close" aria-label="Close window">
+          <span></span>
+        </button>
+      </div>
+      <div class="titlebar-scanline"></div>
+    </header>
+
+    <!-- ─── LEFT PANEL: TELEMETRY ─── -->
+    <aside id="panel-left" class="panel panel-left">
+      <div class="panel-header">SYSTEM TELEMETRY</div>
+
+      <!-- CPU Arc Meter -->
+      <div class="telemetry-block">
+        <div class="block-label">CPU LOAD</div>
+        <div class="arc-meter-container">
+          <svg class="arc-meter" viewBox="0 0 120 70" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="cpu-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#0044aa"/>
+                <stop offset="100%" stop-color="#00c8ff"/>
+              </linearGradient>
+            </defs>
+            <!-- Background arc -->
+            <path class="arc-bg" d="M 10 65 A 50 50 0 0 1 110 65" fill="none" stroke="rgba(0,180,255,0.1)" stroke-width="6" stroke-linecap="round"/>
+            <!-- Value arc -->
+            <path id="cpu-arc" class="arc-value" d="M 10 65 A 50 50 0 0 1 110 65" fill="none" stroke="url(#cpu-grad)" stroke-width="6" stroke-linecap="round" stroke-dasharray="0, 157"/>
+          </svg>
+          <div id="cpu-value" class="arc-value-text">0%</div>
+        </div>
+      </div>
+
+      <!-- RAM Block -->
+      <div class="telemetry-block">
+        <div class="block-label">MEMORY</div>
+        <div class="meter-info">
+          <span id="ram-value">0%</span>
+          <span id="ram-detail" class="meter-detail">0.0 / 0.0 GB</span>
+        </div>
+        <div class="bar-meter">
+          <div id="ram-bar" class="bar-fill bar-fill-green" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <!-- Vector Index Block -->
+      <div class="telemetry-block">
+        <div class="block-label">VECTOR INDEX</div>
+        <div class="meter-info">
+          <span id="vector-count">0</span>
+          <span class="meter-detail">EMBEDDINGS</span>
+        </div>
+        <div class="bar-meter">
+          <div id="vector-bar" class="bar-fill bar-fill-orange" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <!-- Active Agents List -->
+      <div class="telemetry-block agents-block">
+        <div class="block-label">ACTIVE AGENTS</div>
+        <ul id="agents-list" class="agents-list">
+          <li data-agent="gmail"><span class="agent-dot"></span>GMAIL</li>
+          <li data-agent="news"><span class="agent-dot"></span>NEWS</li>
+          <li data-agent="weather"><span class="agent-dot"></span>WEATHER</li>
+          <li data-agent="file"><span class="agent-dot"></span>FILE</li>
+          <li data-agent="todo"><span class="agent-dot"></span>TODO</li>
+          <li data-agent="browser"><span class="agent-dot"></span>BROWSER</li>
+          <li data-agent="youtube"><span class="agent-dot"></span>YOUTUBE</li>
+          <li data-agent="notes"><span class="agent-dot"></span>NOTES</li>
+          <li data-agent="memory"><span class="agent-dot"></span>MEMORY</li>
+          <li data-agent="project"><span class="agent-dot"></span>PROJECT</li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- ─── CENTER PANEL: ORB + CHAT ─── -->
+    <main id="panel-center" class="panel panel-center">
+
+      <!-- Orb Section -->
+      <div class="orb-section">
+        <div class="orb-info orb-info-left">
+          <div class="orb-info-label">STATUS</div>
+          <div id="orb-status-text" class="orb-info-value status-idle">IDLE</div>
+          <div class="orb-info-label" style="margin-top: 8px;">PROVIDER</div>
+          <div class="orb-info-value">OLLAMA</div>
+        </div>
+
+        <div class="orb-container">
+          <div class="orb-ring orb-ring-outer"></div>
+          <div class="orb-ring orb-ring-mid"></div>
+          <div class="orb-ring orb-ring-inner"></div>
+          <div id="orb-core" class="orb-core orb-idle"></div>
+        </div>
+
+        <div class="orb-info orb-info-right">
+          <div class="orb-info-label">UPTIME</div>
+          <div id="uptime-counter" class="orb-info-value">00:00:00</div>
+          <div class="orb-info-label" style="margin-top: 8px;">LOCAL MODEL</div>
+          <div id="model-name" class="orb-info-value">qwen2.5:7b</div>
+        </div>
+      </div>
+
+      <!-- Chat Terminal -->
+      <div class="chat-terminal">
+        <div class="chat-header">MAYA COGNITIVE TERMINAL v1.0</div>
+        <div id="chat-messages" class="chat-messages">
+          <!-- Messages rendered here by chat.js -->
+          <div class="chat-welcome">
+            <span class="chat-prefix maya">M·A·Y·A ❯</span>
+            <span class="chat-text">System initialized. All agents standing by. How can I assist you?</span>
+          </div>
+        </div>
+        <div class="chat-input-row">
+          <span class="input-prefix">INPUT ❯</span>
+          <input type="text" id="chat-input" class="chat-input" placeholder="Enter command..." aria-label="Send message to MAYA" autocomplete="off" spellcheck="false">
+          <button id="btn-mic" class="mic-btn" aria-label="Push to talk">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="1" width="6" height="13" rx="3"/>
+              <path d="M5 10a7 7 0 0 0 14 0"/>
+              <line x1="12" y1="19" x2="12" y2="23"/>
+              <line x1="8" y1="23" x2="16" y2="23"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- ─── RIGHT PANEL: MEMORY & HOTKEYS ─── -->
+    <aside id="panel-right" class="panel panel-right">
+      <div class="panel-header">NEURAL ACTIVITY</div>
+
+      <!-- Vector Activity Hex Grid -->
+      <div class="telemetry-block">
+        <div class="block-label">VECTOR ACTIVITY</div>
+        <div id="hex-grid" class="hex-grid">
+          <!-- 25 cells generated by JS -->
+        </div>
+      </div>
+
+      <!-- Hotkeys Reference -->
+      <div class="telemetry-block hotkeys-block">
+        <div class="block-label">HOTKEYS</div>
+        <div class="hotkey-row"><span class="hotkey-key">CTRL+SPACE</span><span class="hotkey-action">TOGGLE HUD</span></div>
+        <div class="hotkey-row"><span class="hotkey-key">ALT+M</span><span class="hotkey-action">PUSH TO TALK</span></div>
+        <div class="hotkey-row"><span class="hotkey-key">ALT+N</span><span class="hotkey-action">NEW CONVO</span></div>
+        <div class="hotkey-row"><span class="hotkey-key">CTRL+,</span><span class="hotkey-action">SETTINGS</span></div>
+      </div>
+
+      <!-- LTM Similarity Sparkline -->
+      <div class="telemetry-block">
+        <div class="block-label">LTM SIMILARITY</div>
+        <div class="sparkline-container">
+          <svg id="ltm-sparkline" class="sparkline" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
+            <polyline id="ltm-line" fill="none" stroke="var(--accent-cyan)" stroke-width="1.5" points=""/>
+            <circle id="ltm-peak-dot" cx="0" cy="0" r="2.5" fill="var(--accent-cyan)" style="display:none"/>
+            <text id="ltm-peak-label" x="0" y="0" fill="var(--accent-cyan)" font-size="7" font-family="var(--font-mono)" style="display:none"></text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- STM Buffer -->
+      <div class="telemetry-block">
+        <div class="block-label">STM BUFFER</div>
+        <div class="meter-info">
+          <span id="stm-info">TURNS LOADED 0/20</span>
+        </div>
+        <div class="bar-meter">
+          <div id="stm-bar" class="bar-fill bar-fill-cyan" style="width: 0%"></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ─── STATUSBAR ─── -->
+    <footer id="statusbar" class="statusbar">
+      <div class="status-item">
+        <span id="sb-backend" class="status-indicator offline">●</span>
+        <span id="sb-backend-text">BACKEND OFFLINE</span>
+      </div>
+      <div class="status-item">
+        <span id="sb-ollama" class="status-indicator offline">●</span>
+        <span id="sb-ollama-text">OLLAMA UNREACHABLE</span>
+      </div>
+      <div class="status-item">
+        <span class="status-indicator ltm">◆</span>
+        <span>LTM: QDRANT · <span id="sb-vectors">0</span> VECTORS</span>
+      </div>
+      <div class="status-item">
+        <span id="sb-voice" class="status-indicator offline">○</span>
+        <span id="sb-voice-text">VOICE DISABLED</span>
+      </div>
+      <div class="status-item">
+        <span id="sb-clock">00:00:00 IST</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ═══════════════ SETTINGS OVERLAY ═══════════════ -->
+  <div id="settings-overlay" class="settings-overlay hidden">
+    <div class="settings-backdrop"></div>
+    <div class="settings-panel">
+      <div class="settings-header">
+        <span>SYSTEM CONFIGURATION</span>
+        <button id="settings-close" class="settings-close-btn" aria-label="Close settings">✕</button>
+      </div>
+      <div class="settings-body">
+        <div class="setting-group">
+          <label class="setting-label" for="setting-backend-url">BACKEND URL</label>
+          <input type="text" id="setting-backend-url" class="setting-input" value="http://localhost:8000">
+        </div>
+        <div class="setting-group">
+          <label class="setting-label" for="setting-model">OLLAMA MODEL</label>
+          <input type="text" id="setting-model" class="setting-input" value="qwen2.5:7b">
+        </div>
+        <div class="setting-group">
+          <label class="setting-label">VOICE ENABLED</label>
+          <div class="toggle-switch">
+            <input type="checkbox" id="setting-voice" class="toggle-input">
+            <label for="setting-voice" class="toggle-track"></label>
+          </div>
+        </div>
+        <div class="setting-group">
+          <label class="setting-label">START ON BOOT</label>
+          <div class="toggle-switch">
+            <input type="checkbox" id="setting-boot" class="toggle-input">
+            <label for="setting-boot" class="toggle-track"></label>
+          </div>
+        </div>
+        <div class="setting-group">
+          <label class="setting-label" for="setting-accent">THEME ACCENT</label>
+          <input type="color" id="setting-accent" class="setting-color" value="#00b4ff">
+        </div>
+        <div class="setting-group">
+          <label class="setting-label" for="setting-fontsize">CHAT FONT SIZE <span id="fontsize-val">10px</span></label>
+          <input type="range" id="setting-fontsize" class="setting-range" min="9" max="13" value="10" step="1">
+        </div>
+        <button id="settings-save" class="settings-save-btn">SAVE CONFIGURATION</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ SCRIPTS ═══════════════ -->
+  <script src="js/api.js"></script>
+  <script src="js/agents.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="js/voice.js"></script>
+  <script src="js/telemetry.js"></script>
+  <script src="js/hotkeys.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
