@@ -327,6 +327,53 @@ const MAYACodePanel = (() => {
     // Cancel button: only if still running
     if (cancelBtn) cancelBtn.classList.toggle('hidden', data.done);
 
+    // Subtask progress (v2 only)
+    const subtasksSection = $('code-subtasks');
+    const subtaskList = $('code-subtask-list');
+    if (subtasksSection && subtaskList && data.version === 'v2' && data.subtasks) {
+      subtasksSection.classList.remove('hidden');
+      subtaskList.innerHTML = '';
+      for (const st of data.subtasks) {
+        const row = document.createElement('div');
+        row.className = 'code-subtask-row ' + st.state.toLowerCase();
+
+        const icon = document.createElement('span');
+        icon.className = 'code-subtask-icon';
+        if (st.state === 'COMPLETED') icon.textContent = '✓';
+        else if (st.state === 'FAILED') icon.textContent = '✗';
+        else if (st.state === 'RUNNING') icon.textContent = '▸';
+        else if (st.state === 'SKIPPED') icon.textContent = '—';
+        else icon.textContent = '○';
+
+        const title = document.createElement('span');
+        title.className = 'code-subtask-title';
+        title.textContent = st.title;
+
+        const budget = document.createElement('span');
+        budget.className = 'code-subtask-budget';
+        budget.textContent = `${st.actions_used}/${st.action_budget}`;
+
+        row.appendChild(icon);
+        row.appendChild(title);
+        row.appendChild(budget);
+        subtaskList.appendChild(row);
+      }
+
+      // v2 progress = completed subtasks / total
+      if (data.total_subtasks > 0) {
+        const completed = data.subtasks.filter(s => s.state === 'COMPLETED').length;
+        if (stepInfo) stepInfo.textContent = `${data.subtask_index} / ${data.total_subtasks} subtasks`;
+        if (!data.done && progressBar) {
+          progressBar.style.width = `${Math.round((completed / data.total_subtasks) * 100)}%`;
+        }
+      }
+      if (data.current_subtask && currentStep) {
+        currentStep.textContent = data.current_subtask;
+      }
+    } else if (subtasksSection) {
+      subtasksSection.classList.add('hidden');
+    }
+
     // Log (only update if not collapsed)
     if (logEl && data.log_tail && !_logCollapsed) {
       logEl.innerHTML = '';

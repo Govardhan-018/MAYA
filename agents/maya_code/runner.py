@@ -1,11 +1,13 @@
 """Runner — background thread that drives the full coding loop.
 
-Lifecycle:  ``start_task()`` → spawns daemon thread → ANALYZING → PLANNING →
-EXECUTING → VERIFYING → (FIXING loop) → DONE.
+v1 lifecycle: start_task() → daemon thread → ANALYZING → PLANNING →
+              EXECUTING → VERIFYING → (FIXING loop) → DONE
 
-The runner owns the state machine, job store updates, checkpoint, and executor.
-It never raises exceptions to the caller; every failure is caught and stored
-in the job store as FAILED state.
+v2 lifecycle: start_task() → daemon thread → ANALYZING → goal_parse →
+              scope gate → deep_analyze → PLANNING (decompose) →
+              EXECUTING (agentic loop per subtask) → DONE
+
+Scope "S" tasks use v1 (fast path).  "M"/"L"/"XL" use v2 (agentic loop).
 """
 
 from __future__ import annotations
@@ -28,9 +30,11 @@ from agents.maya_code.contracts import (
     LLMPlanResponse,
     Phase,
     PlanStep,
+    ScopeEstimate,
     StepAction,
     StepResult,
     StatusSnapshot,
+    SubtaskState,
 )
 from agents.maya_code.executor import StepExecutor
 from agents.maya_code.job_store import JobStore
@@ -46,39 +50,31 @@ def get_store() -> JobStore:
     return _store
 
 
-# ── prompts ───────────────────────────────────────────────────────────────────
+# ── v1 prompts ───────────────────────────────────────────────────────────────
 
 _PLANNER_SYSTEM = """\
-You are a precise coding planner. Given a project analysis and a user goal,
-produce a step-by-step coding plan as JSON.
+Create a step-by-step coding plan. Respond with ONLY JSON:
 
-Rules:
-- Each step must have: id (int), description, action (one of: create_file, modify_file, delete_file, run_command, install_deps, run_tests), target (file path), content (full file content for create/modify), command (for run/install/test), expected_outcome, confidence (0-1).
-- File paths must be relative to the project root.
-- For modify_file, provide the COMPLETE new file content, not a diff.
-- Include a test step if possible.
-- Keep the plan minimal — fewest steps to achieve the goal.
+{"goal": "what to build", "summary": "brief plan summary", "steps": [
+  {"id": 1, "description": "Create main file", "action": "create_file", "target": "src/app.py", "content": "full file content here", "command": null, "expected_outcome": "File created", "confidence": 0.9}
+], "test_strategy": "how to verify"}
 
-Respond ONLY with valid JSON matching this schema:
-{"goal": str, "summary": str, "steps": [{"id": int, "description": str, "action": str, "target": str, "content": str|null, "command": str|null, "expected_outcome": str, "confidence": float}], "test_strategy": str}
+Each step needs: id (int), description, action, target (file path), content or command, expected_outcome, confidence (0-1).
+Actions: create_file, modify_file, delete_file, run_command, install_deps, run_tests.
+For modify_file: provide COMPLETE new file content. Keep the plan minimal.
 """
 
 _FIXER_SYSTEM = """\
-You are a coding error fixer. Given a failed step and its error output,
-produce a single fix action as JSON.
+Fix a coding error. Respond with ONLY JSON:
 
-Rules:
-- Diagnose the root cause from the error output.
-- Produce ONE fix action (create_file, modify_file, delete_file, run_command).
-- For file actions, provide the COMPLETE file content.
-- File paths must be relative to the project root.
+{"diagnosis": "what went wrong", "fix_action": "create_file", "target": "src/app.py", "content": "fixed file content", "command": null, "expected_outcome": "Error resolved", "confidence": 0.8}
 
-Respond ONLY with valid JSON:
-{"diagnosis": str, "fix_action": str, "target": str, "content": str|null, "command": str|null, "expected_outcome": str, "confidence": float}
+fix_action: create_file, modify_file, delete_file, or run_command.
+For file fixes: provide COMPLETE file content. Diagnose the root cause first.
 """
 
 
-# ── runner ────────────────────────────────────────────────────────────────────
+# ── public API ───────────────────────────────────────────────────────────────
 
 def start_task(
     goal: str,
@@ -137,7 +133,7 @@ def list_jobs() -> dict:
     }
 
 
-# ── background thread entry ──────────────────────────────────────────────────
+# ── dispatcher ───────────────────────────────────────────────────────────────
 
 def _run_job(
     job_id: str,
@@ -146,23 +142,14 @@ def _run_job(
     dry_run: bool,
     context: Optional[str],
 ) -> None:
-    """Main loop — runs in a daemon thread.  Never raises."""
-    machine = PhaseMachine()
-    checkpoint = CheckpointManager(job_id, project_root)
-    model_used = ""
-    start_time = time.time()
-
+    """Dispatch to v1 or v2 based on scope estimation.  Never raises."""
     def log(msg: str) -> None:
         _store.update(job_id, log_line=msg)
-
-    def fail(msg: str) -> None:
-        _store.update(job_id, state=JobState.FAILED, error=msg, done=True)
-        machine.force_terminal(Phase.DONE)
 
     try:
         _store.update(job_id, state=JobState.RUNNING)
 
-        # ── 1. ANALYZING ─────────────────────────────────────────────────
+        # ── 1. ANALYZING (shared by v1 and v2) ──────────────────────────
         log("Analyzing project structure...")
         _store.update(job_id, phase=Phase.ANALYZING, current_step="Scanning project")
         analysis = analyze_project(project_root)
@@ -172,7 +159,65 @@ def _run_job(
         if _is_cancelled(job_id):
             return
 
-        # ── 2. PLANNING ──────────────────────────────────────────────────
+        # ── 2. Scope estimation (v2 gate) ───────────────────────────────
+        use_v2 = False
+        parsed_goal = None
+
+        if config.V2_ENABLED and not dry_run:
+            try:
+                from agents.maya_code.goal_parser import parse_goal
+                log("Parsing goal and estimating scope...")
+                _store.update(job_id, current_step="Estimating scope")
+                parsed_goal = parse_goal(goal, analysis)
+                scope_order = ["S", "M", "L", "XL"]
+                threshold_idx = scope_order.index(config.V2_SCOPE_THRESHOLD) if config.V2_SCOPE_THRESHOLD in scope_order else 1
+                goal_idx = scope_order.index(parsed_goal.scope.value) if parsed_goal.scope.value in scope_order else 1
+                use_v2 = goal_idx >= threshold_idx
+                log(f"Scope: {parsed_goal.scope.value} → {'v2 agentic' if use_v2 else 'v1 fast path'}")
+            except Exception as exc:
+                log(f"Scope estimation failed ({exc}), falling back to v1")
+
+        if use_v2 and parsed_goal:
+            _run_job_v2(job_id, goal, project_root, context, analysis, analysis_text, parsed_goal, log)
+        else:
+            _run_job_v1(job_id, goal, project_root, dry_run, context, analysis, analysis_text, log)
+
+    except Exception as exc:
+        tb = traceback.format_exc()
+        _store.update(
+            job_id,
+            state=JobState.FAILED,
+            error=f"Unexpected error: {exc}",
+            log_line=f"FATAL: {tb[-500:]}",
+            done=True,
+        )
+
+
+# ═════════════════════════════════════════════════════════════════════════════
+#  v1 — single-shot plan executor (fast path for small tasks)
+# ═════════════════════════════════════════════════════════════════════════════
+
+def _run_job_v1(
+    job_id: str,
+    goal: str,
+    project_root: Path,
+    dry_run: bool,
+    context: Optional[str],
+    analysis,
+    analysis_text: str,
+    log,
+) -> None:
+    machine = PhaseMachine()
+    checkpoint = CheckpointManager(job_id, project_root)
+    model_used = ""
+    start_time = time.time()
+
+    def fail(msg: str) -> None:
+        _store.update(job_id, state=JobState.FAILED, error=msg, done=True)
+        machine.force_terminal(Phase.DONE)
+
+    try:
+        # ── PLANNING ─────────────────────────────────────────────────────
         machine.transition(Phase.PLANNING)
         _store.update(job_id, phase=Phase.PLANNING, current_step="Generating plan")
         log("Generating coding plan via LLM...")
@@ -219,7 +264,7 @@ def _run_job(
         if _is_cancelled(job_id):
             return
 
-        # ── 3. EXECUTING ─────────────────────────────────────────────────
+        # ── EXECUTING ────────────────────────────────────────────────────
         machine.transition(Phase.EXECUTING)
         _store.update(job_id, phase=Phase.EXECUTING)
         executor = StepExecutor(project_root, checkpoint)
@@ -253,7 +298,7 @@ def _run_job(
                     _rollback(checkpoint, log)
                     return
 
-        # ── 4. VERIFYING ─────────────────────────────────────────────────
+        # ── VERIFYING ────────────────────────────────────────────────────
         machine.transition(Phase.VERIFYING)
         _store.update(job_id, phase=Phase.VERIFYING, current_step="Verifying results")
 
@@ -265,12 +310,12 @@ def _run_job(
             _store.update(
                 job_id, phase=Phase.DONE, state=JobState.COMPLETED, done=True,
                 progress=1.0,
-                summary=_build_summary(plan, step_results, executor, model_used, start_time),
+                summary=_build_summary_v1(plan, step_results, executor, model_used, start_time),
             )
             checkpoint.cleanup()
             return
 
-        # ── 5. FIXING loop ───────────────────────────────────────────────
+        # ── FIXING loop ──────────────────────────────────────────────────
         fixes_applied = 0
         for fix_round in range(config.MAX_FIXES_PER_STEP):
             if _is_cancelled(job_id):
@@ -341,15 +386,14 @@ def _run_job(
             _store.update(
                 job_id, phase=Phase.DONE, state=JobState.COMPLETED, done=True,
                 progress=1.0,
-                summary=_build_summary(plan, step_results, executor, model_used, start_time, fixes_applied),
+                summary=_build_summary_v1(plan, step_results, executor, model_used, start_time, fixes_applied),
             )
             checkpoint.cleanup()
 
     except Exception as exc:
         tb = traceback.format_exc()
         _store.update(
-            job_id,
-            state=JobState.FAILED,
+            job_id, state=JobState.FAILED,
             error=f"Unexpected error: {exc}",
             log_line=f"FATAL: {tb[-500:]}",
             done=True,
@@ -360,7 +404,183 @@ def _run_job(
             pass
 
 
-# ── helpers ───────────────────────────────────────────────────────────────────
+# ═════════════════════════════════════════════════════════════════════════════
+#  v2 — agentic loop with task decomposition
+# ═════════════════════════════════════════════════════════════════════════════
+
+def _run_job_v2(
+    job_id: str,
+    goal: str,
+    project_root: Path,
+    context: Optional[str],
+    analysis,
+    analysis_text: str,
+    parsed_goal,
+    log,
+) -> None:
+    from agents.maya_code.agentic_loop import run_subtask
+    from agents.maya_code.deep_analyzer import deep_analyze
+    from agents.maya_code.decomposer import decompose
+    from agents.maya_code.tool_executor import ToolBelt
+
+    start_time = time.time()
+
+    def fail(msg: str) -> None:
+        _store.update(job_id, state=JobState.FAILED, error=msg, done=True)
+
+    try:
+        _store.update(job_id, version="v2")
+
+        # ── Deep analysis ────────────────────────────────────────────────
+        log("Deep-analyzing project files...")
+        _store.update(job_id, current_step="Reading key files")
+        deep_context = deep_analyze(project_root, analysis, parsed_goal)
+
+        if _is_cancelled(job_id):
+            return
+
+        # ── Decompose into subtask DAG ───────────────────────────────────
+        _store.update(job_id, phase=Phase.PLANNING, current_step="Decomposing into subtasks")
+        log("Decomposing goal into subtasks...")
+        graph = decompose(parsed_goal, analysis_text, deep_context)
+
+        total_subtasks = len(graph.subtasks)
+        log(f"Decomposed into {total_subtasks} subtask(s): {', '.join(st.title for st in graph.subtasks)}")
+
+        _store.update(
+            job_id,
+            total_subtasks=total_subtasks,
+            total_steps=total_subtasks,
+            subtasks=_serialize_subtasks(graph.subtasks),
+        )
+
+        if _is_cancelled(job_id):
+            return
+
+        # ── Execute subtasks in topological order ────────────────────────
+        _store.update(job_id, phase=Phase.EXECUTING)
+        subtask_map = {st.id: st for st in graph.subtasks}
+        all_files_created: list[str] = []
+        all_files_modified: list[str] = []
+
+        for idx, st_id in enumerate(graph.execution_order):
+            if _is_cancelled(job_id):
+                return
+
+            subtask = subtask_map[st_id]
+
+            # Check dependencies
+            deps_ok = all(
+                subtask_map[dep].state == SubtaskState.COMPLETED
+                for dep in subtask.depends_on
+                if dep in subtask_map
+            )
+            if not deps_ok:
+                subtask.state = SubtaskState.SKIPPED
+                subtask.error = "Dependency failed"
+                log(f"Skipping subtask [{st_id}] {subtask.title} — dependency not met")
+                _store.update(
+                    job_id,
+                    subtask_index=idx + 1,
+                    subtasks=_serialize_subtasks(graph.subtasks),
+                    current_subtask=subtask.title,
+                    current_step=f"Skipped: {subtask.title}",
+                )
+                continue
+
+            log(f"── Subtask {idx + 1}/{total_subtasks}: {subtask.title} ──")
+            _store.update(
+                job_id,
+                subtask_index=idx + 1,
+                current_subtask=subtask.title,
+                current_step=subtask.title,
+                progress=idx / total_subtasks,
+                subtasks=_serialize_subtasks(graph.subtasks),
+            )
+
+            # Per-subtask checkpoint
+            cp = CheckpointManager(f"{job_id}/{st_id}", project_root)
+            tool_belt = ToolBelt(project_root, cp)
+
+            subtask = run_subtask(
+                subtask=subtask,
+                parsed_goal=parsed_goal,
+                analysis_text=analysis_text,
+                tool_belt=tool_belt,
+                log_fn=log,
+                cancel_check=lambda: _is_cancelled(job_id),
+            )
+            subtask_map[st_id] = subtask
+
+            if subtask.state == SubtaskState.COMPLETED:
+                log(f"  Subtask completed: {subtask.summary or 'OK'}")
+                cp.cleanup()
+                all_files_created.extend(tool_belt.files_created)
+                all_files_modified.extend(tool_belt.files_modified)
+            elif subtask.state == SubtaskState.FAILED:
+                log(f"  Subtask failed: {subtask.error}")
+                has_work = bool(tool_belt.files_created or tool_belt.files_modified)
+                if has_work and "budget" not in (subtask.error or "").lower():
+                    _rollback(cp, log)
+                elif has_work:
+                    log(f"  Keeping partial work ({len(tool_belt.files_created)} created, {len(tool_belt.files_modified)} modified)")
+                    cp.cleanup()
+                    all_files_created.extend(tool_belt.files_created)
+                    all_files_modified.extend(tool_belt.files_modified)
+                else:
+                    _rollback(cp, log)
+
+            _store.update(
+                job_id,
+                subtasks=_serialize_subtasks(graph.subtasks),
+                log_line=f"  [{subtask.state.value}] {subtask.title}",
+            )
+
+        # ── Final verdict ────────────────────────────────────────────────
+        completed = [st for st in graph.subtasks if st.state == SubtaskState.COMPLETED]
+        failed = [st for st in graph.subtasks if st.state == SubtaskState.FAILED]
+        skipped = [st for st in graph.subtasks if st.state == SubtaskState.SKIPPED]
+        elapsed = time.time() - start_time
+
+        summary_lines = [
+            f"Goal: {goal}",
+            f"Subtasks: {len(completed)} completed, {len(failed)} failed, {len(skipped)} skipped",
+            f"Duration: {elapsed:.1f}s",
+        ]
+        if all_files_created:
+            summary_lines.append(f"Created: {', '.join(all_files_created[:15])}")
+        if all_files_modified:
+            summary_lines.append(f"Modified: {', '.join(all_files_modified[:15])}")
+
+        if failed:
+            summary_lines.append(f"\nFailed subtasks:")
+            for st in failed:
+                summary_lines.append(f"  - {st.title}: {st.error}")
+
+        final_state = JobState.COMPLETED if not failed else JobState.FAILED
+        _store.update(
+            job_id,
+            phase=Phase.DONE,
+            state=final_state,
+            done=True,
+            progress=1.0,
+            summary="\n".join(summary_lines),
+            subtasks=_serialize_subtasks(graph.subtasks),
+        )
+
+    except Exception as exc:
+        tb = traceback.format_exc()
+        _store.update(
+            job_id, state=JobState.FAILED,
+            error=f"Unexpected error: {exc}",
+            log_line=f"FATAL: {tb[-500:]}",
+            done=True,
+        )
+
+
+# ═════════════════════════════════════════════════════════════════════════════
+#  Shared helpers
+# ═════════════════════════════════════════════════════════════════════════════
 
 def _is_cancelled(job_id: str) -> bool:
     snap = _store.get(job_id)
@@ -376,7 +596,7 @@ def _rollback(checkpoint: CheckpointManager, log) -> None:
     checkpoint.cleanup()
 
 
-def _build_summary(
+def _build_summary_v1(
     plan: CodingPlan,
     results: list[StepResult],
     executor: StepExecutor,
@@ -386,10 +606,10 @@ def _build_summary(
 ) -> str:
     elapsed = time.time() - start
     ok = sum(1 for r in results if r.success)
-    fail = sum(1 for r in results if not r.success)
+    fail_count = sum(1 for r in results if not r.success)
     lines = [
         f"Goal: {plan.goal}",
-        f"Steps: {ok} passed, {fail} failed, {fixes} fixes applied",
+        f"Steps: {ok} passed, {fail_count} failed, {fixes} fixes applied",
         f"Duration: {elapsed:.1f}s | Model: {model}",
     ]
     if executor.files_created:
@@ -399,3 +619,19 @@ def _build_summary(
     if executor.files_deleted:
         lines.append(f"Deleted: {', '.join(executor.files_deleted[:10])}")
     return "\n".join(lines)
+
+
+def _serialize_subtasks(subtasks) -> list[dict]:
+    """Compact subtask summaries for the job store / frontend."""
+    return [
+        {
+            "id": st.id,
+            "title": st.title,
+            "state": st.state.value,
+            "actions_used": st.actions_used,
+            "action_budget": st.action_budget,
+            "error": st.error,
+            "summary": st.summary,
+        }
+        for st in subtasks
+    ]

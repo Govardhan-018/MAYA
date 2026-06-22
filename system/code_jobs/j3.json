@@ -8,10 +8,15 @@
   "step_index": 0,
   "total_steps": 0,
   "log_tail": [],
-  "started_at": "2026-06-22T03:38:31.646181+00:00",
-  "updated_at": "2026-06-22T03:38:31.646607+00:00",
+  "started_at": "2026-06-22T08:45:45.491826+00:00",
+  "updated_at": "2026-06-22T08:45:45.492111+00:00",
   "done": true,
   "summary": null,
   "error": null,
-  "dry_run": false
+  "dry_run": false,
+  "version": "v1",
+  "subtasks": null,
+  "current_subtask": null,
+  "subtask_index": 0,
+  "total_subtasks": 0
 }

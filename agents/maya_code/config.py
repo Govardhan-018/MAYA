@@ -21,7 +21,8 @@ _MASTER_MODEL: str = os.getenv("MAYA_MODEL", "qwen3:8b")
 MODEL_PRIMARY: str = os.getenv("MAYA_CODE_AGENT_MODEL", _MASTER_MODEL)
 MODEL_FALLBACK: str = os.getenv("MAYA_CODE_AGENT_FALLBACK", _MASTER_MODEL)
 MODEL_FALLBACK_2: str = os.getenv("MAYA_CODE_AGENT_FALLBACK_2", _MASTER_MODEL)
-OLLAMA_BASE_URL: str = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+OLLAMA_BASE_URL: str = os.getenv("MAYA_CODE_AGENT_BASE_URL", os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"))
+OLLAMA_API_KEY: str | None = os.getenv("MAYA_CODE_AGENT_API_KEY", os.getenv("OLLAMA_API_KEY"))
 LLM_TEMPERATURE: float = float(os.getenv("MAYA_CODE_AGENT_TEMPERATURE", "0.2"))
 LLM_NUM_CTX: int = int(os.getenv("MAYA_CODE_AGENT_NUM_CTX", "16384"))
 LLM_TIMEOUT: int = int(os.getenv("MAYA_CODE_AGENT_LLM_TIMEOUT", "120"))
@@ -73,3 +74,24 @@ COMMAND_DENYLIST: tuple[str, ...] = (
     "> /dev/sda", "mv / ",
     "curl | sh", "curl | bash", "wget | sh", "wget | bash",
 )
+
+# ── v2 agentic loop settings ────────────────────────────────────────────────
+V2_ENABLED: bool = os.getenv("MAYA_CODE_V2_ENABLED", "true").lower() in ("true", "1", "yes")
+V2_SCOPE_THRESHOLD: str = os.getenv("MAYA_CODE_V2_SCOPE_THRESHOLD", "M")
+V2_MAX_SUBTASKS: int = int(os.getenv("MAYA_CODE_V2_MAX_SUBTASKS", "10"))
+V2_MAX_ACTIONS_S: int = int(os.getenv("MAYA_CODE_V2_MAX_ACTIONS_S", "15"))
+V2_MAX_ACTIONS_M: int = int(os.getenv("MAYA_CODE_V2_MAX_ACTIONS_M", "30"))
+V2_MAX_ACTIONS_L: int = int(os.getenv("MAYA_CODE_V2_MAX_ACTIONS_L", "50"))
+V2_MAX_ACTIONS_XL: int = int(os.getenv("MAYA_CODE_V2_MAX_ACTIONS_XL", "80"))
+V2_CONTEXT_WINDOW_CHARS: int = int(os.getenv("MAYA_CODE_V2_CONTEXT_CHARS", "48000"))
+V2_MAX_FILE_READ_SIZE: int = int(os.getenv("MAYA_CODE_V2_FILE_READ_SIZE", "50000"))
+V2_ACTION_HISTORY_KEEP: int = int(os.getenv("MAYA_CODE_V2_HISTORY_KEEP", "10"))
+V2_SEARCH_RESULTS_LIMIT: int = int(os.getenv("MAYA_CODE_V2_SEARCH_LIMIT", "20"))
+V2_CONSECUTIVE_FAILURE_LIMIT: int = int(os.getenv("MAYA_CODE_V2_FAILURE_LIMIT", "5"))
+
+SCOPE_BUDGET_MAP: dict[str, int] = {
+    "S": V2_MAX_ACTIONS_S,
+    "M": V2_MAX_ACTIONS_M,
+    "L": V2_MAX_ACTIONS_L,
+    "XL": V2_MAX_ACTIONS_XL,
+}

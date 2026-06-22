@@ -10,10 +10,15 @@
   "log_tail": [
     "started"
   ],
-  "started_at": "2026-06-22T03:38:31.644311+00:00",
-  "updated_at": "2026-06-22T03:38:31.644738+00:00",
+  "started_at": "2026-06-22T08:45:45.490491+00:00",
+  "updated_at": "2026-06-22T08:45:45.490794+00:00",
   "done": false,
   "summary": null,
   "error": null,
-  "dry_run": false
+  "dry_run": false,
+  "version": "v1",
+  "subtasks": null,
+  "current_subtask": null,
+  "subtask_index": 0,
+  "total_subtasks": 0
 }

@@ -48,17 +48,19 @@ PLUGIN_INFO: dict[str, Any] = {
 # ── actions ──────────────────────────────────────────────────────────────────
 
 _ACTIONS: dict[str, str] = {
-    "start_task":   "Start a coding task in the background",
-    "get_status":   "Poll the status of a running task",
-    "cancel_task":  "Cancel a running task",
-    "list_jobs":    "List all coding jobs",
+    "start_task":    "Start a coding task in the background",
+    "get_status":    "Poll the status of a running task",
+    "cancel_task":   "Cancel a running task",
+    "list_jobs":     "List all coding jobs",
+    "get_subtasks":  "Get subtask details for a v2 job",
 }
 
 _REQUIRED_PARAMS: dict[str, list[str]] = {
-    "start_task":  ["goal", "project_root"],
-    "get_status":  ["job_id"],
-    "cancel_task": ["job_id"],
-    "list_jobs":   [],
+    "start_task":   ["goal", "project_root"],
+    "get_status":   ["job_id"],
+    "cancel_task":  ["job_id"],
+    "list_jobs":    [],
+    "get_subtasks": ["job_id"],
 }
 
 
@@ -110,6 +112,8 @@ def execute(request: dict) -> dict:
             return cancel_task(job_id=params["job_id"])
         elif action == "list_jobs":
             return list_jobs()
+        elif action == "get_subtasks":
+            return get_status(job_id=params["job_id"])
 
         return _error(f"Unhandled action: {action}")
 

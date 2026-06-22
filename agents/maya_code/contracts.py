@@ -50,6 +50,12 @@ class StatusSnapshot(BaseModel):
     summary: Optional[str] = None
     error: Optional[str] = None
     dry_run: bool = False
+    # v2 fields (optional, backward-compatible)
+    version: str = "v1"
+    subtasks: Optional[list[dict]] = None
+    current_subtask: Optional[str] = None
+    subtask_index: int = 0
+    total_subtasks: int = 0
 
 
 # ── Project analysis result ───────────────────────────────────────────────────
@@ -160,3 +166,96 @@ class CompletionReport(BaseModel):
     duration_seconds: float = 0.0
     model_used: str = ""
     dry_run: bool = False
+
+
+# ═════════════════════════════════════════════════════════════════════════════
+#  v2 — Agentic loop types
+# ═════════════════════════════════════════════════════════════════════════════
+
+class ToolName(str, Enum):
+    READ_FILE = "read_file"
+    WRITE_FILE = "write_file"
+    EDIT_FILE = "edit_file"
+    RUN_CMD = "run_cmd"
+    SEARCH_CODE = "search_code"
+    LIST_FILES = "list_files"
+    RUN_TESTS = "run_tests"
+    DONE = "done"
+
+
+class ToolCall(BaseModel):
+    tool: ToolName
+    args: dict[str, Any] = Field(default_factory=dict)
+    reasoning: str = ""
+
+
+class ToolResult(BaseModel):
+    tool: ToolName
+    success: bool
+    output: str = ""
+    error: Optional[str] = None
+
+
+class ActionRecord(BaseModel):
+    iteration: int
+    tool_call: ToolCall
+    tool_result: ToolResult
+    timestamp: str = ""
+
+
+# ── Scope estimation ─────────────────────────────────────────────────────────
+
+class ScopeEstimate(str, Enum):
+    S = "S"
+    M = "M"
+    L = "L"
+    XL = "XL"
+
+
+class ParsedGoal(BaseModel):
+    raw: str
+    refined: str = ""
+    scope: ScopeEstimate = ScopeEstimate.M
+    key_files: list[str] = Field(default_factory=list)
+    acceptance_criteria: list[str] = Field(default_factory=list)
+
+
+class LLMGoalParseResponse(BaseModel):
+    refined: str
+    scope: str = "M"
+    key_files: list[str] = Field(default_factory=list)
+    acceptance_criteria: list[str] = Field(default_factory=list)
+
+
+# ── Subtask DAG ──────────────────────────────────────────────────────────────
+
+class SubtaskState(str, Enum):
+    PENDING = "PENDING"
+    RUNNING = "RUNNING"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
+    SKIPPED = "SKIPPED"
+
+
+class Subtask(BaseModel):
+    id: str
+    title: str
+    description: str = ""
+    depends_on: list[str] = Field(default_factory=list)
+    state: SubtaskState = SubtaskState.PENDING
+    action_budget: int = 30
+    actions_used: int = 0
+    relevant_files: list[str] = Field(default_factory=list)
+    action_history: list[ActionRecord] = Field(default_factory=list)
+    error: Optional[str] = None
+    summary: Optional[str] = None
+
+
+class SubtaskGraph(BaseModel):
+    goal: str
+    subtasks: list[Subtask]
+    execution_order: list[str] = Field(default_factory=list)
+
+
+class LLMDecompositionResponse(BaseModel):
+    subtasks: list[dict[str, Any]] = Field(default_factory=list)

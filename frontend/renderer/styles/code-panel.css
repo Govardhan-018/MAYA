@@ -507,6 +507,71 @@
   color: var(--accent-green);
 }
 
+/* ─── Subtask List (v2) ─── */
+.code-subtask-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 6px;
+}
+
+.code-subtask-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 8px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  transition: all 0.2s;
+}
+
+.code-subtask-row.running {
+  border-left-color: var(--accent-cyan);
+  background: rgba(34, 211, 238, 0.06);
+  animation: badge-pulse 2s infinite;
+}
+
+.code-subtask-row.completed {
+  border-left-color: var(--accent-green);
+}
+
+.code-subtask-row.failed {
+  border-left-color: rgba(248, 113, 113, 0.7);
+}
+
+.code-subtask-row.skipped {
+  border-left-color: rgba(255, 255, 255, 0.1);
+  opacity: 0.5;
+}
+
+.code-subtask-icon {
+  width: 12px;
+  text-align: center;
+  flex-shrink: 0;
+  font-size: 10px;
+}
+
+.code-subtask-row.completed .code-subtask-icon { color: var(--accent-green); }
+.code-subtask-row.failed .code-subtask-icon { color: rgba(248, 113, 113, 0.9); }
+.code-subtask-row.running .code-subtask-icon { color: var(--accent-cyan); }
+
+.code-subtask-title {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-primary);
+}
+
+.code-subtask-budget {
+  flex-shrink: 0;
+  color: var(--text-dim);
+  font-size: 8px;
+}
+
 /* ─── Summary ─── */
 .code-summary-text {
   font-family: var(--font-mono);

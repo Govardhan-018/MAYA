@@ -232,3 +232,8 @@ async def code_cancel(req: CodeCancelRequest):
 async def code_jobs():
     from agents.maya_code_agent import execute
     return execute({"action": "list_jobs", "parameters": {}})
+
+@app.get("/api/code/status/{job_id}/subtasks")
+async def code_subtasks(job_id: str):
+    from agents.maya_code_agent import execute
+    return execute({"action": "get_subtasks", "parameters": {"job_id": job_id}})

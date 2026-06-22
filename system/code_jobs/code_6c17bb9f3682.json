@@ -1,0 +1,32 @@
+{
+  "job_id": "code_6c17bb9f3682",
+  "state": "COMPLETED",
+  "phase": "DONE",
+  "goal": "Simple fix",
+  "progress": 1.0,
+  "current_step": "Verifying results",
+  "step_index": 1,
+  "total_steps": 1,
+  "log_tail": [
+    "Analyzing project structure...",
+    "Detected: python (Python)",
+    "Parsing goal and estimating scope...",
+    "Scope: S → v1 fast path",
+    "Generating coding plan via LLM...",
+    "Plan: One step (1 steps)",
+    "Step 1/1: Create file",
+    "  -> OK",
+    "All steps passed verification"
+  ],
+  "started_at": "2026-06-22T08:45:45.684214+00:00",
+  "updated_at": "2026-06-22T08:45:45.693347+00:00",
+  "done": true,
+  "summary": "Goal: Simple fix\nSteps: 1 passed, 0 failed, 0 fixes applied\nDuration: 0.0s | Model: test-model\nCreated: test_out.txt",
+  "error": null,
+  "dry_run": false,
+  "version": "v1",
+  "subtasks": null,
+  "current_subtask": null,
+  "subtask_index": 0,
+  "total_subtasks": 0
+}

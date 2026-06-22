@@ -1,0 +1,28 @@
+{
+  "job_id": "code_3851e8a8260e",
+  "state": "COMPLETED",
+  "phase": "DONE",
+  "goal": "test",
+  "progress": 1.0,
+  "current_step": "Generating plan",
+  "step_index": 0,
+  "total_steps": 1,
+  "log_tail": [
+    "Analyzing project structure...",
+    "Detected: python (Python)",
+    "Generating coding plan via LLM...",
+    "Plan: test plan (1 steps)",
+    "[DRY RUN] Plan generated — skipping execution"
+  ],
+  "started_at": "2026-06-22T08:44:51.195885+00:00",
+  "updated_at": "2026-06-22T08:44:51.200530+00:00",
+  "done": true,
+  "summary": "[Dry run] test plan\n\nSteps:\n  1. [create_file] Create file",
+  "error": null,
+  "dry_run": true,
+  "version": "v1",
+  "subtasks": null,
+  "current_subtask": null,
+  "subtask_index": 0,
+  "total_subtasks": 0
+}

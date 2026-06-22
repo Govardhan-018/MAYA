@@ -57,6 +57,12 @@ class JobStore:
         summary: Optional[str] = None,
         error: Optional[str] = None,
         done: Optional[bool] = None,
+        # v2 fields
+        version: Optional[str] = None,
+        subtasks: Optional[list[dict]] = None,
+        current_subtask: Optional[str] = None,
+        subtask_index: Optional[int] = None,
+        total_subtasks: Optional[int] = None,
     ) -> StatusSnapshot:
         with self._lock:
             snap = self._jobs.get(job_id)
@@ -85,6 +91,17 @@ class JobStore:
                 snap.error = error
             if done is not None:
                 snap.done = done
+            # v2 fields
+            if version is not None:
+                snap.version = version
+            if subtasks is not None:
+                snap.subtasks = subtasks
+            if current_subtask is not None:
+                snap.current_subtask = current_subtask
+            if subtask_index is not None:
+                snap.subtask_index = subtask_index
+            if total_subtasks is not None:
+                snap.total_subtasks = total_subtasks
 
             snap.updated_at = datetime.now(timezone.utc).isoformat()
             self._mirror(snap)
