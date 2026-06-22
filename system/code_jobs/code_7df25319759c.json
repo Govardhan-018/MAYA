@@ -1,0 +1,21 @@
+{
+  "job_id": "code_7df25319759c",
+  "state": "FAILED",
+  "phase": "PLANNING",
+  "goal": "Add animated CSS to the page C:\\PROGRAMMING\\ITS JARVIS\\index.html",
+  "progress": 0.0,
+  "current_step": "Generating plan",
+  "step_index": 0,
+  "total_steps": 0,
+  "log_tail": [
+    "Analyzing project structure...",
+    "Detected: unknown (HTML)",
+    "Generating coding plan via LLM..."
+  ],
+  "started_at": "2026-06-22T03:26:45.937067+00:00",
+  "updated_at": "2026-06-22T03:26:54.742724+00:00",
+  "done": true,
+  "summary": null,
+  "error": "Planning failed: All models failed after 3 attempts:\nkimi-k2.7-code:cloud attempt 0: ResponseError — this model requires a subscription, upgrade for access: https://ollama.com/upgrade (ref: 2e497662-8986-48be-9732-424610e559da) (status code: 403)\nkimi-k2.7-code:cloud attempt 0: ResponseError — this model requires a subscription, upgrade for access: https://ollama.com/upgrade (ref: 1395432a-0b1f-4d5e-bafe-4ce479f276e7) (status code: 403)\nkimi-k2.7-code:cloud attempt 0: ResponseError — this model requires a subscription, upgrade for access: https://ollama.com/upgrade (ref: 85b4438d-b866-40db-87f4-6a06d26de92a) (status code: 403)",
+  "dry_run": false
+}

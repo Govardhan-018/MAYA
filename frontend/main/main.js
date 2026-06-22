@@ -9,7 +9,7 @@ const store = new Store({
     ollamaModel: 'qwen2.5:7b',
     voiceEnabled: true,
     startOnBoot: false,
-    accentColor: '#00b4ff',
+    accentColor: '#22d3ee',
     chatFontSize: 10,
     sessionId: null
   }

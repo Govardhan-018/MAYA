@@ -36,7 +36,8 @@ MAX_MESSAGES: int = int(os.getenv("MEMORY_MAX_MESSAGES", "200"))
 MAX_TOKENS: int = int(os.getenv("MEMORY_MAX_TOKENS", "50000"))
 
 # ── summarizer ────────────────────────────────────────────────────────────
-SUMMARIZER_MODEL: str = os.getenv("MEMORY_SUMMARIZER_MODEL", "qwen3:8b")
+_MASTER_MODEL: str = os.getenv("MAYA_MODEL", "qwen3:8b")
+SUMMARIZER_MODEL: str = os.getenv("MEMORY_SUMMARIZER_MODEL", _MASTER_MODEL)
 SUMMARIZER_TEMPERATURE: float = float(
     os.getenv("MEMORY_SUMMARIZER_TEMPERATURE", "0.3")
 )

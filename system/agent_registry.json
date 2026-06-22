@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-06-21T11:03:15.367470+00:00",
-  "agent_count": 10,
+  "generated_at": "2026-06-22T02:33:45.056165+00:00",
+  "agent_count": 11,
   "agents": [
     {
       "name": "browser_agent",
@@ -520,6 +520,76 @@
         "Deleting or modifying emails",
         "Managing Gmail labels or filters",
         "Calendar operations"
+      ]
+    },
+    {
+      "name": "maya_code_agent",
+      "agent_name": "MayaCodeAgent",
+      "version": "1.0.0",
+      "type": "tool",
+      "description": "Autonomous coding agent — plans, writes, tests, and fixes code in a target project",
+      "input_format": "json",
+      "output_format": "json",
+      "entrypoint": "execute",
+      "file": "maya_code_agent.py",
+      "action_count": 4,
+      "actions": [
+        {
+          "name": "cancel_task",
+          "description": "str(object='') -> str",
+          "required_params": [
+            "job_id"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "get_status",
+          "description": "str(object='') -> str",
+          "required_params": [
+            "job_id"
+          ],
+          "optional_params": []
+        },
+        {
+          "name": "list_jobs",
+          "description": "str(object='') -> str",
+          "required_params": [],
+          "optional_params": []
+        },
+        {
+          "name": "start_task",
+          "description": "str(object='') -> str",
+          "required_params": [
+            "goal",
+            "project_root"
+          ],
+          "optional_params": []
+        }
+      ],
+      "keywords": [
+        "code",
+        "coding",
+        "develop",
+        "build",
+        "create",
+        "fix",
+        "debug",
+        "refactor",
+        "write code",
+        "implement",
+        "program",
+        "script"
+      ],
+      "suggested_use_cases": [
+        "Build a feature end-to-end in a target project",
+        "Fix a bug from an error traceback",
+        "Add tests to an existing codebase",
+        "Refactor code following a specific pattern"
+      ],
+      "avoid_use_cases": [
+        "Quick questions that don't need code changes",
+        "File browsing (use file_agent instead)",
+        "Web searches or API calls"
       ]
     },
     {

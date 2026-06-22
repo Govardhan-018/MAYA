@@ -1,0 +1,17 @@
+{
+  "job_id": "j1",
+  "state": "PENDING",
+  "phase": "ANALYZING",
+  "goal": "test goal",
+  "progress": 0.0,
+  "current_step": "",
+  "step_index": 0,
+  "total_steps": 0,
+  "log_tail": [],
+  "started_at": "2026-06-22T03:38:31.642873+00:00",
+  "updated_at": "2026-06-22T03:38:31.642873+00:00",
+  "done": false,
+  "summary": null,
+  "error": null,
+  "dry_run": false
+}

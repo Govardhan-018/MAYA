@@ -4,8 +4,8 @@
 
 /* ─── Pulse Glow — brighter, more dramatic ─── */
 @keyframes pulse-glow-cyan {
-  0%, 100% { box-shadow: 0 0 20px rgba(56, 189, 248, 0.5), 0 0 40px rgba(56, 189, 248, 0.15), 0 0 80px rgba(56, 189, 248, 0.06); }
-  50%      { box-shadow: 0 0 30px rgba(56, 189, 248, 0.8), 0 0 60px rgba(56, 189, 248, 0.35), 0 0 100px rgba(56, 189, 248, 0.12); }
+  0%, 100% { box-shadow: 0 0 20px rgba(34, 211, 238, 0.5), 0 0 40px rgba(34, 211, 238, 0.15), 0 0 80px rgba(34, 211, 238, 0.06); }
+  50%      { box-shadow: 0 0 30px rgba(34, 211, 238, 0.8), 0 0 60px rgba(34, 211, 238, 0.35), 0 0 100px rgba(34, 211, 238, 0.12); }
 }
 
 @keyframes pulse-glow-orange {
@@ -56,9 +56,9 @@
 
 /* ─── Hex Grid Cell Pulse — more vivid ─── */
 @keyframes hex-pulse-cyan {
-  0%   { background: rgba(56, 189, 248, 0.05); box-shadow: none; }
-  20%  { background: rgba(56, 189, 248, 0.5); box-shadow: 0 0 14px rgba(56, 189, 248, 0.6), inset 0 0 8px rgba(56, 189, 248, 0.25); border-color: rgba(56, 189, 248, 0.4); }
-  100% { background: rgba(56, 189, 248, 0.05); box-shadow: none; }
+  0%   { background: rgba(34, 211, 238, 0.05); box-shadow: none; }
+  20%  { background: rgba(34, 211, 238, 0.5); box-shadow: 0 0 14px rgba(34, 211, 238, 0.6), inset 0 0 8px rgba(34, 211, 238, 0.25); border-color: rgba(34, 211, 238, 0.4); }
+  100% { background: rgba(34, 211, 238, 0.05); box-shadow: none; }
 }
 
 @keyframes hex-pulse-orange {
@@ -150,8 +150,8 @@
 
 /* ─── Glow Breathe — brighter ─── */
 @keyframes glow-breathe {
-  0%, 100% { opacity: 0.6; text-shadow: 0 0 15px rgba(56, 189, 248, 0.4); }
-  50%      { opacity: 1; text-shadow: 0 0 25px rgba(56, 189, 248, 0.7), 0 0 50px rgba(56, 189, 248, 0.3); }
+  0%, 100% { opacity: 0.6; text-shadow: 0 0 15px rgba(34, 211, 238, 0.4); }
+  50%      { opacity: 1; text-shadow: 0 0 25px rgba(34, 211, 238, 0.7), 0 0 50px rgba(34, 211, 238, 0.3); }
 }
 
 /* ─── Border Trace ─── */
@@ -168,8 +168,8 @@
 
 /* ─── Input Focus Glow ─── */
 @keyframes input-glow {
-  0%, 100% { box-shadow: 0 0 6px rgba(56, 189, 248, 0.15); }
-  50%      { box-shadow: 0 0 20px rgba(56, 189, 248, 0.35); }
+  0%, 100% { box-shadow: 0 0 6px rgba(34, 211, 238, 0.15); }
+  50%      { box-shadow: 0 0 20px rgba(34, 211, 238, 0.35); }
 }
 
 /* ─── Logo Shimmer (new) ─── */
@@ -186,6 +186,41 @@
 
 /* ─── Border Glow Pulse (new) ─── */
 @keyframes border-glow-pulse {
-  0%, 100% { border-color: rgba(56, 189, 248, 0.15); }
-  50%      { border-color: rgba(56, 189, 248, 0.4); }
+  0%, 100% { border-color: rgba(34, 211, 238, 0.15); }
+  50%      { border-color: rgba(34, 211, 238, 0.4); }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   AI Core — Equalizer Waveform (replaces the orb/globe)
+   ═══════════════════════════════════════════════════════════ */
+
+/* Each bar pulses vertically; staggered delays make a wave */
+@keyframes wave-bar {
+  0%, 100% { transform: scaleY(0.28); opacity: 0.65; }
+  50%      { transform: scaleY(1);    opacity: 1; }
+}
+
+/* Idle = gentle, shallow breathing wave */
+@keyframes wave-bar-idle {
+  0%, 100% { transform: scaleY(0.22); opacity: 0.55; }
+  50%      { transform: scaleY(0.6);  opacity: 0.9; }
+}
+
+/* Expanding sonar rings emanating from the core */
+@keyframes sonar-ring {
+  0%   { transform: scale(0.35); opacity: 0.7; }
+  70%  { opacity: 0.15; }
+  100% { transform: scale(1.6);  opacity: 0; }
+}
+
+/* Slow rotating conic halo behind the bars */
+@keyframes halo-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Soft breathing glow on the core backdrop */
+@keyframes core-breathe {
+  0%, 100% { opacity: 0.5; transform: scale(0.95); }
+  50%      { opacity: 0.9; transform: scale(1.05); }
 }

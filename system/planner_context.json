@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-06-21T11:03:15.367581+00:00",
+  "generated_at": "2026-06-22T02:33:45.056289+00:00",
   "instruction": "Use this context to decide which agent and action to invoke. Match user intent against keywords, then select the action whose required_params you can fill from the user's request. For project_tracker_agent: you can pass 'project_name' instead of 'project_id' — the agent will resolve the name to an ID automatically.",
   "agents": [
     {
@@ -364,6 +364,54 @@
             "limit"
           ],
           "description": "Return emails whose subject matches the given text."
+        }
+      ]
+    },
+    {
+      "agent": "maya_code_agent",
+      "purpose": "Autonomous coding agent — plans, writes, tests, and fixes code in a target project",
+      "type": "tool",
+      "keywords": [
+        "code",
+        "coding",
+        "develop",
+        "build",
+        "create",
+        "fix",
+        "debug",
+        "refactor",
+        "write code",
+        "implement",
+        "program",
+        "script"
+      ],
+      "actions": [
+        {
+          "name": "cancel_task",
+          "required_params": [
+            "job_id"
+          ],
+          "description": "str(object='') -> str"
+        },
+        {
+          "name": "get_status",
+          "required_params": [
+            "job_id"
+          ],
+          "description": "str(object='') -> str"
+        },
+        {
+          "name": "list_jobs",
+          "required_params": [],
+          "description": "str(object='') -> str"
+        },
+        {
+          "name": "start_task",
+          "required_params": [
+            "goal",
+            "project_root"
+          ],
+          "description": "str(object='') -> str"
         }
       ]
     },

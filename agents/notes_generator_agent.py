@@ -61,7 +61,8 @@ _BASE_DIR: Path = Path(os.path.dirname(os.path.abspath(__file__)))
 load_dotenv()
 load_dotenv(_BASE_DIR / ".env", override=False)
 
-NOTES_MODEL: str = os.getenv("NOTES_MODEL", "qwen3:8b")
+_MASTER_MODEL: str = os.getenv("MAYA_MODEL", "qwen3:8b")
+NOTES_MODEL: str = os.getenv("NOTES_MODEL", _MASTER_MODEL)
 OLLAMA_BASE_URL: str = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 DEFAULT_OUTPUT_DIR: str = os.getenv("DEFAULT_OUTPUT_DIR", "generated_notes")
 

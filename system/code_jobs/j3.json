@@ -1,0 +1,17 @@
+{
+  "job_id": "j3",
+  "state": "CANCELLED",
+  "phase": "ANALYZING",
+  "goal": "cancel me",
+  "progress": 0.0,
+  "current_step": "",
+  "step_index": 0,
+  "total_steps": 0,
+  "log_tail": [],
+  "started_at": "2026-06-22T03:38:31.646181+00:00",
+  "updated_at": "2026-06-22T03:38:31.646607+00:00",
+  "done": true,
+  "summary": null,
+  "error": null,
+  "dry_run": false
+}

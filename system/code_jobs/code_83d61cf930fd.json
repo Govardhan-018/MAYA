@@ -1,0 +1,21 @@
+{
+  "job_id": "code_83d61cf930fd",
+  "state": "RUNNING",
+  "phase": "PLANNING",
+  "goal": "Build a Premium Ludo Game (HTML, CSS, JavaScript Only)\n\nCreate a complete, production-quality Ludo Game using only HTML, CSS, and Vanilla JavaScript. Do not use any frameworks, libraries, external game engines, React, Vue, Angular, Canvas libraries, or backend services.\n\nGoal\n\nBuild a highly polished, visually appealing, animated Ludo game that feels like a premium mobile/desktop game.\n\nCore Requirements\n1. Game Rules\n\nImplement official Ludo rules:\n\n4 players: Red, Blue, Green, Yellow\nEach player starts with 4 tokens in their home area\nA token can leave home only after rolling a 6\nRolling a 6 grants another turn\nMultiple consecutive 6s should follow standard Ludo rules\nCapture opponent tokens when landing on them\nSafe zones where captures are not allowed\nCorrect movement path for each color\nExact winning condition\nFirst player to bring all 4 tokens to center wins\n2. Game Modes\n\nImplement:\n\nHuman vs Human (4 players)\nHuman vs AI\nAI vs AI\n2-player mode\n3-player mode\n4-player mode\n3. AI System\n\nCreate intelligent AI:\n\nChooses captures when possible\nPrioritizes reaching safe zones\nTries to move tokens closest to home\nAvoids risky moves\nMakes strategic decisions\n4. UI/UX Design\n\nCreate a modern premium interface:\n\nGlassmorphism effects\nSmooth gradients\nAnimated shadows\nResponsive layout\nMobile friendly\nTablet friendly\nDesktop friendly\n\nVisual style:\n\nModern gaming dashboard\nProfessional look\nVibrant but clean colors\nSmooth transitions everywhere\n5. Advanced Animations\n\nImplement rich animations:\n\nDice Animation\nRealistic rolling animation\n3D rotation effect\nMotion blur effect\nBounce effect after stopping\nToken Movement\nSmooth path traversal\nStep-by-step movement\nBounce on each tile\nGlow while moving\nCapture Animation\nExplosion effect\nParticle burst\nShake effect\nReturn-to-home animation\nWin Animation\nFireworks\nConfetti\nGlow effects\nTrophy popup\nVictory screen\nUI Animations\nHover effects\nButton ripple effects\nSmooth fades\nScale animations\nPulse effects\n6. Sound System\n\nUse browser-generated sounds only.\n\nImplement:\n\nDice roll sound\nToken move sound\nCapture sound\nVictory sound\nButton click sound\n\nNo external audio files.\n\n7. Game Features\n\nInclude:\n\nStart Menu\nPause Menu\nRestart Game\nNew Game\nSettings Panel\nSound On/Off\nAnimation On/Off\nDark Mode\nLight Mode\n8. Statistics\n\nTrack:\n\nNumber of rolls\nCaptures\nTokens moved\nTime played\nGames won\n\nStore using LocalStorage.\n\n9. Save System\n\nAutomatically save:\n\nCurrent board state\nTurn information\nDice values\nPlayer progress\n\nRestore automatically on page refresh.\n\n10. Code Quality\n\nRequirements:\n\nClean architecture\nModular JavaScript\nObject-oriented design\nWell-commented code\nNo duplicated logic\nSeparation of concerns\nSuggested Structure\n\n/index.html\n\n/styles.css\n\n/script.js\n\nPerformance\n60 FPS animations\nEfficient DOM updates\nMinimal reflows\nOptimized rendering\nExtra Features (Bonus)\n\nIf possible implement:\n\nTheme selector\nNeon theme\nCyberpunk theme\nClassic theme\nLeaderboard\nAchievement system\nTurn timer\nUndo move (where valid)\nDice statistics chart\nParticle engine using pure JavaScript\nDeliverables\n\nGenerate:\n\nComplete HTML file\nComplete CSS file\nComplete JavaScript file\nFully functional without dependencies\nReady to run by opening index.html\nFinal Objective\n\nThe final result should look and feel like a polished commercial browser game rather than a basic coding-project Ludo board. Focus heavily on smooth animations, beautiful visuals, responsive design, and clean game architecture while keeping everything implemented strictly using HTML, CSS, and Vanilla JavaScript.",
+  "progress": 0.0,
+  "current_step": "Generating plan",
+  "step_index": 0,
+  "total_steps": 0,
+  "log_tail": [
+    "Analyzing project structure...",
+    "Detected: unknown ()",
+    "Generating coding plan via LLM..."
+  ],
+  "started_at": "2026-06-22T06:24:06.629690+00:00",
+  "updated_at": "2026-06-22T06:24:06.667079+00:00",
+  "done": false,
+  "summary": null,
+  "error": null,
+  "dry_run": false
+}

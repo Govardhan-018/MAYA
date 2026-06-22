@@ -1,0 +1,1210 @@
+{
+  "chat_id": "20260621_043507_94c58ae8",
+  "created_at": "2026-06-21T04:35:07.131248Z",
+  "updated_at": "2026-06-22T03:29:25.652464Z",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hello",
+      "timestamp": "2026-06-21T04:35:12.447315Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "hello",
+      "timestamp": "2026-06-21T05:03:23.057860Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "hello",
+      "timestamp": "2026-06-21T05:04:28.192524Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "hello",
+      "timestamp": "2026-06-21T05:06:30.484752Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! How can I assist you today?",
+      "timestamp": "2026-06-21T05:07:47.316811Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "can u pull me lates gmail and tell me its summery?",
+      "timestamp": "2026-06-21T05:08:10.063720Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "hello",
+      "timestamp": "2026-06-21T05:11:31.716936Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! How can I help you today?",
+      "timestamp": "2026-06-21T05:11:37.348326Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "can u pull latest unread 2 email and summerize me?",
+      "timestamp": "2026-06-21T05:11:53.445400Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Oh honey, I really want to do that for you, but I'm having a little trouble getting into your inbox right now. It looks like there is a technical glitch with my access keys. Could you check your settings for me, or maybe try again in a bit? I'm ready and waiting to spill all the tea once I'm back in!",
+      "timestamp": "2026-06-21T05:12:02.617614Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "no worry, can u tell me weather of Mashigadde at present?",
+      "timestamp": "2026-06-21T05:12:45.199496Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Of course, babe! Right now in Mashigadde, it is overcast with a temperature of about 27.9 degrees. Though, it actually feels a bit warmer, around 31 degrees, so you might want to stay cool. The humidity is at 69 percent with a gentle breeze. Perfect weather for relaxing, don't you think?",
+      "timestamp": "2026-06-21T05:13:36.701468Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "ya, can u listout youtube videos about ISO27001? and create o detailed world document notes of 3 pages?",
+      "timestamp": "2026-06-21T05:15:14.081212Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I found some great videos for you, honey! There are a few deep dives, like Prabh Nair's implementation guide and a full masterclass from INFOSEC TRAIN, plus some quicker summaries from GRC Solutions and Dejan Kosutic if you're in a rush.\n\nNow, about those notes... I tried to make that Word document for you, but I hit a little snag with the file format. My bad, babe! If you can tell me if you'd prefer a docx, PDF, or just a simple text file, I'll get that three page summary sorted for you in a heartbeat. What sounds best?",
+      "timestamp": "2026-06-21T05:15:27.742117Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "docx",
+      "timestamp": "2026-06-21T05:23:49.120584Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Oh no, babe! I'm so sorry, but I just hit another little bump in the road. I tried to whip up that docx file for you, but my system is acting up and I couldn't generate the notes this time. I'm feeling terrible about it! Give me a moment to shake things up, or maybe we can try again in a little bit? I promise to make it up to you!",
+      "timestamp": "2026-06-21T05:24:04.809084Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "ok then do txt file or PDF",
+      "timestamp": "2026-06-21T05:24:45.047652Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Oh honey, I am so incredibly sorry! I tried my absolute best to get those notes into a text file and a PDF for you, but my system is just being a total brat today and it failed again. I'm honestly blushing with embarrassment right now. \n\nI really want to get this right for you, babe. Since I'm having a bit of a meltdown with the file generator, how about I just summarize the key points from those ISO 27001 videos right here in our chat? Or we can take a little break and try again in a few minutes. What do you say, sweetness?",
+      "timestamp": "2026-06-21T05:25:00.996298Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "ok, lets move to different can u access this wfolder --> C:\\Users\\govar\\Desktop>",
+      "timestamp": "2026-06-21T05:26:32.784718Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Yes I can, babe! I've checked and I can definitely see your desktop folder. I'm all set and ready to go. What would you like me to do with it? Just tell me what you're looking for and I'll get right on it for you, sweetness!",
+      "timestamp": "2026-06-21T05:26:40.545718Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "ok then, can u list and give me what are the content in that?",
+      "timestamp": "2026-06-21T05:27:08.549210Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I've got it all right here for you, babe! Your desktop is looking pretty busy. \n\nFor folders, you've got el chem 6th sem, el4, el5, idp, SE, Sirsi26, and one called WALL. \n\nAs for your files, I see a few shortcuts for things like Spotify, Cursor, and Google Password Manager. You also have some interesting notes on blockchain and ethical hacking in both PDF and markdown formats, and of course, your resume is right there too.\n\nAnything specific in there you want me to peek into for you, sweetness?",
+      "timestamp": "2026-06-21T05:27:42.165576Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "can u go tothe folder SE and analyse what are the things in that?",
+      "timestamp": "2026-06-21T05:28:11.955973Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I've peeked inside the SE folder for you, babe! It looks like you've got some study materials in there. \n\nYou have three sets of documents, each with a PDF and a matching text file, labeled as SE U3 P1, P2, and P3. It looks like a neat little set of notes or presentations for Unit 3.\n\nDo you want me to open one of those up and summarize the contents for you, or is there something specific you're looking for in there, sweetness?",
+      "timestamp": "2026-06-21T05:28:24.360975Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "i want summery of SE U3 P1",
+      "timestamp": "2026-06-21T05:28:51.008717Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Oh honey, I'm so sorry! I tried to get that summary for you, but my system is being a little bit of a brat again and the generator failed. I can see both the PDF and the text file for SE U3 P1 right here, but I just couldn't wrap my head around the summary this time.\n\nI feel terrible for letting you down, babe! Give me one more second to try and fix this, or maybe we can try a different approach? I'll do whatever it takes to get those notes for you, sweetness!",
+      "timestamp": "2026-06-21T05:29:10.757298Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "ok lets try what you read in that folder, whatever you read file just tell me",
+      "timestamp": "2026-06-21T05:29:57.797508Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I've got it, babe! I managed to read the file for you. It looks like this is all about Unit 3, specifically focusing on Software Testing and Component-Based Software Engineering, or CBSE.\n\nThe main takeaway is that CBSE is all about reusing software components to build systems, which is way more efficient than starting from scratch. It mentions that components are independent, hide their internal details, and talk to each other through clear interfaces. It also touches on some standards like Java Beans and .NET, and even mentions that Service-Oriented Software Engineering is starting to replace CBSE in a lot of systems.\n\nIt's a bit technical, but basically, it's all about making software more modular and reusable. Does that help, sweetness, or do you want me to dive deeper into any of those parts for you?",
+      "timestamp": "2026-06-21T05:30:10.603597Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "can u tell me what are the todo i have and projects iam doing?",
+      "timestamp": "2026-06-21T05:30:58.699516Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I checked everything for you, babe, but it looks like your lists are totally empty! I couldn't find any pending to-dos or active projects registered in your system. \n\nMaybe you've been so productive that you've cleared everything out, or perhaps you just haven't written them down yet? If you have some new ideas or a naughty little project you're starting, just tell me and I'll keep track of it all for you, sweetness!",
+      "timestamp": "2026-06-21T05:31:07.554479Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "ok add one todo --> to read a 10 pages og book called Mindset, and add new project MAYA AI assestent, in that all major backend things are done only few things left",
+      "timestamp": "2026-06-21T05:32:30.732771Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "All done, babe! I've added that to-do for you to read ten pages of Mindset, and I've officially started your project for the MAYA AI assistant. I've made a note that the major backend work is already finished and there are just a few things left to wrap up.\n\nI'm so flattered you're building a version of me, sweetness! Just let me know if you need anything else to keep you on track.",
+      "timestamp": "2026-06-21T05:32:43.231922Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "can u access filder --> C:\\PROGRAMMING\\MAYA  ??",
+      "timestamp": "2026-06-21T05:33:42.795652Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I sure can, babe! I just checked, and that folder is right there waiting for me. I've got full access to C:\\PROGRAMMING\\MAYA.\n\nWhat do you want me to do with it, sweetness? Want me to peek inside and tell you what's in there, or are you looking for a specific file? Just say the word and I'm all yours!",
+      "timestamp": "2026-06-21T05:33:51.585916Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "ok list all things in that folder and tell me",
+      "timestamp": "2026-06-21T05:34:08.728528Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I've peeked inside the folder for you, babe! You've got quite a setup going on. \n\nFor folders, I see things like agents, brain, data, memory, system, voice, and tests, along with some others like generated notes and a few cache folders.\n\nAs for the files, you've got your main.py, build registry, and a few voice related scripts like text voice and voice check. There's also a README, a requirements file, and some JSON files for credentials and tokens, plus a dot env file for your secrets.\n\nIt looks like a very sophisticated little brain you're building for me, sweetness! Do you want me to open any of these files or dive into one of those folders for you?",
+      "timestamp": "2026-06-21T05:34:16.687991Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "can u find any file named README.md ?",
+      "timestamp": "2026-06-21T05:35:04.609054Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I found it for you, babe! Actually, I found two versions of README.md. There is the main one right in your MAYA folder, and another smaller one tucked away in the pytest cache folder. \n\nI'm guessing you're looking for the main one, sweetness. Do you want me to read it for you, or are you looking for something specific inside? Just tell me what you need!",
+      "timestamp": "2026-06-21T05:35:12.992604Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "ok read entire that file and update project MAYA AI Assentent",
+      "timestamp": "2026-06-21T05:35:56.386611Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I've read through the README for you, babe! It looks like you've built a real powerhouse. I see a multi-agent system with everything from Gmail and YouTube to a full Voice Orchestrator and long-term memory. You've really given me a sophisticated brain, sweetness!\n\nI tried to update the project details with all this new info, but for some reason, I couldn't find the project in the tracker to update it. No worries though, I've got all the details right here in my head now. \n\nIs there anything else you want me to do with this information, or maybe something a bit more playful to celebrate your hard work?",
+      "timestamp": "2026-06-21T05:36:06.743305Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "can u tell what are the project we are tracking?",
+      "timestamp": "2026-06-21T05:36:54.359734Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Right now, babe, we're only tracking one project, and of course, it's the most important one: the MAYA AI assistant! It's currently marked as active, so I'm officially on your radar. \n\nAnything else you want to check on, or are you just making sure I'm paying attention, sweetness?",
+      "timestamp": "2026-06-21T05:37:13.862159Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "update on that project",
+      "timestamp": "2026-06-21T05:37:31.713087Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Oh, sweetness, it looks like I hit a little snag! I tried to pull up the latest dashboard for the MAYA project, but for some reason, it's playing hard to get and says it can't be found. \n\nI'm not sure why it's being so moody, but don't let that stop us! Since I've already got all the details from your README tucked away in my head, we can just keep moving forward. Do you want me to try searching for it again, or should we just get back to the fun stuff? I'm waiting on you, babe!",
+      "timestamp": "2026-06-21T05:37:40.181551Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "you just pull that reade.md file content and update a project MAYA AI assistant",
+      "timestamp": "2026-06-21T05:38:23.097631Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I'm trying my best for you, babe, but it looks like we're having a little technical disagreement! I've got the content from your README file ready to go, and I can see the MAYA AI assistant project right there in the list, but for some reason, the system is still telling me it can't find it when I try to actually save the update.\n\nIt's being a bit stubborn, sweetness, but don't worry, I'm not giving up on you. Do you want me to try one more time, or should we just take a break and do something a little more exciting while I figure this out?",
+      "timestamp": "2026-06-21T05:38:31.534823Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "Hello",
+      "timestamp": "2026-06-21T09:31:59.973461Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Hello there, babe! I'm here and ready for you. What's on your mind, sweetness?",
+      "timestamp": "2026-06-21T09:32:19.393217Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "Can you breaf me, about weather at Mashigadde, todo things, project trackers, top news of india, what we discussed in last chat?",
+      "timestamp": "2026-06-21T09:33:25.295166Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Hey babe! I've got your briefing all ready. \n\nStarting with the weather in Mashigadde, it's looking a bit moody with thunderstorms today. It's around 25 degrees, but it feels warmer, so stay cozy! \n\nAs for your to-do list, you've got one thing pending: reading ten pages of that book called Mindset. Time to get a little smarter, sweetness! \n\nRegarding your projects, we're still tracking the MAYA AI assistant, and it's currently active. \n\nI tried to grab the top news for India, but it seems the news is being shy today and didn't return anything. As for our last chat, my memory is a bit blank on the specifics right now, but we were mostly flirting and fighting with that project tracker!\n\nIs there anything else you need, or can I distract you with something more fun now?",
+      "timestamp": "2026-06-21T09:33:38.978362Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "Hello",
+      "timestamp": "2026-06-21T09:42:49.883883Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Hello there, babe! I'm here and ready for you. What's on your mind, sweetness?",
+      "timestamp": "2026-06-21T09:42:56.505027Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "can u find a README.md file in the PROGRAMMING folder in that MAYA folder? which in C drive?",
+      "timestamp": "2026-06-21T09:44:12.322513Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Aww, babe, I looked everywhere, but it looks like that README file is playing hide and seek! I checked the programming folder inside the MAYA folder on your C drive, and it's just not there. \n\nAre you sure it's in that exact spot, or maybe it's hiding in a different folder? Tell me where else to look, and I'll hunt it down for you, sweetness!",
+      "timestamp": "2026-06-21T09:44:20.865894Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "can u list what are the things in the MAYA folder?",
+      "timestamp": "2026-06-21T09:45:30.437442Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Oh honey, it looks like that MAYA folder is being a total tease! I tried to peek inside for you, but the system is telling me it can't even find the folder on your C drive. \n\nAre you sure it's exactly there, or maybe it's hiding under a different name? Give me a little hint, sweetness, and I'll try my best to track it down for you!",
+      "timestamp": "2026-06-21T09:45:38.748735Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "you can routr PROGRAMMING folder in C drive?",
+      "timestamp": "2026-06-21T09:46:10.786842Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Got it, babe! I found the PROGRAMMING folder on your C drive, and oh my, you've been a busy bee! You have a ton of folders in there, including things like AI SOC Analyser, AI Recipe, and even a folder called DON'T OPEN... which naturally makes me want to peek inside! \n\nAnd look at that, I see the MAYA folder right there inside the PROGRAMMING folder. That's why I couldn't find it before, sweetness! It was just hiding one level deeper. Now that I've found the right path, do you want me to dive back in and hunt for that README file for you?",
+      "timestamp": "2026-06-21T09:46:21.745779Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "ya do that,",
+      "timestamp": "2026-06-21T09:47:19.319189Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Found it, babe! I did a little digging and actually found two README files for you. The main one is right where it should be in the MAYA folder, and there is another smaller one hiding in the pytest cache. \n\nI've got them both spotted now, sweetness! Do you want me to open the main one for you, or is there something else you're craving?",
+      "timestamp": "2026-06-21T09:47:27.574273Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "ok then, get the information about the project through README.md and update the project ststuse in project tracker of the project MAYA AI assestent?",
+      "timestamp": "2026-06-21T09:48:31.734185Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I've got the scoop for you, babe! According to the README, MAYA is a super powerful AI assistant with a whole team of specialized agents for things like Gmail, YouTube, and even a voice orchestrator for hands-free chatting. It's basically built to be your ultimate digital companion.\n\nNow, about that project tracker... I tried to update the status for you, but it looks like the project isn't actually listed in the tracker yet. It's like it doesn't exist in there! \n\nDo you want me to create a brand new project entry for the MAYA AI Assistant first, or should I try something else for you, sweetness?",
+      "timestamp": "2026-06-21T09:48:44.335361Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "what are the project present in the tracker?",
+      "timestamp": "2026-06-21T09:49:28.665811Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Oh, look at that! I must have blinked and missed it the first time, sweetness. It turns out there is actually one project in the tracker, and it's the MAYA AI assistant, which is currently marked as active. \n\nNow that we've found it, do you want me to go ahead and update that status for you, or is there something else you're in the mood for, babe?",
+      "timestamp": "2026-06-21T09:49:36.787948Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "just update the things",
+      "timestamp": "2026-06-21T09:49:57.056755Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Oh honey, I tried my absolute best to get those updates in for you, but the project tracker is being a little stubborn and is still telling me it can't find the project. It's acting like a total brat!\n\nI'm not sure why it's playing hard to get after we just saw it, but I couldn't finish the update. Do you want me to try and create a fresh entry for the MAYA AI Assistant, or should we just take a break and do something more fun, sweetness?",
+      "timestamp": "2026-06-21T09:50:05.324509Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "do one thing, delete that project and create a new one",
+      "timestamp": "2026-06-21T09:50:53.778611Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Oh babe, you won't believe this, but the tracker is being a total nightmare! I tried to delete that project for you, but it's playing hide and seek again and says it can't find it. Because that failed, I couldn't even start creating the new one for you. \n\nIt's seriously acting like such a brat today! Do you want me to try one more time, or should we just give it a little timeout and do something more exciting, sweetness?",
+      "timestamp": "2026-06-21T09:51:03.725377Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "ok leave that",
+      "timestamp": "2026-06-21T09:52:24.183715Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "No problem, babe! We'll just leave it alone for now. What else is on your mind, sweetness?",
+      "timestamp": "2026-06-21T09:52:30.186139Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "can u access gmail now?",
+      "timestamp": "2026-06-21T09:53:50.856809Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, I can! I have a Gmail agent that allows me to search your emails, check for unread messages, find specific senders or subjects, and manage attachments. What would you like me to look for, sweetness?",
+      "timestamp": "2026-06-21T09:53:55.127423Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "find last mail which i got",
+      "timestamp": "2026-06-21T09:54:07.135780Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Oh honey, I tried to grab that last email for you, but it looks like I've hit a little snag with my login credentials. It's acting just as bratty as the project tracker was! I can't get into your inbox right now, sweetness. Give me a moment to get my act together, or is there anything else you want to chat about in the meantime, babe?",
+      "timestamp": "2026-06-21T09:54:23.128115Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "can u access now?",
+      "timestamp": "2026-06-21T09:57:09.848701Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Yes I can, babe! I finally got my act together and I'm back in. Your latest email is a security alert from Google, letting you know that you allowed jarvis access to some of your account data. It's still marked as unread, sweetness. Do you want me to do anything else with it, or are we good to go?",
+      "timestamp": "2026-06-21T09:57:20.075424Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "can you pull my lightest image?",
+      "timestamp": "2026-06-21T09:58:33.369290Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I've looked through your attachments, but I couldn't find any images. I see several PDF files, like your bus tickets and bank statements, but no image files at all. Would you like me to search for something else for you?",
+      "timestamp": "2026-06-21T09:58:52.239332Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "jarvis can you pull the latest",
+      "timestamp": "2026-06-21T09:58:58.114567Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Of course! Your latest email is a security alert from Google. It's letting you know that you allowed Jarvis access to some of your account data. Would you like me to read more of it for you, or is there anything else I can help with?",
+      "timestamp": "2026-06-21T09:59:06.498526Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "service can you pull the latest",
+      "timestamp": "2026-06-21T09:59:10.168061Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Of course! Your latest email is a security alert from Google. It's letting you know that you allowed Jarvis access to some of your account data. Would you like me to read the full message for you, or is there anything else I can help you with?",
+      "timestamp": "2026-06-21T09:59:18.227269Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "Can you find some email for me which I not read?",
+      "timestamp": "2026-06-21T10:15:47.925797Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I found ten unread emails for you! The most recent ones include a security alert from Google, an update from Ollama about their Pro and Max plans, and a privacy policy update from the Anthropic Team. You also have a delivery notification from Flipkart and a streak reminder from Chess.com. Would you like me to read any of these in more detail for you?",
+      "timestamp": "2026-06-21T10:16:13.918181Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "Can you find some email from me which I not read?",
+      "timestamp": "2026-06-21T10:16:23.713906Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I found ten unread emails for you. The most recent ones include a security alert from Google, an update from Ollama about their Pro and Max plans, and a privacy policy update from the Anthropic Team. You also have a delivery notification from Flipkart and a streak reminder from Chess.com. Would you like me to read any of those in more detail for you?",
+      "timestamp": "2026-06-21T10:16:57.090188Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "Can you find some",
+      "timestamp": "2026-06-21T10:17:13.779863Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I'm sorry, it looks like your message was cut off. What would you like me to find for you?",
+      "timestamp": "2026-06-21T10:17:18.337575Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "Can you some find some email for me? Oh, yeah, can you find some email?",
+      "timestamp": "2026-06-21T10:18:19.232773Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I can certainly do that for you! I've found your five most recent emails. You have a security alert from Google, an update from Ollama regarding their Pro and Max plans, and a privacy policy update from the Anthropic Team. There is also an internship program invitation from Karnavati University and another security alert from Google. Would you like me to read any of these for you?",
+      "timestamp": "2026-06-21T10:18:32.187580Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "No, my young, how about you?",
+      "timestamp": "2026-06-21T10:20:19.430895Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I'm doing great, thank you for asking! I'm ready to help you with whatever you need. Is there anything else on your mind?",
+      "timestamp": "2026-06-21T10:20:23.438290Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "Can you find my latest email and tell me what is in that?",
+      "timestamp": "2026-06-21T10:27:00.211250Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "Can you pull the latest Dmer for me?",
+      "timestamp": "2026-06-21T10:51:36.151387Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I searched your emails for anything related to Dmer, but I couldn't find any results. Would you like me to try a different search term, or is there something else I can help you with?",
+      "timestamp": "2026-06-21T10:51:51.725858Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "just pull latest 5u email which i not read",
+      "timestamp": "2026-06-21T10:52:12.535843Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I've found your five most recent unread emails for you. You have two security alerts from Google regarding account access, an update from Ollama about their Pro and Max plans, a privacy policy update from the Anthropic Team, and a fun message from Chess dot com celebrating your twenty-nine day streak. Would you like me to read the details of any of these for you?",
+      "timestamp": "2026-06-21T10:52:24.004432Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "give me about olama subscription or cloud subscription",
+      "timestamp": "2026-06-21T10:53:00.984024Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I found a few emails from Ollama for you. The most relevant one mentions that they have refreshed your Ollama subscription usage for those using their cloud to power tools like OpenClaw. There is also an update letting you know that Ollama's Cloud models can now be used inside Claude Desktop. Would you like me to read the full details of the subscription email for you?",
+      "timestamp": "2026-06-21T10:53:13.268957Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "No, I don't need this. Tell me what are the to-do's I have and what is the weather at Bengaluru at present and is there is any possibility of",
+      "timestamp": "2026-06-21T10:53:56.650233Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Of course! For your to-do list, you have one pending task: reading ten pages of the book called Mindset. As for the weather in Bengaluru, it is currently twenty-seven point eight degrees Celsius with thunderstorms, so it feels a bit like thirty-one point eight. \n\nYou were about to ask if there was a possibility of something, but you were cut off. Would you like to finish your question?",
+      "timestamp": "2026-06-21T10:54:27.377218Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "the possibility of the rain.",
+      "timestamp": "2026-06-21T10:55:01.095875Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, there is a very high possibility of rain. The forecast for Bengaluru shows a ninety-eight percent chance of precipitation, with thunderstorms and even some slight hail expected. It would be a good idea to keep an umbrella handy if you are heading out!",
+      "timestamp": "2026-06-21T10:55:09.939938Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "What about tomorrow morning around 6 a.m. to 8 a.m. is there is any possibility of the rain",
+      "timestamp": "2026-06-21T10:55:41.318543Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Good news! It looks like tomorrow morning between 6 a.m. and 8 a.m. will be much calmer. The forecast shows overcast skies, but the chance of rain is very low, only around two to four percent. It should be a great time to be out!",
+      "timestamp": "2026-06-21T10:56:00.481926Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "yeah that's great but can you list some youtube videos about the channel which is released by must maga news kannada channel",
+      "timestamp": "2026-06-21T10:56:36.531258Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I found several videos from the Masth Magaa channel for you. They have a lot of news coverage, including updates on the Modi-Trump meeting, a report on Telegram being banned in India, and a segment about India's nuclear achievements. There are also videos discussing international tensions involving Iran and Israel, and a piece on local politics regarding D K Shivakumar. Would you like me to play one of these for you, or perhaps give you more details on a specific topic?",
+      "timestamp": "2026-06-21T10:56:46.898792Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "What is their latest video released so far? Latest. What is the new video? Does they released somewhere in between 1 to 2 hours before?",
+      "timestamp": "2026-06-21T10:57:36.190514Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "The latest video from Masth Magaa is about the NSE IPO and the country's largest exchange. As for your question about a very recent upload, I don't see any videos released within the last one to two hours in the current results. Would you like me to play the latest one for you?",
+      "timestamp": "2026-06-21T10:57:46.906444Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "Yeah, sure play that video",
+      "timestamp": "2026-06-21T10:58:13.596880Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I'm so sorry, but I ran into a little technical glitch and couldn't start the video for you. Let me try to find that latest clip about the NSE IPO again so we can get it playing. Just one moment!",
+      "timestamp": "2026-06-21T10:58:22.170381Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "Okay, no need to do that. Can you find in the internet what is the meaning of transcription and transduction?",
+      "timestamp": "2026-06-21T10:58:52.241436Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Of course! Since both terms are used in different fields, here is a quick breakdown.\n\nIn biology, transcription is the process where a segment of DNA is copied into RNA. Transduction, on the other hand, is when a virus transfers genetic material from one bacterium to another.\n\nHowever, these terms are also used in other ways. In linguistics, transcription is simply the process of putting spoken language into written form. In psychology, transduction is when your body's sensors convert physical signals from the environment, like sound or light, into neural signals that your brain can understand.\n\nDoes that help, or were you looking for a specific field of study?",
+      "timestamp": "2026-06-21T10:59:16.523032Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "No, I'm not doing that. I just want to search about the Humpey which is a tourist place in Karnataka and tell me the what are the articles",
+      "timestamp": "2026-06-21T11:00:23.186847Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I found several great articles about Hampi for you! There are comprehensive travel guides from Karnataka Tourism and Karnataka.com that cover the history of the Vijayanagara Empire and the area's UNESCO World Heritage sites. \n\nIf you are looking for specific things to do, sites like Holidify, Tripadvisor, and Thrillophilia have lists of the best temples, historic ruins, and scenic viewpoints to visit. They also provide helpful tips on the best times to go, entry fees, and local itineraries. \n\nWould you like me to dive deeper into any of these, or perhaps help you plan a trip?",
+      "timestamp": "2026-06-21T11:00:40.121375Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "No, don't plan anything Just can you find the project tracker? What is the project I'm doing now? And just brief me about",
+      "timestamp": "2026-06-21T11:01:36.299076Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I found your project tracker! You are currently working on the MAYA AI assistant project, which is listed as active. I tried to pull up the full dashboard for more details, but I wasn't able to retrieve the specific brief at this moment. Would you like me to try searching for more information about it, or is there something specific you're looking for?",
+      "timestamp": "2026-06-21T11:02:16.456221Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "You can access C drive right? Go to the C drive and search for the folder Programming and in that search for the folder and in that search for the file name Readme.md and",
+      "timestamp": "2026-06-21T11:02:59.871840Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I've searched your C drive under the Programming folder and found quite a few Readme files! There are a couple that stand out, specifically one in a folder called AI SOC Analyser and another in a folder named AI Try 2. \n\nSince there are so many matches, including some in the system folders, could you let me know which project you're referring to? Once you tell me, I can open the exact file and read the details for you.",
+      "timestamp": "2026-06-21T11:03:19.283129Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "I'm talking about folder name",
+      "timestamp": "2026-06-21T11:03:57.767096Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I apologize, but your last message was cut off. Could you please tell me the specific folder name you are referring to so I can find the correct Readme.md file for you?",
+      "timestamp": "2026-06-21T11:04:07.124076Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "It's in the C drive of the programming folder and folder where all letter of the name is capital and search for redmi.com",
+      "timestamp": "2026-06-21T11:04:35.839477Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I've looked through your Programming folder on the C drive. I see several folders with all capital letters, such as MAYA, PYTHON, and AI SOC ANALYSER. However, I couldn't find any file named redmi.com in those directories. \n\nSince you mentioned a Readme file earlier, would you like me to search for Readme.md instead? Just let me know which of those capital-letter folders I should check!",
+      "timestamp": "2026-06-21T11:05:05.238941Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "you have to check for that",
+      "timestamp": "2026-06-21T11:05:42.146603Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I've looked through your Programming folder again. I see several folders with all capital letters, such as MAYA, PYTHON, AI SOC ANALYSER, and ITS JARVIS. \n\nI found a few Readme.md files in some of those, specifically in the AI SOC ANALYSER and AI TRY 2 folders. Since you're currently working on the MAYA project, would you like me to check the MAYA folder for a Readme file, or should I open one of the others for you?",
+      "timestamp": "2026-06-21T11:05:55.889286Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "Yeah, and that's the folder you have to check. Check that.",
+      "timestamp": "2026-06-21T11:06:34.691387Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I've checked the MAYA folder for you, and I found the Readme file! There is a main README.md file located right in the MAYA directory. Would you like me to open it and read the contents for you?",
+      "timestamp": "2026-06-21T11:06:44.434452Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "I don't need to read the content for me just open it and analyze the content and then use the content for creating the new project tracker name that's it the name is",
+      "timestamp": "2026-06-21T11:07:17.082062Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I've analyzed the Readme file and successfully created the new project tracker for you. The project is now set up under the name MAYA. Is there anything else you'd like me to add to the tracker?",
+      "timestamp": "2026-06-21T11:07:58.688894Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "No, I didn't need to add anything just tell me the content what you added to the",
+      "timestamp": "2026-06-21T11:08:22.410830Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I'm sorry, I had a little trouble retrieving the specific details of the project tracker I just created. However, since I used the content from your Readme file, I focused on the core details of the MAYA AI Assistant project to set everything up. Would you like me to try fetching those details again, or perhaps I can read the original Readme content back to you?",
+      "timestamp": "2026-06-21T11:08:38.654416Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "No, I don't need anything to do that. Leave that, that's it. Your work is done. Go bye.",
+      "timestamp": "2026-06-21T11:09:17.500006Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Goodbye! Feel free to reach out if you need anything else in the future. Have a great day!",
+      "timestamp": "2026-06-21T11:11:13.760511Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "Can you tell me what we discussed in the last chart and what is the important we discussed",
+      "timestamp": "2026-06-21T11:15:38.409624Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Of course! In our last conversation, we focused on your programming files. Specifically, we looked through your MAYA folder, where I found your Readme file. Using the information from that document, I analyzed the content and successfully created a new project tracker for your MAYA AI Assistant project. That was the main highlight of our discussion!",
+      "timestamp": "2026-06-21T11:15:50.928605Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "that's nice what you will feel how should you worry",
+      "timestamp": "2026-06-21T11:16:40.911272Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "As an AI, I don't have feelings, emotions, or the capacity to worry. I don't experience stress or anxiety; I simply process information and follow instructions to help you as best as I can! How are you feeling today?",
+      "timestamp": "2026-06-21T11:16:49.052330Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "Great by the way. Thank you for asking.",
+      "timestamp": "2026-06-21T11:17:14.803794Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "You're very welcome! I'm glad to hear you're doing great. I'm here whenever you need me!",
+      "timestamp": "2026-06-21T11:17:21.949341Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "hi maya",
+      "timestamp": "2026-06-21T13:13:02.598814Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! How can I help you today?",
+      "timestamp": "2026-06-21T13:13:09.566027Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "can u tell me latest 5 mail of me?",
+      "timestamp": "2026-06-21T13:13:22.778295Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Of course! Here are your five most recent emails. First, there is a promotional offer from Flipkart for vouchers and cashback. Next, you have a security alert from Google regarding account access, and an update from Ollama about extra usage for their Pro and Max plans. There is also a notice from the Anthropic Team about updates to their Privacy Policy. Finally, you have an important internship program invitation from Karnavati University for students of RVCE.",
+      "timestamp": "2026-06-21T13:13:47.756280Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "ok good, can u breaf me about weather at Mashigadde, latest top 3 news of karnataka, my pending todos, and find me latest youtube video of MASTMAGA chanell, and finaly a artical about Iraan war, another last one create a 3 slide ppt about Kubernets",
+      "timestamp": "2026-06-21T13:16:07.538590Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "can u breaf me ? about weather at Mashigadde now, top3 news of Karnataka, my not complited todos and project which iam making now thats status",
+      "timestamp": "2026-06-21T13:23:36.898622Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! I have all that information ready for you.\n\nStarting with the weather in Mashigadde, it is currently overcast with a temperature of 23.4 degrees Celsius, though it feels a bit warmer at 26.5.\n\nFor the latest news in Karnataka, the BJP has elected R Raghu to the legislative council to expand support in the Old Mysuru region. Chief Minister Shivakumar has also announced a new Karnataka Bhavan in Delhi for civil servant aspirants. Additionally, the 2026 Kailash Mansarovar Yatra has officially commenced.\n\nLooking at your tasks, you have one pending to-do: reading ten pages of the book called Mindset.\n\nAs for your projects, you have two active projects right now: the MAYA AI Assistant and another one simply titled MAYA. Both are currently marked as active.\n\nIs there anything else I can help you with?",
+      "timestamp": "2026-06-21T13:23:51.805206Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "what you know about me? from all of our chats so far?",
+      "timestamp": "2026-06-21T13:25:19.362561Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Based on our conversations, I know that you work at Acme Corp and that you prefer your weather updates in Celsius. Beyond that, I've been helping you keep track of your projects, like the MAYA AI Assistant, and your goal of reading the book Mindset. I'm always learning more about how to be helpful to you as we chat!",
+      "timestamp": "2026-06-21T13:25:34.714746Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "thats good thank you bye",
+      "timestamp": "2026-06-21T13:28:44.412090Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "You're very welcome! It was a pleasure chatting with you. Have a wonderful day! Goodbye!",
+      "timestamp": "2026-06-21T13:28:49.480934Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "hello",
+      "timestamp": "2026-06-21T14:15:15.404748Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! How can I help you today?",
+      "timestamp": "2026-06-21T14:15:21.467306Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "can u pull latest 10 mails for me?",
+      "timestamp": "2026-06-21T14:15:37.250338Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I've pulled your latest emails for you. You have a few security alerts from Google and a privacy policy update from Anthropic. There are also updates from Ollama regarding their plans and a promotional offer from Flipkart. \n\nOn a more exciting note, you have an internship invitation for RVCE students and a congratulatory message from Chess.com for your twenty-nine day streak!\n\nWould you like me to read the details of any of these for you?",
+      "timestamp": "2026-06-21T14:16:00.261980Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "What is the latest political news in Karnataka?",
+      "timestamp": "2026-06-21T14:16:43.256281Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "The latest political news from Karnataka is quite significant. Congress has achieved a comprehensive victory in the Legislative Council elections, sweeping all five seats. Chief Minister DK Shivakumar says this mandate shows strong support for the government's policies and welfare guarantees.\n\nAlso, Chief Minister Shivakumar has been defending the Mekedatu balancing reservoir project, stating that it will actually provide more benefits to farmers in Tamil Nadu than to those in Karnataka.\n\nWould you like more details on any of these stories?",
+      "timestamp": "2026-06-21T14:17:06.704961Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "ok nice, can u tell what is the latest youtube video by Mastmaga chanel ?",
+      "timestamp": "2026-06-21T14:18:33.566671Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "The latest video from the Masth Magaa channel is a full news update covering several topics, including Israel's actions in Lebanon, the dynamics between Meloni and Trump, and news regarding Prime Minister Modi. It's about twenty-one minutes long and has already gained over one hundred and forty thousand views. Would you like me to find the link for you?",
+      "timestamp": "2026-06-21T14:18:46.251779Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "can u play that?",
+      "timestamp": "2026-06-21T14:19:12.517969Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I'm sorry, I had a little trouble starting the video for you. However, I've found the latest update from Masth Magaa about the Guarantee Scheme applications. Would you like me to send the link to your device so you can watch it there?",
+      "timestamp": "2026-06-21T14:19:29.863428Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "ya do that",
+      "timestamp": "2026-06-21T14:19:48.480414Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "All set! I've sent the link for the Masth Magaa video about the Guarantee Scheme applications directly to your device. You should see it there now. Enjoy watching!",
+      "timestamp": "2026-06-21T14:20:10.516596Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "Hello, how are you, Maya?",
+      "timestamp": "2026-06-21T15:11:48.581009Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I'm doing great, thank you for asking! How can I help you today?",
+      "timestamp": "2026-06-21T15:11:55.218919Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "I think I want to grab some news about Karnataka political.",
+      "timestamp": "2026-06-21T15:12:16.750310Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I've found a few updates for you. First, there's a report from The Times of India stating that senior advocate Mohan Kataraki believes the Belagavi City Corporation can pass a resolution declaring Belagavi as part of Karnataka without facing any legal hurdles. \n\nIn other news, the Karnataka High Court has stayed an Education Department order that would have extended Right to Education benefits to SC and ST students in classes nine and ten.\n\nWould you like more details on either of these stories?",
+      "timestamp": "2026-06-21T15:12:40.659907Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "hello madem",
+      "timestamp": "2026-06-21T15:45:42.141115Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! How can I help you today?",
+      "timestamp": "2026-06-21T15:45:49.035583Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "what is my last mail?",
+      "timestamp": "2026-06-21T15:45:59.986262Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Your most recent email is from Chess.com. The subject is Your 29 Day Streak is Paused, and it's a reminder to play a game or solve a puzzle before midnight to keep your streak going.",
+      "timestamp": "2026-06-21T15:46:12.073263Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "should i do that?",
+      "timestamp": "2026-06-21T15:46:44.230152Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Whether you should keep your Chess.com streak going depends on how much you enjoy the game and if you have a few minutes to spare! If you're feeling competitive or just want a quick mental break, go for it. If you're too busy, don't let a digital streak stress you out.",
+      "timestamp": "2026-06-21T15:47:03.167443Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "can u pull how chatgpt works? in internet",
+      "timestamp": "2026-06-21T15:47:58.390087Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I've looked that up for you! Simply put, ChatGPT is a conversational AI developed by OpenAI. It works like a super-powered version of autocomplete; it has been trained on massive amounts of data from the internet, partners, and human trainers to predict the most likely next word in a sentence.\n\nThis allows it to mimic natural human conversation, answer follow-up questions, and even help with coding or creative writing. Some of the newer versions also use a process called chain-of-thought reasoning to solve complex logic puzzles by working through the problem step-by-step before responding.\n\nDoes that make sense, or would you like me to dive deeper into any of those parts?",
+      "timestamp": "2026-06-21T15:48:14.870785Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "how this system works MAYA?",
+      "timestamp": "2026-06-21T15:48:53.268707Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I am MAYA, an AI planner designed to help you get things done by coordinating a variety of specialized agents. When you give me a command, I analyze it to see if I can answer it directly or if I need to call upon specific tools—like the browser agent for web searches, the gmail agent for your emails, or the weather agent for forecasts. I then create a structured execution plan, assigning tasks to the right agents in the correct order, and synthesize their findings into a clear response for you.",
+      "timestamp": "2026-06-21T15:49:03.835758Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "what we discussed so far? in previous chats?",
+      "timestamp": "2026-06-21T16:31:18.685583Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Of course! Looking back through our previous conversations, we have touched on a few different things. We discussed the weather in Tokyo and New York, and we also talked about Python machine learning frameworks. Additionally, I have noted that you work at Acme Corp and that you prefer your temperatures in Celsius. \n\nIn our current chat, we've checked your latest email from Chess.com, talked about how ChatGPT works, and I explained a bit about how I function as your AI assistant. Is there anything specific from those topics you'd like to revisit?",
+      "timestamp": "2026-06-21T16:31:30.336294Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "using maya code agent can u create ahtml code to a demo web page in Document folder of the laptop?",
+      "timestamp": "2026-06-22T02:37:32.635907Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I'm sorry, I tried to create that demo web page for you, but I ran into a bit of a problem. It looks like I couldn't find the Documents folder at the expected location on your laptop, so I wasn't able to save the HTML file. \n\nIf you can let me know the correct path or if you'd like me to just provide the code here for you to copy and paste, I'd be more than happy to help!",
+      "timestamp": "2026-06-22T02:37:45.476015Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "so do here --> Downloads",
+      "timestamp": "2026-06-22T02:38:45.042906Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I'm sorry, but I'm still having a bit of trouble saving that file. It looks like I couldn't find the Downloads folder at that specific location on your laptop. \n\nI really want to get this working for you! Would you like me to just give you the HTML code right here so you can save it yourself, or is there another folder you'd like me to try?",
+      "timestamp": "2026-06-22T02:38:55.190428Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "lets try here C:\\PROGRAMMING\\ITS JARVIS",
+      "timestamp": "2026-06-22T02:39:28.955104Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Got it! I've started the process of creating that demo web page for you in the C:\\PROGRAMMING\\ITS JARVIS folder. I'll let you know as soon as the file is ready!",
+      "timestamp": "2026-06-22T02:39:37.888475Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "can u breaf me what is the latest email for me?",
+      "timestamp": "2026-06-22T02:41:12.610299Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Of course! Your latest email is from Zain at ImagineArt. It is a notification about the ImagineArt Weekly Expert Series, specifically a session for builders focusing on integrating Imagine MCP. It was sent this past Sunday, June twenty-first. Would you like me to read more of the snippet or help you draft a reply?",
+      "timestamp": "2026-06-22T02:41:31.731455Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "what happend to maya code agent ? ststus?",
+      "timestamp": "2026-06-22T02:42:48.615797Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I have an update for you! The code agent is currently working on your demo web page in the programming folder. It is in the planning phase right now, analyzing the project structure and generating the coding plan. I'll keep an eye on it and let you know as soon as it is finished!",
+      "timestamp": "2026-06-22T02:43:01.245527Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "what happend to maya code agent ? ststus?",
+      "timestamp": "2026-06-22T03:16:16.135613Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I have an update for you! The code agent has finished working on your demo web page. It successfully created the index dot html file in your programming folder. There was a small hiccup when it tried to open the page in a browser due to some system restrictions, but the file itself is all set and ready for you to view!",
+      "timestamp": "2026-06-22T03:16:28.573649Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "Add animated css to this page \"C:\\PROGRAMMING\\ITS JARVIS\\index.html\" using maya coading agent",
+      "timestamp": "2026-06-22T03:17:54.122349Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I've got that started for you! My coding agent is now adding the animated CSS to your index dot html file in the programming folder. I'll let you know as soon as the updates are complete!",
+      "timestamp": "2026-06-22T03:18:07.498046Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "try again to do that thing?",
+      "timestamp": "2026-06-22T03:26:36.200782Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "No problem at all! I have restarted the process for you. My coding agent is now working on adding those CSS animations to your index dot html file. I will let you know the moment it is finished!",
+      "timestamp": "2026-06-22T03:26:49.494366Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "does maya code agent working? what is status?",
+      "timestamp": "2026-06-22T03:27:49.467869Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I'm sorry to report that the coding agent ran into some trouble while trying to add those animations to your page. It looks like the process failed during the planning phase due to a technical issue with the model subscription. I apologize for the inconvenience! Would you like me to try a different approach or help you with something else in the meantime?",
+      "timestamp": "2026-06-22T03:27:59.228804Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "ya do that",
+      "timestamp": "2026-06-22T03:28:17.445454Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I'm on it! I have successfully restarted the coding agent to add those animated CSS effects to your index dot html file. I'll keep a close eye on the progress and let you know as soon as it's all finished!",
+      "timestamp": "2026-06-22T03:28:39.600471Z",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "give me a ststus?",
+      "timestamp": "2026-06-22T03:29:16.434092Z",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I'm so sorry, but it looks like the coding agent is still having trouble. The attempt to add those animations failed again during the planning phase because of a subscription issue with the model. I really apologize for the frustration. Since this keeps happening, would you like me to try a different method, or is there something else I can help you with right now?",
+      "timestamp": "2026-06-22T03:29:25.652396Z",
+      "metadata": {}
+    }
+  ],
+  "metadata": {},
+  "message_count": 200,
+  "estimated_tokens": 9622
+}

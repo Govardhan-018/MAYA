@@ -1,0 +1,584 @@
+/* ═══════════════════════════════════════════════════════════
+   code-panel.css — Maya Code Agent Panel
+   Multi-task, back navigation, collapsible logs
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── Panel Container ─── */
+.code-panel {
+  position: fixed;
+  top: 42px;
+  right: 0;
+  bottom: 30px;
+  width: 380px;
+  z-index: 50;
+  background: rgba(2, 6, 10, 0.96);
+  border-left: 1px solid var(--border-normal);
+  backdrop-filter: blur(24px);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(0);
+  transition: transform 0.4s var(--ease), opacity 0.3s var(--ease);
+  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+
+.code-panel.hidden {
+  transform: translateX(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ─── Header ─── */
+.code-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: linear-gradient(180deg, rgba(34, 211, 238, 0.04), transparent);
+  flex-shrink: 0;
+}
+
+.code-panel-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  letter-spacing: 2.5px;
+  text-shadow: 0 0 12px rgba(34, 211, 238, 0.3);
+}
+
+.code-panel-icon {
+  font-size: 14px;
+  color: var(--accent-purple);
+  text-shadow: 0 0 10px rgba(167, 139, 250, 0.4);
+}
+
+.code-panel-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ─── Scrollable Body ─── */
+.code-panel-body {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ─── Views ─── */
+.code-view.hidden { display: none; }
+
+/* ─── Badge ─── */
+.code-badge {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: rgba(34, 211, 238, 0.12);
+  color: var(--accent-cyan);
+  border: 1px solid rgba(34, 211, 238, 0.3);
+  animation: badge-pulse 2s ease-in-out infinite;
+}
+
+.code-badge.hidden { display: none; }
+
+.code-badge.completed {
+  background: rgba(52, 211, 153, 0.12);
+  color: var(--accent-green);
+  border-color: rgba(52, 211, 153, 0.3);
+  animation: none;
+}
+
+.code-badge.failed {
+  background: rgba(248, 113, 113, 0.12);
+  color: var(--accent-red);
+  border-color: rgba(248, 113, 113, 0.3);
+  animation: none;
+}
+
+@keyframes badge-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* ─── Buttons ─── */
+.code-btn {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 5px 12px;
+  border: 1px solid var(--border-normal);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+}
+
+.code-btn:hover {
+  color: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+  background: rgba(34, 211, 238, 0.06);
+}
+
+.code-btn.hidden { display: none; }
+
+.code-btn-back {
+  color: var(--text-dim);
+  border: none;
+  padding: 4px 8px;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+}
+
+.code-btn-back:hover {
+  color: var(--accent-cyan-bright);
+  background: rgba(34, 211, 238, 0.08);
+}
+
+.code-btn-primary {
+  color: var(--accent-cyan);
+  border-color: rgba(34, 211, 238, 0.5);
+  background: rgba(34, 211, 238, 0.08);
+}
+
+.code-btn-primary:hover {
+  background: rgba(34, 211, 238, 0.16);
+  box-shadow: 0 0 16px rgba(34, 211, 238, 0.2);
+  transform: translateY(-1px);
+}
+
+.code-btn-primary:active {
+  transform: translateY(0);
+}
+
+.code-btn-full {
+  width: 100%;
+  padding: 10px;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.code-btn-danger {
+  color: var(--accent-red);
+  border-color: rgba(248, 113, 113, 0.4);
+}
+
+.code-btn-danger:hover {
+  background: rgba(248, 113, 113, 0.1);
+  border-color: var(--accent-red);
+  box-shadow: 0 0 12px rgba(248, 113, 113, 0.15);
+}
+
+/* ─── Sections ─── */
+.code-section {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(34, 211, 238, 0.06);
+}
+
+.code-section.hidden { display: none; }
+
+/* ─── Form Fields ─── */
+.code-field {
+  margin-bottom: 10px;
+}
+
+.code-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 600;
+  color: var(--text-label);
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+
+.code-input {
+  width: 100%;
+  background: rgba(8, 20, 24, 0.6);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-bright);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 8px 10px;
+  outline: none;
+  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.code-input:focus {
+  border-color: rgba(34, 211, 238, 0.5);
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.1), inset 0 0 6px rgba(34, 211, 238, 0.03);
+}
+
+.code-input::placeholder {
+  color: rgba(186, 230, 240, 0.25);
+  font-weight: 300;
+}
+
+.code-textarea {
+  resize: vertical;
+  min-height: 50px;
+  max-height: 120px;
+  line-height: 1.5;
+}
+
+.code-field-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.code-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-dim);
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.code-checkbox-label:hover {
+  color: var(--text-primary);
+}
+
+.code-checkbox {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--border-normal);
+  border-radius: 3px;
+  background: rgba(8, 20, 24, 0.6);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.code-checkbox:checked {
+  background: rgba(34, 211, 238, 0.15);
+  border-color: var(--accent-cyan);
+}
+
+.code-checkbox:checked::after {
+  content: '✓';
+  position: absolute;
+  top: -1px;
+  left: 2px;
+  font-size: 10px;
+  color: var(--accent-cyan);
+}
+
+/* ─── Job Cards ─── */
+.code-jobs-list {
+  margin-top: 6px;
+}
+
+.code-empty-state {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-dim);
+  padding: 12px 0;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.code-job-card {
+  padding: 10px 12px;
+  border: 1px solid rgba(34, 211, 238, 0.08);
+  border-radius: var(--radius-sm);
+  margin-bottom: 6px;
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+  background: rgba(8, 20, 24, 0.3);
+}
+
+.code-job-card:hover {
+  background: rgba(34, 211, 238, 0.04);
+  border-color: rgba(34, 211, 238, 0.2);
+  transform: translateX(2px);
+}
+
+.code-job-card.active {
+  border-color: rgba(34, 211, 238, 0.25);
+  background: rgba(34, 211, 238, 0.03);
+}
+
+.code-job-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.code-job-goal {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-primary);
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.code-job-state {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+  padding: 1px 6px;
+  border-radius: 2px;
+}
+
+.code-job-state.running {
+  color: var(--accent-cyan);
+  background: rgba(34, 211, 238, 0.1);
+}
+
+.code-job-state.pending {
+  color: var(--text-dim);
+  background: rgba(186, 230, 240, 0.06);
+}
+
+.code-job-state.completed {
+  color: var(--accent-green);
+  background: rgba(52, 211, 153, 0.1);
+}
+
+.code-job-state.failed {
+  color: var(--accent-red);
+  background: rgba(248, 113, 113, 0.1);
+}
+
+.code-job-state.cancelled {
+  color: var(--accent-orange);
+  background: rgba(251, 146, 60, 0.1);
+}
+
+.code-job-card-progress {
+  height: 3px;
+  background: rgba(34, 211, 238, 0.08);
+  border-radius: 2px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.code-job-card-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-cyan-bright));
+  border-radius: 2px;
+  transition: width 0.4s var(--ease);
+}
+
+.code-job-card-info {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  color: var(--text-dim);
+  margin-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ─── Goal Banner (detail view) ─── */
+.code-goal-banner {
+  background: linear-gradient(90deg, rgba(167, 139, 250, 0.04) 0%, transparent 60%);
+  border-left: 3px solid var(--accent-purple);
+}
+
+.code-detail-goal {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-bright);
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+/* ─── Status Display ─── */
+.code-status-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.code-state {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--accent-cyan);
+}
+
+.code-state.running { color: var(--accent-cyan); }
+.code-state.completed { color: var(--accent-green); }
+.code-state.failed { color: var(--accent-red); }
+.code-state.cancelled { color: var(--accent-orange); }
+
+.code-phase {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--accent-purple);
+  letter-spacing: 1px;
+}
+
+.code-step-info {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-dim);
+}
+
+/* ─── Progress Bar ─── */
+.code-progress-container {
+  width: 100%;
+  height: 4px;
+  background: rgba(34, 211, 238, 0.08);
+  border-radius: 2px;
+  margin: 8px 0;
+  overflow: hidden;
+}
+
+.code-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-cyan-bright));
+  border-radius: 2px;
+  transition: width 0.5s var(--ease);
+  box-shadow: 0 0 8px rgba(34, 211, 238, 0.4);
+}
+
+.code-current-step {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-primary);
+  padding: 4px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ─── Log Terminal ─── */
+.code-log {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(34, 211, 238, 0.08);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  line-height: 1.6;
+  color: var(--text-dim);
+  margin-top: 6px;
+  transition: max-height 0.35s var(--ease), padding 0.35s var(--ease), opacity 0.25s;
+}
+
+.code-log.collapsed {
+  max-height: 0;
+  padding: 0 10px;
+  opacity: 0.3;
+  overflow: hidden;
+}
+
+.code-log-line {
+  padding: 1px 0;
+  animation: fade-in 0.2s var(--ease);
+}
+
+.code-log-line.error {
+  color: var(--accent-red);
+}
+
+.code-log-line.success {
+  color: var(--accent-green);
+}
+
+/* ─── Summary ─── */
+.code-summary-text {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(52, 211, 153, 0.12);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  margin: 0;
+}
+
+/* ─── Clickable Labels ─── */
+.code-label-clickable {
+  cursor: pointer;
+  transition: color 0.2s;
+  user-select: none;
+}
+
+.code-label-clickable:hover {
+  color: var(--accent-cyan);
+}
+
+/* ─── Toggle Button (in statusbar) ─── */
+.code-toggle-btn {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--text-dim);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 8px;
+  letter-spacing: 0.5px;
+  transition: color 0.2s, text-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.code-toggle-btn:hover {
+  color: var(--accent-purple);
+  text-shadow: 0 0 8px rgba(167, 139, 250, 0.3);
+}
+
+.code-toggle-btn.active {
+  color: var(--accent-cyan);
+  text-shadow: 0 0 10px rgba(34, 211, 238, 0.3);
+}
+
+.code-toggle-btn.active-jobs {
+  color: var(--accent-green);
+  text-shadow: 0 0 10px rgba(52, 211, 153, 0.3);
+}
+
+/* ─── Scrollbar ─── */
+.code-panel ::-webkit-scrollbar {
+  width: 4px;
+}
+
+.code-panel ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.code-panel ::-webkit-scrollbar-thumb {
+  background: rgba(34, 211, 238, 0.15);
+  border-radius: 2px;
+}
+
+.code-panel ::-webkit-scrollbar-thumb:hover {
+  background: rgba(34, 211, 238, 0.3);
+}

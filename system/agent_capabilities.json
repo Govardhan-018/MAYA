@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-06-21T11:03:15.367546+00:00",
-  "agent_count": 10,
+  "generated_at": "2026-06-22T02:33:45.056250+00:00",
+  "agent_count": 11,
   "capabilities": [
     {
       "agent": "browser_agent",
@@ -147,6 +147,43 @@
         "Deleting or modifying emails",
         "Managing Gmail labels or filters",
         "Calendar operations"
+      ]
+    },
+    {
+      "agent": "maya_code_agent",
+      "agent_class": "MayaCodeAgent",
+      "type": "tool",
+      "action_count": 4,
+      "actions": [
+        "cancel_task",
+        "get_status",
+        "list_jobs",
+        "start_task"
+      ],
+      "keywords": [
+        "code",
+        "coding",
+        "develop",
+        "build",
+        "create",
+        "fix",
+        "debug",
+        "refactor",
+        "write code",
+        "implement",
+        "program",
+        "script"
+      ],
+      "suggested_use_cases": [
+        "Build a feature end-to-end in a target project",
+        "Fix a bug from an error traceback",
+        "Add tests to an existing codebase",
+        "Refactor code following a specific pattern"
+      ],
+      "avoid_use_cases": [
+        "Quick questions that don't need code changes",
+        "File browsing (use file_agent instead)",
+        "Web searches or API calls"
       ]
     },
     {

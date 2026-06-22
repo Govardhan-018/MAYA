@@ -101,7 +101,7 @@ const MAYAHotkeys = (() => {
       const model = await window.maya.getStore('ollamaModel') || 'qwen2.5:7b';
       const voice = await window.maya.getStore('voiceEnabled');
       const boot = await window.maya.getStore('startOnBoot');
-      const accent = await window.maya.getStore('accentColor') || '#00b4ff';
+      const accent = await window.maya.getStore('accentColor') || '#22d3ee';
       const fontSize = await window.maya.getStore('chatFontSize') || 10;
 
       const urlInput = document.getElementById('setting-backend-url');

@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="styles/orb.css">
   <link rel="stylesheet" href="styles/chat.css">
   <link rel="stylesheet" href="styles/telemetry.css">
+  <link rel="stylesheet" href="styles/code-panel.css">
 </head>
 <body>
   <!-- Scanline overlay -->
@@ -68,12 +69,12 @@
           <svg class="arc-meter" viewBox="0 0 120 70" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="cpu-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#0044aa"/>
-                <stop offset="100%" stop-color="#00c8ff"/>
+                <stop offset="0%" stop-color="#0e7490"/>
+                <stop offset="100%" stop-color="#22d3ee"/>
               </linearGradient>
             </defs>
             <!-- Background arc -->
-            <path class="arc-bg" d="M 10 65 A 50 50 0 0 1 110 65" fill="none" stroke="rgba(0,180,255,0.1)" stroke-width="6" stroke-linecap="round"/>
+            <path class="arc-bg" d="M 10 65 A 50 50 0 0 1 110 65" fill="none" stroke="rgba(34,211,238,0.12)" stroke-width="6" stroke-linecap="round"/>
             <!-- Value arc -->
             <path id="cpu-arc" class="arc-value" d="M 10 65 A 50 50 0 0 1 110 65" fill="none" stroke="url(#cpu-grad)" stroke-width="6" stroke-linecap="round" stroke-dasharray="0, 157"/>
           </svg>
@@ -136,10 +137,14 @@
         </div>
 
         <div class="orb-container">
-          <div class="orb-ring orb-ring-outer"></div>
-          <div class="orb-ring orb-ring-mid"></div>
-          <div class="orb-ring orb-ring-inner"></div>
-          <div id="orb-core" class="orb-core orb-idle"></div>
+          <div class="orb-halo"></div>
+          <div class="orb-ringframe"></div>
+          <div id="orb-core" class="orb-core orb-idle">
+            <div class="wave-bars">
+              <span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span>
+            </div>
+          </div>
         </div>
 
         <div class="orb-info orb-info-right">
@@ -241,7 +246,114 @@
       <div class="status-item">
         <span id="sb-clock">00:00:00 IST</span>
       </div>
+      <div class="status-item">
+        <button id="code-toggle" class="code-toggle-btn" aria-label="Toggle Code Agent">⟐ CODE</button>
+      </div>
     </footer>
+  </div>
+
+  <!-- ═══════════════ CODE AGENT PANEL ═══════════════ -->
+  <div id="code-panel" class="code-panel hidden">
+    <div class="code-panel-header">
+      <div class="code-panel-title">
+        <button id="code-back-btn" class="code-btn code-btn-back hidden" aria-label="Back to jobs">◂ BACK</button>
+        <span class="code-panel-icon">⟐</span>
+        <span>CODE AGENT</span>
+        <span id="code-panel-badge" class="code-badge hidden">RUNNING</span>
+      </div>
+      <div class="code-panel-controls">
+        <button id="code-panel-cancel" class="code-btn code-btn-danger hidden" aria-label="Cancel task">CANCEL</button>
+        <button id="code-panel-close" class="code-btn" aria-label="Close panel">✕</button>
+      </div>
+    </div>
+
+    <!-- Scrollable content area -->
+    <div class="code-panel-body">
+
+      <!-- ═══ VIEW 1: JOBS LIST (default home) ═══ -->
+      <div id="code-view-jobs" class="code-view">
+        <!-- Active / running tasks -->
+        <div class="code-section">
+          <div class="code-label">ACTIVE TASKS</div>
+          <div id="code-active-jobs" class="code-jobs-list">
+            <div class="code-empty-state">No active tasks</div>
+          </div>
+        </div>
+
+        <!-- New task button -->
+        <div class="code-section">
+          <button id="code-new-task-btn" class="code-btn code-btn-primary code-btn-full">+ NEW TASK</button>
+        </div>
+
+        <!-- Completed / failed history -->
+        <div class="code-section">
+          <div class="code-label code-label-clickable" id="code-history-toggle">HISTORY ▸</div>
+          <div id="code-history" class="code-jobs-list hidden"></div>
+        </div>
+      </div>
+
+      <!-- ═══ VIEW 2: NEW TASK FORM ═══ -->
+      <div id="code-view-form" class="code-view hidden">
+        <div class="code-section">
+          <div class="code-field">
+            <label class="code-label">PROJECT PATH</label>
+            <input type="text" id="code-project-root" class="code-input" placeholder="C:\Users\dev\myproject" spellcheck="false">
+          </div>
+          <div class="code-field">
+            <label class="code-label">GOAL</label>
+            <textarea id="code-goal" class="code-input code-textarea" rows="3" placeholder="Describe what you want to build or fix..." spellcheck="false"></textarea>
+          </div>
+          <div class="code-field-row">
+            <label class="code-checkbox-label">
+              <input type="checkbox" id="code-dry-run" class="code-checkbox">
+              <span>DRY RUN (plan only)</span>
+            </label>
+            <button id="code-start-btn" class="code-btn code-btn-primary">START TASK</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ VIEW 3: TASK DETAIL ═══ -->
+      <div id="code-view-detail" class="code-view hidden">
+        <!-- Goal banner -->
+        <div class="code-section code-goal-banner">
+          <div id="code-detail-goal" class="code-detail-goal"></div>
+        </div>
+
+        <!-- Status -->
+        <div class="code-section">
+          <div class="code-status-row">
+            <span class="code-label">STATE</span>
+            <span id="code-state" class="code-state">PENDING</span>
+          </div>
+          <div class="code-status-row">
+            <span class="code-label">PHASE</span>
+            <span id="code-phase" class="code-phase">ANALYZING</span>
+          </div>
+          <div class="code-status-row">
+            <span class="code-label">STEP</span>
+            <span id="code-step-info" class="code-step-info">—</span>
+          </div>
+          <div class="code-progress-container">
+            <div id="code-progress-bar" class="code-progress-bar" style="width: 0%"></div>
+          </div>
+          <div id="code-current-step" class="code-current-step">Waiting...</div>
+        </div>
+
+        <!-- Collapsible Log -->
+        <div class="code-section">
+          <div class="code-label code-label-clickable" id="code-log-toggle">LIVE LOG ▾</div>
+          <div id="code-log" class="code-log"></div>
+        </div>
+
+        <!-- Summary (shown on completion) -->
+        <div id="code-summary" class="code-section hidden">
+          <div class="code-label">RESULT</div>
+          <pre id="code-summary-text" class="code-summary-text"></pre>
+        </div>
+      </div>
+
+    </div>
   </div>
 
   <!-- ═══════════════ SETTINGS OVERLAY ═══════════════ -->
@@ -277,7 +389,7 @@
         </div>
         <div class="setting-group">
           <label class="setting-label" for="setting-accent">THEME ACCENT</label>
-          <input type="color" id="setting-accent" class="setting-color" value="#00b4ff">
+          <input type="color" id="setting-accent" class="setting-color" value="#22d3ee">
         </div>
         <div class="setting-group">
           <label class="setting-label" for="setting-fontsize">CHAT FONT SIZE <span id="fontsize-val">10px</span></label>
@@ -295,6 +407,7 @@
   <script src="js/voice.js"></script>
   <script src="js/telemetry.js"></script>
   <script src="js/hotkeys.js"></script>
+  <script src="js/code-panel.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

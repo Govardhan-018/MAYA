@@ -23,14 +23,15 @@ CAPABILITIES_PATH: Path = SYSTEM_DIR / "agent_capabilities.json"
 # ── Ollama ─────────────────────────────────────────────────────────────────
 OLLAMA_BASE_URL: str = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 
-# Planner model (cloud-first, fast reasoning)
-PLANNER_MODEL: str = os.getenv("PLANNER_MODEL", "qwen3:8b")
-PLANNER_LOCAL_FALLBACK: str = os.getenv("PLANNER_LOCAL_FALLBACK", "qwen3:8b")
+# Master model — set MAYA_MODEL in .env to control ALL LLMs system-wide.
+# Individual vars (PLANNER_MODEL, RESPONSE_MODEL, etc.) override the master.
+_MASTER_MODEL: str = os.getenv("MAYA_MODEL", "qwen3:8b")
 
-# Response model (conversational — defaults to same as planner so it works out
-# of the box; override via env var if a larger model is available)
-RESPONSE_MODEL: str = os.getenv("RESPONSE_MODEL", "qwen3:8b")
-RESPONSE_LOCAL_FALLBACK: str = os.getenv("RESPONSE_LOCAL_FALLBACK", "qwen3:8b")
+PLANNER_MODEL: str = os.getenv("PLANNER_MODEL", _MASTER_MODEL)
+PLANNER_LOCAL_FALLBACK: str = os.getenv("PLANNER_LOCAL_FALLBACK", _MASTER_MODEL)
+
+RESPONSE_MODEL: str = os.getenv("RESPONSE_MODEL", _MASTER_MODEL)
+RESPONSE_LOCAL_FALLBACK: str = os.getenv("RESPONSE_LOCAL_FALLBACK", _MASTER_MODEL)
 
 # ── execution ──────────────────────────────────────────────────────────────
 MAX_WORKERS: int = int(os.getenv("BRAIN_MAX_WORKERS", "4"))

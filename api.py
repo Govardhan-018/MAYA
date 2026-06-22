@@ -190,3 +190,45 @@ async def websocket_chat(websocket: WebSocket):
         pass
     except Exception as e:
         print(f"[API] Websocket error: {e}")
+
+
+# ═══════════════════════════════════════════════════════════
+# Code Agent endpoints — direct REST access for the frontend
+# ═══════════════════════════════════════════════════════════
+
+class CodeStartRequest(BaseModel):
+    goal: str
+    project_root: str
+    dry_run: bool = False
+    context: str | None = None
+
+class CodeCancelRequest(BaseModel):
+    job_id: str
+
+@app.post("/api/code/start")
+async def code_start(req: CodeStartRequest):
+    from agents.maya_code_agent import execute
+    return execute({
+        "action": "start_task",
+        "parameters": {
+            "goal": req.goal,
+            "project_root": req.project_root,
+            "dry_run": req.dry_run,
+            "context": req.context,
+        },
+    })
+
+@app.get("/api/code/status/{job_id}")
+async def code_status(job_id: str):
+    from agents.maya_code_agent import execute
+    return execute({"action": "get_status", "parameters": {"job_id": job_id}})
+
+@app.post("/api/code/cancel")
+async def code_cancel(req: CodeCancelRequest):
+    from agents.maya_code_agent import execute
+    return execute({"action": "cancel_task", "parameters": {"job_id": req.job_id}})
+
+@app.get("/api/code/jobs")
+async def code_jobs():
+    from agents.maya_code_agent import execute
+    return execute({"action": "list_jobs", "parameters": {}})

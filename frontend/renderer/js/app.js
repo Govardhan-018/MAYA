@@ -46,6 +46,7 @@ const MAYAApp = (() => {
     MAYAVoice.init();
     MAYATelemetry.init();
     MAYAHotkeys.init();
+    MAYACodePanel.init();
 
     // Connect WebSocket
     MAYAAPI.connectWebSocket({
@@ -81,7 +82,7 @@ const MAYAApp = (() => {
         ollamaModel: await window.maya.getStore('ollamaModel') || 'qwen2.5:7b',
         voiceEnabled: await window.maya.getStore('voiceEnabled') !== false,
         startOnBoot: await window.maya.getStore('startOnBoot') === true,
-        accentColor: await window.maya.getStore('accentColor') || '#00b4ff',
+        accentColor: await window.maya.getStore('accentColor') || '#22d3ee',
         chatFontSize: await window.maya.getStore('chatFontSize') || 10
       };
     } catch (err) {
@@ -91,7 +92,7 @@ const MAYAApp = (() => {
         ollamaModel: 'qwen2.5:7b',
         voiceEnabled: true,
         startOnBoot: false,
-        accentColor: '#00b4ff',
+        accentColor: '#22d3ee',
         chatFontSize: 10
       };
     }
@@ -268,7 +269,7 @@ const MAYAApp = (() => {
     const model = document.getElementById('setting-model')?.value || 'qwen2.5:7b';
     const voice = document.getElementById('setting-voice')?.checked ?? true;
     const boot = document.getElementById('setting-boot')?.checked ?? false;
-    const accent = document.getElementById('setting-accent')?.value || '#00b4ff';
+    const accent = document.getElementById('setting-accent')?.value || '#22d3ee';
     const fontSize = parseInt(document.getElementById('setting-fontsize')?.value) || 10;
 
     try {

@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-06-21T11:03:15.367535+00:00",
-  "total_actions": 149,
+  "generated_at": "2026-06-22T02:33:45.056236+00:00",
+  "total_actions": 153,
   "actions": [
     {
       "action": "check_url",
@@ -437,6 +437,45 @@
       "optional_params": [
         "limit"
       ]
+    },
+    {
+      "action": "cancel_task",
+      "agent": "maya_code_agent",
+      "agent_class": "MayaCodeAgent",
+      "description": "str(object='') -> str",
+      "required_params": [
+        "job_id"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "get_status",
+      "agent": "maya_code_agent",
+      "agent_class": "MayaCodeAgent",
+      "description": "str(object='') -> str",
+      "required_params": [
+        "job_id"
+      ],
+      "optional_params": []
+    },
+    {
+      "action": "list_jobs",
+      "agent": "maya_code_agent",
+      "agent_class": "MayaCodeAgent",
+      "description": "str(object='') -> str",
+      "required_params": [],
+      "optional_params": []
+    },
+    {
+      "action": "start_task",
+      "agent": "maya_code_agent",
+      "agent_class": "MayaCodeAgent",
+      "description": "str(object='') -> str",
+      "required_params": [
+        "goal",
+        "project_root"
+      ],
+      "optional_params": []
     },
     {
       "action": "archive_chat",
